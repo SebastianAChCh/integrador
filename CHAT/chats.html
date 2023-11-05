@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat como WhatsApp</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:ital,wght@0,100;1,900&family=Sulphur+Point:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-sidebar">
+        <button class="back-button">←</button>
+        <h1 class="chat-title">Chats</h1>
+        <ul class="chat-list">
+          <li class="user">
+            <img
+              src="https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png"
+              class="imagen"
+              alt="Imagen de Usuario 1"
+            />
+            Usuario 1
+          </li>
+          <li class="user">
+            <img
+              src="https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png"
+              class="imagen"
+              alt="Imagen de Usuario 2"
+            />
+            Usuario 2
+          </li>
+          <li class="user">
+            <img
+              src="https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png"
+              class="imagen"
+              alt="Imagen de Usuario 3"
+            />
+            Usuario 3
+          </li>
+        </ul>
+      </div>
+      <div class="chat-section">
+        <div class="chat-header">
+          <h2>Chat con Usuario 1</h2>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+          <!-- Aquí se mostrarán los mensajes -->
+        </div>
+        <div class="chat-input">
+          <button class="attach-button" id="attach-button">+</button>
+          <input
+            type="text"
+            id="message-input"
+            placeholder="Escribe un mensaje..."
+          />
+          <button id="send-button">Enviar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agregar el contenedor de vista emergente al final del body -->
+    <div id="image-popup" class="image-popup">
+      <span class="close-popup" id="close-popup">&times;</span>
+      <img
+        class="popup-content"
+        id="popup-content"
+        src=""
+        alt="Imagen emergente"
+      />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
