@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="/signUp/style.css" />
+  <title>U'DesEv</title>
+</head>
+
+<body class="bg-slate-900 text-white">
+  <header></header>
+  <nav>
+    <ul class="flex justify-around h-20 items-center px-8 bg-slate-800 text-2xl text-white">
+      <li>
+        <a href="http://localhost:4000/">
+          <figure class="flex items-center gap-2">
+            <img src="../images/icon.jpeg" class="h-16 rounded-full" alt="Logo" />
+            <figcaption>U'DesEv</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li>
+        <a href="http://localhost:4000/BecomeSeller">Sell</a>
+      </li>
+      <li>
+        <a href="http://localhost:4000/CreateAccount">SignUp</a>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <section>
+      <form id="createAnAccount">
+        <label for="email">Email</label>
+        <input class="text-black" type="email" name="email" placeholder="Write your email" />
+        <label for="names">Names</label>
+        <input class="text-black" type="text" name="names" placeholder="Write your names here" />
+        <label for="lastnames">Last Names</label>
+        <input class="text-black" type="text" name="lastnames" placeholder="Write your last names here" />
+        <label for="phone">Phone</label>
+        <input class="text-black" type="tel" name="phone" placeholder="Write your number phone here" />
+        <label for="password">Password</label>
+        <input class="text-black" type="password" name="password" placeholder="******" />
+        <input type="submit" value="Sign Up" />
+      </form>
+    </section>
+    <section>
+      <a href="http://localhost:4000/signIn">Sign In</a>
+    </section>
+  </main>
+  <script src="/signUp/main.js"></script>
+</body>
+
+</html>

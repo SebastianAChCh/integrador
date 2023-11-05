@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="./style.css" />
+    <title>U'DesEv</title>
+</head>
+
+<body class="bg-slate-900 text-white">
+    <header></header>
+    <nav>
+        <ul class="flex justify-around h-20 items-center px-8 bg-slate-800 text-2xl text-white">
+            <li>
+                <a href="http://localhost:4000/">
+                    <figure class="flex items-center gap-2">
+                        <img src="../images/icon.jpeg" class="h-16 rounded-full" alt="Logo" />
+                        <figcaption>U'DesEv</figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:4000/BecomeSeller">Sell</a>
+            </li>
+            <li>
+                <a href="http://localhost:4000/CreateAccount">SignUp</a>
+            </li>
+        </ul>
+    </nav>
+
+    <form id="volverseVendedor">
+        <label for="noemision">Numero de emision</label>
+        <input class="text-black" type="number" name="noemision">
+        <label for="noine">Numero de Ine</label>
+        <input class="text-black" type="number" name="noine">
+        <label for="curp">Curp</label>
+        <input class="text-black" type="text" name="curp">
+        <label for="claveelector">Clave de elector</label>
+        <input class="text-black" type="text" name="claveelector">
+        <label for="cumpleanos">Fecha de nacimiento</label>
+        <input class="text-black" type="date" name="cumpleanos">
+        <input type="submit" value="Send Date">
+    </form>
+
+    <script src="/accountSeller/main.js"></script>
+</body>
+
+</html>

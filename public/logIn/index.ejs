@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="/logIn/style.css" />
+  <title>U'DesEv</title>
+</head>
+
+<body class="bg-slate-900 text-white">
+  <header></header>
+
+
+  <%- include('../partitions/'+navBar)%>
+
+    <main>
+      <section>
+        <form id="logIn">
+          <label for="email">Email</label>
+          <input class="text-black" type="email" name="email" placeholder="Write your email" />
+          <label for="password">Password</label>
+          <input class="text-black" type="password" name="password" placeholder="******" />
+          <input type="submit" value="Log In" />
+        </form>
+      </section>
+    </main>
+    <script src="/logIn/main.js"></script>
+</body>
+
+</html>
