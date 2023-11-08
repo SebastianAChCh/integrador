@@ -1,89 +1,19 @@
 import { Router } from 'express';
-import Pool from '../db/db.js';
-import { uploadFiles } from '../middlewares/upload.js';
+import {
+  loadContacts,
+  loadMessages,
+  saveFiles,
+  saveMessages,
+} from './controllers/messages.js';
 
 const router = Router();
 
-router.post('/saveMessages', async (req, res) => {
-  const { receiver, sender, message, type } = req.body;
-  try {
-    const [responseMessages] = await Pool.query(
-      'INSERT INTO Messages (EMAIL_SENDER, EMAIL_RECEIVER, Message, Type, Date) VALUES (?,?,?,?,NOW())',
-      [sender, receiver, message, type]
-    );
+router.post('/saveMessages', saveMessages);
 
-    if (responseMessages.affectedRows < 1) {
-      return res
-        .status(500)
-        .json({ status: 'failed', message: 'error saving the messages' });
-    }
+router.post('/saveFiles', saveFiles);
 
-    return res.status(200).json({ status: 'ok' });
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.post('/loadMessages', loadMessages);
 
-router.post('/saveFiles', async (req, res) => {
-  try {
-    uploadFiles(req, res, async () => {
-      const { receiver, sender, type } = req.body;
-      const file = req.file;
-
-      const [filesSaved] = await Pool.query(
-        'INSERT INTO Messages (EMAIL_RECEIVER, EMAIL_SENDER, Message, Type, Date) VALUES(?,?,?,?,NOW())',
-        [receiver, sender, file.path, type]
-      );
-
-      if (filesSaved.affectedRows < 1) {
-        return res.status(500).json({ status: 'failed' });
-      }
-
-      return res.status(200).json({ status: 'ok' });
-    });
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-router.post('/loadMessages', async (req, res) => {
-  const { me, other } = req.body;
-
-  try {
-    const [messages] = await Pool.query(
-      'SELECT Message, Type, EMAIL_SENDER, EMAIL_RECEIVER FROM Messages WHERE (EMAIL_SENDER = ? AND EMAIL_RECEIVER = ?) OR (EMAIL_SENDER = ? AND EMAIL_RECEIVER = ?)',
-      [me, other, other, me]
-    );
-
-    if (messages.length < 1) return res.status(200).json({ messages: '' });
-
-    return res.status(200).json({ messages });
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-router.get('/loadContacts/:email', async (req, res) => {
-  const { email } = req.params;
-
-  try {
-    const [users] = await Pool.query(
-      'SELECT EMAIL_RECEIVER, EMAIL_SENDER, Message, Date FROM Messages WHERE EMAIL_RECEIVER = ? OR EMAIL_SENDER = ?',
-      [email, email]
-    );
-
-    if (users.length < 1)
-      return res.status(200).json({
-        users: '',
-      });
-
-    return res.status(200).json({
-      status: 'ok',
-      users,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.get('/loadContacts/:email', loadContacts);
 
 export default router;
