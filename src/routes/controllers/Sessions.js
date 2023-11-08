@@ -119,7 +119,7 @@ export const logIn = async (req, res) => {
     }
 
     res.cookie('normalUser', tokenUser, cookieOptions);
-    res.cookie('useEmail', email, cookieOptions);
+    res.cookie('userEmail', email, cookieOptions);
     res.status(200).json({ status: 'ok', Names: userIS[0].Names });
   } catch (error) {
     console.log(error);

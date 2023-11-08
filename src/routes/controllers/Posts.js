@@ -1,5 +1,4 @@
 import jwb from 'jsonwebtoken';
-import { join } from 'path';
 import Pool from '../../db/db.js';
 import { SECRET } from '../../conf.js';
 import { uploadImages } from '../../middlewares/upload.js';

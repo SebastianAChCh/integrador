@@ -2,21 +2,32 @@ import { io } from 'https://cdn.socket.io/4.4.1/socket.io.esm.min.js';
 
 const socket = io();
 
-const users = document.getElementById('users');
+const usersContainer = document.getElementById('users');
 const containerForm = document.getElementById('chat');
 const messages = document.getElementById('messages');
 
 let userEmail = null;
+let messagesStored = {};
 
 for (let i = 0; i < document.cookie.split(';').length; i++)
   if (document.cookie.split(';')[i].startsWith(' useEmail'))
     userEmail = document.cookie.split(';')[i].split('=')[1].replace('%40', '@');
 
 const loadUser = (user) => {
-  users.innerHTML += `<li>${user}</li>`;
+  let users = [];
+
+  !users.some((userStore) => userStore === user) && users.push(user);
+
+  if (users.length !== 0) {
+    usersContainer.innerHTML = '';
+
+    users.forEach((userStore) => {
+      usersContainer.innerHTML += `<li><button>${userStore}</button></li>`;
+    });
+  }
 };
 
-const loadMessage = (message) => {
+const loadMessage = (message, receiver, sender) => {
   messages.innerHTML += `<li>${message}</li>`;
 };
 
@@ -48,9 +59,8 @@ const openNewChat = () => {
 
 socket.emit('connected', { userEmail });
 
-socket.on('messageTo', (data) => {
-  loadMessage(data);
-  console.log('se envio un dato', data);
+socket.on('messageTo', ({ message, sender, receiver }) => {
+  loadUser(sender);
 });
 
 openNewChat();

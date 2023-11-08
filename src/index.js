@@ -1,5 +1,4 @@
 import express from 'express';
-import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import { createServer } from 'node:http';
 import { Server } from 'socket.io';
@@ -14,11 +13,12 @@ import Messages from './routes/messages.routes.js';
 const app = express();
 
 const server = createServer(app);
+
 const io = new Server(server, {
   connectionStateRecovery: {},
+  maxHttpBufferSize: 1e8,
 });
 
-// app.use(morgan('dev'));
 app.use(express.static(join(process.cwd(), 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
@@ -44,19 +44,23 @@ const deleteUsers = (socketId) => {
 };
 
 io.on('connection', (socket) => {
-  socket.on('connected', (data) => {
-    addUser(data.userEmail, socket.id);
+  socket.on('connected', (email) => {
+    addUser(email, socket.id);
   });
 
   socket.on('disconnect', () => {
     deleteUsers(socket.id);
   });
 
-  socket.on('message', ({ receiver, sender, message }) => {
+  socket.on('message', ({ receiver, sender, message, type }) => {
     users.forEach((user) => {
-      if (user.user === receiver) {
-        io.to(user.socketId).emit('messageTo', { message, sender, receiver });
-      }
+      if (user.user === receiver)
+        io.to(user.socketId).emit('messageTo', {
+          message,
+          sender,
+          receiver,
+          type,
+        });
     });
   });
 });

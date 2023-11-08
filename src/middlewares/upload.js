@@ -1,11 +1,22 @@
 import multer from 'multer';
 import { v4 as uuidv4 } from 'uuid';
+import { join } from 'path';
 
 let exceed = 1;
 const storeImages = multer.diskStorage({
   destination: (_req, _file, cb) => {
-    cb(null, './public/uploads');
+    cb(null, '/public/uploads');
   },
+  filename: (_req, file, cb) => {
+    cb(null, uuidv4() + file.originalname);
+  },
+});
+
+const storeFiles = multer.diskStorage({
+  destination: (_req, _file, cb) => {
+    cb(null, './public/files');
+  },
+
   filename: (_req, file, cb) => {
     cb(null, uuidv4() + file.originalname);
   },
@@ -33,3 +44,7 @@ export const uploadImages = multer({
   storage: storeImages,
   fileFilter: handleErrorsImgs,
 }).array('files', 10);
+
+export const uploadFiles = multer({
+  storage: storeFiles,
+}).single('file');
