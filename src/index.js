@@ -16,7 +16,7 @@ const server = createServer(app);
 
 const io = new Server(server, {
   connectionStateRecovery: {},
-  maxHttpBufferSize: 1e8,
+  maxHttpBufferSize: 5e8,
 });
 
 app.use(express.static(join(process.cwd(), 'public')));
