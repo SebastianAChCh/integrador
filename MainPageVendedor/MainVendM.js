@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const publicacionesLista = document.getElementById("publicacionesLista");
     const vendedoresLista = document.getElementById("vendedoresLista");
     const searchBox = document.getElementById("searchBox");
+    const temp = document.getElementById("temp")
 
     searchBox.style.display = "flex";
     submenu.style.display = "none";
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
        
         searchBox.style.display = searchBox.style.display === "none" ? "flex" : "none";
         submenu.style.display = submenu.style.display === "none" ? "flex" : "none";
+            temp.style.display = temp.style.display ===  "none" ? "block" : "none";
 
        
         if (searchBox.style.display === "flex") {
@@ -56,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
             submenu.style.display = "none";
             publicacionesLista.style.display = "none";
             vendedoresLista.style.display = "none";
+            temp.style.display = "none";
         }
     });
 });
