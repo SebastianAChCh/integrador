@@ -8,6 +8,12 @@ body {
     background-image: url('./img/fondo.png');
   }
   
+  .label {
+    column-count: 2;
+    column-gap: 10px;
+  }
+  
+
   .flex-container {
     display: flex;
     flex-direction: column;
@@ -115,4 +121,7 @@ body {
   .link:hover {
     color: #1d4ed8;
   }
+
+
+  
   
