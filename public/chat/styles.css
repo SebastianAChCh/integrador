@@ -106,7 +106,7 @@ html {
 
 .chat-section::after {
   content: '';
-  background-image: url('/img/CHAT/img/iStock-1409540606.jpg');
+  background-image: url('./img/iStock-1409540606.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -144,6 +144,13 @@ html {
   align-items: center;
   padding: 10px;
   border-top: 1px solid #383838;
+}
+
+.form {
+  width: 100%;
+  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: 1fr 80px;
 }
 
 input[type='text'] {

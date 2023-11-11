@@ -52,15 +52,18 @@ io.on('connection', (socket) => {
     deleteUsers(socket.id);
   });
 
-  socket.on('message', ({ receiver, sender, message, type }) => {
+  socket.on('message', ({ receiver, sender, message, type, fileName = '' }) => {
+    console.log(users);
     users.forEach((user) => {
-      if (user.user === receiver)
+      if (user.user === receiver) {
         io.to(user.socketId).emit('messageTo', {
           message,
           sender,
           receiver,
+          fileName,
           type,
         });
+      }
     });
   });
 });

@@ -69,11 +69,12 @@ route.get('/BecomeSeller', sellerExist, (req, res) => {
   });
 });
 
-route.get('/chats/:email', (req, res) => {
+route.get('/chats/:email', authUser, (req, res) => {
   const { email } = req.params;
 
-  res.render(join('chat', 'index'), {
+  return res.render(join('chat', 'index'), {
     email,
+    separacion: true,
   });
 });
 
@@ -81,6 +82,7 @@ route.get('/chats', authUser, (req, res) => {
   let email = null;
   return res.render(join('chat', 'index'), {
     email,
+    separacion: false,
   });
 });
 

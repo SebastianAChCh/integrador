@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat como WhatsApp</title>
+    <title>Chats</title>
     <link rel="stylesheet" type="text/css" href="/chat/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,14 +19,7 @@
         <h1 class="chat-title">Chats</h1>
         <ul id="chat-list" class="chat-list">
           <%if(email){%>
-          <li id="user" isNew="true" class="user">
-            <img
-              src="https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png"
-              class="imagen"
-              alt="Imagen de Usuario 1"
-            />
-            <%=email%>
-          </li>
+          <li id="user" isNew="true" class="user newUser"><%=email%></li>
           <%}%>
         </ul>
       </div>
@@ -37,20 +30,12 @@
         <div class="chat-messages" id="chat-messages">
           <!-- Aquí se mostrarán los mensajes -->
         </div>
-        <form id="chat-form" class="chat-input"></form>
+        <div id="chat-form" class="chat-input"></div>
       </div>
     </div>
 
     <!-- Agregar el contenedor de vista emergente al final del body -->
-    <div id="image-popup" class="image-popup">
-      <span class="close-popup" id="close-popup">&times;</span>
-      <img
-        class="popup-content"
-        id="popup-content"
-        src=""
-        alt="Imagen emergente"
-      />
-    </div>
+    <dialog id="image-popups"></dialog>
 
     <script type="module" src="/chat/script.js"></script>
   </body>

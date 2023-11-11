@@ -5,7 +5,7 @@ export const saveMessages = async (req, res) => {
   const { receiver, sender, message, type } = req.body;
   try {
     const [responseMessages] = await Pool.query(
-      'INSERT INTO Messages (EMAIL_SENDER, EMAIL_RECEIVER, Message, Type, Date) VALUES (?,?,?,?,NOW())',
+      'INSERT INTO Messages (EMAIL_SENDER, EMAIL_RECEIVER, Message, Type, OriginalName,Date) VALUES (?,?,?,?,"",NOW())',
       [sender, receiver, message, type]
     );
 
@@ -28,15 +28,15 @@ export const saveFiles = async (req, res) => {
       const file = req.file;
 
       const [filesSaved] = await Pool.query(
-        'INSERT INTO Messages (EMAIL_RECEIVER, EMAIL_SENDER, Message, Type, Date) VALUES(?,?,?,?,NOW())',
-        [receiver, sender, file.path, type]
+        'INSERT INTO Messages (EMAIL_RECEIVER, EMAIL_SENDER, Message, Type, OriginalName,Date) VALUES(?,?,?,?,?,NOW())',
+        [receiver, sender, file.path, type, file.originalname]
       );
 
       if (filesSaved.affectedRows < 1) {
         return res.status(500).json({ status: 'failed' });
       }
 
-      return res.status(200).json({ status: 'ok' });
+      return res.status(200).json({ status: 'ok', file: file.path });
     });
   } catch (error) {
     console.log(error);
@@ -48,11 +48,11 @@ export const loadMessages = async (req, res) => {
 
   try {
     const [messages] = await Pool.query(
-      'SELECT Message, Type, EMAIL_SENDER, EMAIL_RECEIVER FROM Messages WHERE (EMAIL_SENDER = ? AND EMAIL_RECEIVER = ?) OR (EMAIL_SENDER = ? AND EMAIL_RECEIVER = ?)',
+      'SELECT Message, Type, EMAIL_SENDER, EMAIL_RECEIVER, OriginalName FROM Messages WHERE (EMAIL_SENDER = ? AND EMAIL_RECEIVER = ?) OR (EMAIL_SENDER = ? AND EMAIL_RECEIVER = ?)',
       [me, other, other, me]
     );
 
-    if (messages.length < 1) return res.status(200).json({ messages: '' });
+    if (messages.length < 1) return res.status(404).json({ messages: '' });
 
     return res.status(200).json({ messages });
   } catch (error) {

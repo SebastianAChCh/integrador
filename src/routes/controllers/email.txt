@@ -1,0 +1,22 @@
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: 'sebastianantoniochavira@gmail.com',
+      pass: 'jnfc jrjd orbe vnwy',
+    },
+  });
+
+  let attachment = {
+    filename: 'example.jpg',
+    content: fs.createReadStream('./preview (1).jpg'), // Replace this with the actual path to your file
+  };
+
+  await transporter.verify();
+  transporter.sendMail({
+    from: 'sebastian',
+    to: 'pepesitonadie@gmail.com',
+    text: 'Buenas tardes',
+    attachments: [attachment],
+  });
