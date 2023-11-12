@@ -23,8 +23,21 @@ header {
     z-index: 2;
 }
 
-#logop {
+.BtnLogo{
     margin-top: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    color: #A7A7A7;
+    transition: color 0.0s ease;
+}
+
+#logo {
     left: 2%;
     width: 180px;
     float: left;
