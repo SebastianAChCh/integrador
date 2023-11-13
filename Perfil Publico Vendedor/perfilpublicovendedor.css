@@ -29,21 +29,19 @@ header{
 }
 
 .return{
-    margin-bottom: 5px;
-    position: absolute;
-    cursor: pointer;
-    z-index: 100;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    text-decoration: none;
-    color: #A7A7A7;
-    transition: color 0.0s ease;
-}
-
-.return:hover{
-    color:white;
-    transform: translateY(-1px);
+  width: 34px;
+  height: 34px;
+  padding: 2px;
+  margin-left: 10px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 100;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: #A7A7A7;
+  transition: color 0.0s ease;
 }
 
 .informationcomplet{
@@ -53,15 +51,16 @@ header{
 }
 
 .profile {
-    margin: 10px;
-    margin-bottom: 5px;
-    border-radius: 50%;
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    background: #0a1319;
-    border: 2px solid #0A1319;
+  margin: 10px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
+  background: #0a1319;
+  border: 2px solid #0A1319;
+object-fit: cover;
   }
 
   .calificación{
@@ -127,6 +126,7 @@ header{
     transition: color 0.0s ease;
     background: #010b14;
     border: 1px solid #031828;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(3, 24, 40, 0.9);
   }
 
@@ -139,13 +139,9 @@ header{
     transition: color 0.0s ease;
     background: #010b14;
     border: 1px solid #031828;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(3, 24, 40, 0.9);
   }
-
-.chat:hover, .report:hover{
-    color:white;
-    transform: translateY(-1px);
-}
 
 .description{
     margin-top: 10px;
@@ -245,4 +241,11 @@ object-fit: cover;
     background: #010b14;
     border: 1px solid #031828;
     box-shadow: 0 0 10px rgba(3, 24, 40, 0.9);
+}
+
+button:hover{
+  background: #031828;
+  color:white;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
