@@ -1,0 +1,165 @@
+body{
+    color: white;
+    font-family: 'Poppins';
+    align-items: center;
+    place-content: center;
+    height: 100vh;
+    background-image: url('/publicacion/img/fondo.png');
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; /* Ajusta la altura del encabezado según tus preferencias */
+    padding: 10px; /* Añade relleno al encabezado si es necesario */
+  }
+  
+  .header h1 {
+    margin: 0; /* Elimina el margen predeterminado del h1 */
+    color: white; /* Cambia el color del texto del h1 si es necesario */
+    font-size: 24px; /* Ajusta el tamaño del texto del h1 según tus preferencias */
+    text-align: center; /* Centra el texto horizontalmente */
+    flex: 1; /* Para que ocupe todo el espacio disponible en el encabezado */
+  }
+  
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 70vh; /* Aumenta la altura al 80% de la altura de la ventana (viewport) */
+    border: 2px solid black;
+  }
+  
+
+      .sidebar {
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
+          border-radius: 5px;
+         background: #010B14;
+        order: 2; /* Poner el sidebar al final */
+    
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 2fr 1.5fr;
+        grid-template-rows: 1fr auto;
+        grid-gap: 20px; /* Eliminar el espacio entre las columnas */
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        order: 1; /* Poner el carrusel al principio */
+        width: 40%;
+      }
+
+      .item {
+        width: 100%;
+        height: 100%;
+        max-width: 400px; /* Establecer el ancho máximo de la imagen en 300 píxeles */
+        object-fit: cover; /* Recortar la imagen para que cubra todo el espacio sin deformarse */
+        border-radius: 5px;
+        
+      }
+
+      .secondary {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 10px;
+      }
+
+      .info {
+        box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
+    border-radius: 5px;
+    background: #010B14;
+        border-radius: 5px;
+        padding: 10px;
+        
+        grid-column: span 2; /* Hacer que los datos del vendedor ocupen las dos columnas */
+        display: flex;
+        flex-direction: column; /* Cambia a dirección de columna */
+        height: 100px; /* Elimina la altura fija */
+      }
+      
+      .infoSecondary {
+        align-items: left;
+        display: flex; 
+        align-items: center; 
+        gap: 8px;
+        
+      }
+
+      .infoSecondary img{
+        width: 50px;
+        border-radius: 50%;
+      }
+      
+
+      .name {
+        font-weight: bold;
+        margin: 5px 0; /* Agrega margen superior e inferior para espaciar los elementos */
+      }
+      
+      .rating {
+        justify-content: center;
+        align-items: center;
+        color: gold;
+        margin: 5px 0; /* Agrega margen superior e inferior para espaciar los elementos */
+      }
+      
+
+      .description {
+        margin-top: 5px;
+        font-style: arial;
+        font-size: 15px;
+        text-align: justify;
+      }
+
+      h1 {
+        font-size: 20px;
+        margin-top: 0px;
+        text-align: justify;
+        font-weight: bold;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      
+      .header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        
+        height: 60px; /* Ajusta la altura del encabezado según tus preferencias */
+        padding: 10px; /* Añade relleno al encabezado si es necesario */
+      }
+      
+      .back-button {
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      
+      .back-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      
+      .arrow {
+        fill: white; /* Cambia el color de la flecha si es necesario */
+        width: 24px;
+        height: 24px;
+      }
+      
