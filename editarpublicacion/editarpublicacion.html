@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:ital,wght@0,100;1,900&family=Sulphur+Point:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="editarpublicacion.css" />
+    <title>Tu Título Aquí</title>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="/img/logo.png" alt="Your Company" />
+      <button class="btn">
+        <span class="text">Guardar</span>
+      </button>
+    </header>
+    <main>
+      <div class="flex-container">
+        <div class="logo-container">
+          <h2 class="title">Edita tu publicación</h2>
+        </div>
+        <div class="flex-container">
+          <form
+            method="post"
+            enctype="multipart/form-data"
+            class="form-container"
+          >
+            <div class="form-group">
+              <label for="titulo" class="label">Título de la publicación</label>
+              <div class="input-container">
+                <input
+                  id="titulo"
+                  name="titulo"
+                  type="text"
+                  required
+                  class="input"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="descripcion" class="label"
+                >Descripción del diseño</label
+              >
+              <div class="input-container">
+                <input
+                  id="descripcion"
+                  name="descripcion"
+                  type="text"
+                  required
+                  class="input"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="archivo-3d" class="label"
+                >Imagen ó diseño 3D principal</label
+              >
+              <div class="input-container">
+                <input
+                  id="archivo-3d"
+                  name="archivo-3d"
+                  type="file"
+                  required
+                  class="input"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="imagenes" class="label">Imagenes ó diseño 3D</label>
+              <div class="input-container">
+                <input
+                  id="imagenes"
+                  name="imagenes"
+                  type="file"
+                  multiple
+                  class="input"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="submit" class="button" value="Crear publicación" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
