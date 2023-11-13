@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:ital,wght@0,100;1,900&family=Sulphur+Point:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Cargar la librería de Lightbox -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
+    />
+    <link rel="stylesheet" href="vistavendedorpublicacion.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+
+    <title>Publicacion</title>
+  </head>
+
+  <header class="header">
+    <button class="back-button">
+      <svg
+        class="arrow"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+      </svg>
+    </button>
+    <h1>Nombre de la publicación</h1>
+    <button class="btn">
+      <span class="text">Editar</span>
+    </button>
+  </header>
+
+  <body>
+    <!-- Agregar la sección principal con el carrusel y el sidebar -->
+    <div class="main">
+      <!-- Agregar la sección con el carrusel y los datos del vendedor -->
+      <div class="container">
+        <!-- Agregar el atributo data-lightbox con el mismo valor para todas las imágenes -->
+        <!-- Agregar el atributo data-title con el texto que quieres mostrar debajo de cada imagen -->
+        <a
+          href="img/r-architecture-2gDwlIim3Uw-unsplash.jpg"
+          data-lightbox="galeria"
+          data-title="Imagen 1"
+          ><img src="img/r-architecture-2gDwlIim3Uw-unsplash.jpg" class="item"
+        /></a>
+        <div class="secondary">
+          <a
+            href="img/r-architecture-2gDwlIim3Uw-unsplash.jpg"
+            data-lightbox="galeria"
+            data-title="Imagen 2"
+            ><img
+              src="img/r-architecture-2gDwlIim3Uw-unsplash.jpg"
+              class="item"
+          /></a>
+          <a
+            href="img/r-architecture-2gDwlIim3Uw-unsplash.jpg"
+            data-lightbox="galeria"
+            data-title="Imagen 3"
+            ><img
+              src="img/r-architecture-2gDwlIim3Uw-unsplash.jpg"
+              class="item"
+          /></a>
+        </div>
+
+        <!-- Ocultar las imágenes restantes con el estilo display:none -->
+        <a
+          href="imagen4.jpg"
+          data-lightbox="galeria"
+          data-title="Imagen 4"
+          style="display: none"
+          ><img src="imagen4.jpg" class="item"
+        /></a>
+        <a
+          href="imagen5.jpg"
+          data-lightbox="galeria"
+          data-title="Imagen 5"
+          style="display: none"
+          ><img src="imagen5.jpg" class="item"
+        /></a>
+        <a
+          href="imagen6.jpg"
+          data-lightbox="galeria"
+          data-title="Imagen 6"
+          style="display: none"
+          ><img src="imagen6.jpg" class="item"
+        /></a>
+        <a
+          href="imagen7.jpg"
+          data-lightbox="galeria"
+          data-title="Imagen 7"
+          style="display: none"
+          ><img src="imagen7.jpg" class="item"
+        /></a>
+        <a
+          href="imagen8.jpg"
+          data-lightbox="galeria"
+          data-title="Imagen 8"
+          style="display: none"
+          ><img src="imagen8.jpg" class="item"
+        /></a>
+        <a
+          href="imagen9.jpg"
+          data-lightbox="galeria"
+          data-title="Imagen 9"
+          style="display: none"
+          ><img src="imagen9.jpg" class="item"
+        /></a>
+        <a
+          href="imagen10.jpg"
+          data-lightbox="galeria"
+          data-title="Imagen 10"
+          style="display: none"
+          ><img src="imagen10.jpg" class="item"
+        /></a>
+
+        <!-- Agregar la sección con el nombre del usuario vendedor y su calificación -->
+        <div class="info">
+          <div class="infoSecondary">
+            <img
+              src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAxL3JtNjA5LXNvbGlkaWNvbi13LTAwMi1wLnBuZw.png"
+            />
+            <span class="name">Juan Pérez</span>
+          </div>
+          <span class="rating">★★★★☆</span>
+        </div>
+      </div>
+
+      <!-- Agregar la sección lateral con la descripción de la publicación -->
+      <div class="sidebar">
+        <h1>Description</h1>
+        <p class="description">
+          Este es un ejemplo de una publicación UdesEV. Puedes ver las imágenes
+          en una galería al hacer clic en ellas. También puedes ver el nombre y
+          la calificación del usuario vendedor. Esta es la descripción de la
+          publicación, donde puedes poner más información sobre el producto o
+          servicio que ofreces.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
