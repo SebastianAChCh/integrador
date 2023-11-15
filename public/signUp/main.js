@@ -2,6 +2,12 @@ const form = document.getElementById('createAnAccount');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
+
+  if (e.target.confirmPassword.value !== e.target.password.value) {
+    document.getElementById('error').innerText = `Password must be same`;
+    return;
+  }
+
   const response = await fetch('http://localhost:4000/createAccount', {
     method: 'POST',
     headers: {

@@ -39,9 +39,11 @@ CreatePost.addEventListener('submit', async (e) => {
       icon: 'success',
       confirmButtonText: 'Ok',
     });
+
     if (result.isConfirmed) {
       location.href = '/';
     }
+
     setTimeout(() => {
       location.href = '/';
     }, 3000);

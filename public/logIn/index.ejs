@@ -1,33 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:ital,wght@0,100;1,900&family=Sulphur+Point:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./logIn/style.css" />
+  </head>
+  <body>
+    <div class="main-container"></div>
+    <div class="flex-container">
+      <div class="logo-container">
+        <img class="logo" src="../pictures/logo.png" alt="Your Company" />
+        <h2 class="title">Sign in to your account</h2>
+      </div>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
+      <div class="form-container">
+        <form id="logIn" class="form">
+          <div class="form-group">
+            <label for="email" class="label">Email address</label>
+            <div class="input-container">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="input"
+              />
+            </div>
+          </div>
 
-  <link rel="stylesheet" href="/logIn/style.css" />
-  <title>U'DesEv</title>
-</head>
+          <div class="form-group">
+            <label for="password" class="label">Password</label>
+            <div class="input-container">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                class="input"
+              />
+            </div>
+          </div>
 
-<body class="bg-slate-900 text-white">
-  <header></header>
-
-
-  <%- include('../partitions/'+navBar)%>
-
-    <main>
-      <section>
-        <form id="logIn">
-          <label for="email">Email</label>
-          <input class="text-black" type="email" name="email" placeholder="Write your email" />
-          <label for="password">Password</label>
-          <input class="text-black" type="password" name="password" placeholder="******" />
-          <input type="submit" value="Log In" />
+          <div class="form-group">
+            <button type="submit" class="button">Sign in</button>
+          </div>
         </form>
-      </section>
-    </main>
-    <script src="/logIn/main.js"></script>
-</body>
 
+        <p class="message">
+          Not a member?
+          <a href="/CreateAccount" class="link">Sign up.</a>
+        </p>
+      </div>
+    </div>
+    <script src="./logIn/main.js"></script>
+  </body>
 </html>

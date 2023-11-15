@@ -4,7 +4,7 @@ body {
   align-items: center;
   place-content: center;
   height: 100vh;
-  background-image: url('../pictures/FONDO.png');
+  background-image: url('/publicacion/img/fondo.png');
 }
 
 .header {
@@ -29,6 +29,7 @@ body {
   justify-content: center;
   width: 100%;
   height: 70vh; /* Aumenta la altura al 80% de la altura de la ventana (viewport) */
+  border: 2px solid black;
 }
 
 .sidebar {

@@ -14,32 +14,33 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../post/style.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
 
     <title>Publicacion</title>
   </head>
 
+  <header class="header">
+    <button class="back-button">
+      <svg
+        class="arrow"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+      </svg>
+    </button>
+    <h1>Nombre de la publicación</h1>
+  </header>
+
   <body>
-    <header class="header">
-      <button class="back-button">
-        <svg
-          class="arrow"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
-        </svg>
-      </button>
-      <h1><%= project%></h1>
-    </header>
     <!-- Agregar la sección principal con el carrusel y el sidebar -->
     <div class="main">
       <!-- Agregar la sección con el carrusel y los datos del vendedor -->
-      <div id="container" class="container">
+      <div class="container">
         <!-- Agregar el atributo data-lightbox con el mismo valor para todas las imágenes -->
         <!-- Agregar el atributo data-title con el texto que quieres mostrar debajo de cada imagen -->
         <a
@@ -73,9 +74,8 @@
           data-lightbox="galeria"
           data-title="Imagen 4"
           style="display: none"
-        >
-          <img src="imagen4.jpg" class="item" />
-        </a>
+          ><img src="imagen4.jpg" class="item"
+        /></a>
         <a
           href="imagen5.jpg"
           data-lightbox="galeria"
@@ -143,6 +143,5 @@
         </p>
       </div>
     </div>
-    <script src="../post/main.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import jwt from 'jsonwebtoken';
 import {
   authUser,
   authSeller,
@@ -6,13 +7,20 @@ import {
   sellerExist,
 } from '../middlewares/auth.js';
 import { join } from 'path';
+import { SECRET } from '../conf.js';
 
 const route = Router();
 
 route.get('/', (req, res) => {
-  const { normalUser } = req.cookies;
+  const { normalUser, Seller } = req.cookies;
   let navBar = '';
-  if (normalUser) navBar = 'NavBar.ejs';
+  if (Seller) {
+    const sellerVerified = jwt.verify(Seller, SECRET);
+    if (sellerVerified) {
+      navBar = 'Seller.ejs';
+    } else if (normalUser) navBar = 'NavBar.ejs';
+    else navBar = 'NoAccount.ejs';
+  } else if (normalUser) navBar = 'NavBar.ejs';
   else navBar = 'NoAccount.ejs';
 
   return res.render(join('MainPage', 'index'), {
@@ -28,13 +36,13 @@ route.get('/post/:project', (req, res) => {
   if (normalUser) navBar = 'NavBar.ejs';
   else navBar = 'NoAccount.ejs';
 
-  res.render(join('post', 'index'), {
+  return res.render(join('post', 'index'), {
     navBar,
     project,
   });
 });
 
-route.get('/createPublications', authUser, authSeller, (req, res) => {
+route.get('/createPublication', authUser, authSeller, (req, res) => {
   const { normalUser } = req.cookies;
   let navBar = '';
   if (normalUser) navBar = 'NavBar.ejs';
@@ -63,13 +71,13 @@ route.get('/CreateAccount', userExist, (_req, res) => {
   });
 });
 
-route.get('/BecomeSeller', sellerExist, (req, res) => {
+route.get('/Sell', sellerExist, (req, res) => {
   return res.sendFile('index.html', {
     root: join(process.cwd(), 'public', 'Account', 'accountSeller'),
   });
 });
 
-route.get('/chats/:email', authUser, (req, res) => {
+route.get('/Chats/:email', authUser, (req, res) => {
   const { email } = req.params;
 
   return res.render(join('chat', 'index'), {
@@ -78,7 +86,7 @@ route.get('/chats/:email', authUser, (req, res) => {
   });
 });
 
-route.get('/chats', authUser, (req, res) => {
+route.get('/Chats', authUser, (req, res) => {
   let email = null;
   return res.render(join('chat', 'index'), {
     email,
@@ -86,7 +94,7 @@ route.get('/chats', authUser, (req, res) => {
   });
 });
 
-route.get('/profile/:seller', authUser, async (req, res) => {
+route.get('/profile/:seller', authUser, (req, res) => {
   const { seller } = req.params;
   const { normalUser } = req.cookies;
 
@@ -99,5 +107,7 @@ route.get('/profile/:seller', authUser, async (req, res) => {
     seller,
   });
 });
+
+route.get('/editProfile/:email', authUser, (req, res) => {});
 
 export default route;

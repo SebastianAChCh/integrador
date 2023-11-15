@@ -3,7 +3,6 @@ import Pool from '../../db/db.js';
 export const userData = async (req, res) => {
   const { email } = req.params;
   try {
-    console.log(email);
     const [userInfo] = await Pool.query('CALL Profile_User(?)', [email]);
 
     if (userInfo.length < 1) {
@@ -38,3 +37,25 @@ export const sellerData = async (req, res) => {
     console.log(error);
   }
 };
+
+export const editUserData = async (req, res) => {
+  const { email, names, lastnames, phone } = req.body;
+  try {
+    const [updatedUserData] = await Pool.query(
+      'UPDATE Users SET Names = ?, LastNames = ?, Phone = ? WHERE Email = ?',
+      [names, lastnames, phone, email]
+    );
+
+    if (updatedUserData.affectedRows < 1) {
+      return res
+        .status(500)
+        .json({ status: 'failed', message: 'data update failed' });
+    }
+
+    return res.status(200).json({ status: 'ok' });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editSellerData = async (req, res) => {};

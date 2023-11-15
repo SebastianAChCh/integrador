@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/MainPage/style.css" />
+    <link rel="stylesheet" href="./MainPage/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <script type="importmap">
       {
@@ -13,7 +13,6 @@
         }
       }
     </script>
-    <script src="./MainPage/menu.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap"
@@ -85,68 +84,13 @@
           </button>
         </div>
 
-        <script src="./MainPage/carrousel.js"></script>
-
-        <header>
-          <img id="logop" src="../pictures/logo-name.png" />
-
-          <nav class="menú">
-            <ul>
-              <li id="categorias-link" class="categorias-item">
-                <button>Categorías</button>
-                <ul class="submenu" id="submenu">
-                  <li class="categorias-subitem" id="publicacionesLink">
-                    <button>Publicaciones</button>
-                    <div class="categorias-lista" id="publicacionesLista">
-                      <ul>
-                        <li><button>*Arquitectura</button></li>
-                        <li><button>*Carpintería</button></li>
-                        <li><button>*Interiores</button></li>
-                        <li><button>*Moda</button></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="categorias-subitem" id="vendedoresLink">
-                    <button>Vendedores</button>
-                    <div class="categorias-lista" id="vendedoresLista">
-                      <ul>
-                        <li><button>*Arquitectura</button></li>
-                        <li><button>*Carpintería</button></li>
-                        <li><button>*Interiores</button></li>
-                        <li><button>*Moda</button></li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-
-              <li>
-                <a href="">
-                  <button>Chats</button>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <button>Vender</button>
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <nav class="Login">
-            <ul>
-              <li id="Login">
-                <a href="">
-                  <button>Log in</button>
-                </a>
-              </li>
-            </ul>
-          </nav>
+        <header id="container-links">
+          <%- include('../partitions/'+navBar)%>
         </header>
       </div>
 
       <div class="clearfix"></div>
-
+      <div id="temp" style="display: none; height: 37px"></div>
       <div class="searchBox" id="searchBox">
         <input class="searchInput" type="text" name="" placeholder="Buscar" />
         <button class="searchButton">
@@ -226,111 +170,11 @@
       <main>
         <h2>Destacados</h2>
 
-        <section class="publicaciones">
-          <div class="publicacion">
-            <img
-              class="imgprin"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIaDGrW44yiZFBaLk7b5I_G6GpTN6zZ61XxQ&usqp=CAU"
-              alt=""
-            />
-            <div class="secundaries">
-              <img
-                class="imgsec"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsDMUEsrxYdco7F3mkwqNJn-5x-6Rv4DmjgASkeFj1BLQJANZy5XGysPLXb9C6t-L2XSU&usqp=CAU"
-                alt=""
-              />
-              <img
-                class="imgsec"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBSCodqWYLj43tr618tmrBONus0NDNZXtnJiH2EbaJ_RGdUOGApgl18yehSd3seVfBBeE&usqp=CAU"
-                alt=""
-              />
-            </div>
-            <p class="descripcion">
-              Title: Vestido
-              <br />
-              Descripcion: Vestido estilo contemporaneo, inspirado en ...
-            </p>
-          </div>
-
-          <div class="publicacion">
-            <img
-              class="imgprin"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6DC7eJwFSwtZcokEOsbzN0CheAFwAMuNrYnW-_fB9lhjWihN5vkg2VJsvCFrm92y8w4&usqp=CAU"
-              alt=""
-            />
-            <div class="secundaries">
-              <img
-                class="imgsec"
-                src="https://image.winudf.com/v2/image1/Y29tLmJ1Z2hhdHMuRHJhd2luZ0Zhc2hpb25DbG90aGVzRGVzaWduX3NjcmVlbl80XzE1NDIzOTM0MTJfMDk3/screen-4.jpg?fakeurl=1&type=.webp"
-                alt=""
-              />
-              <img
-                class="imgsec"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbBALp69ozg1O-YPQJFyl7W66c0AbsVpfRKhsW6sjx_7Tw7csm-ySKjQfMZJjw2IszVy8&usqp=CAU"
-                alt=""
-              />
-            </div>
-            <p class="descripcion">
-              Title: Vestido
-              <br />
-              Descripcion: Vestido estilo contemporaneo, inspirado en ...
-            </p>
-          </div>
-
-          <div class="publicacion">
-            <img
-              class="imgprin"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6DC7eJwFSwtZcokEOsbzN0CheAFwAMuNrYnW-_fB9lhjWihN5vkg2VJsvCFrm92y8w4&usqp=CAU"
-              alt=""
-            />
-            <div class="secundaries">
-              <img
-                class="imgsec"
-                src="https://image.winudf.com/v2/image1/Y29tLmJ1Z2hhdHMuRHJhd2luZ0Zhc2hpb25DbG90aGVzRGVzaWduX3NjcmVlbl80XzE1NDIzOTM0MTJfMDk3/screen-4.jpg?fakeurl=1&type=.webp"
-                alt=""
-              />
-              <img
-                class="imgsec"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbBALp69ozg1O-YPQJFyl7W66c0AbsVpfRKhsW6sjx_7Tw7csm-ySKjQfMZJjw2IszVy8&usqp=CAU"
-                alt=""
-              />
-            </div>
-            <p class="descripcion">
-              Title: Vestido
-              <br />
-              Descripcion: Vestido estilo contemporaneo, inspirado en ...
-            </p>
-          </div>
-
-          <div class="publicacion">
-            <img
-              class="imgprin"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIaDGrW44yiZFBaLk7b5I_G6GpTN6zZ61XxQ&usqp=CAU"
-              alt=""
-            />
-            <div class="secundaries">
-              <img
-                class="imgsec"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsDMUEsrxYdco7F3mkwqNJn-5x-6Rv4DmjgASkeFj1BLQJANZy5XGysPLXb9C6t-L2XSU&usqp=CAU"
-                alt=""
-              />
-              <img
-                class="imgsec"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBSCodqWYLj43tr618tmrBONus0NDNZXtnJiH2EbaJ_RGdUOGApgl18yehSd3seVfBBeE&usqp=CAU"
-                alt=""
-              />
-            </div>
-            <p class="descripcion">
-              Title: Vestido
-              <br />
-              Descripcion: Vestido estilo contemporaneo, inspirado en ...
-            </p>
-          </div>
-        </section>
+        <section id="publicaciones" class="publicaciones"></section>
       </main>
 
       <footer>
-        <nav class="patas">
+        <nav class="footer">
           <ul>
             <li>
               <a href="">
@@ -351,5 +195,7 @@
         </nav>
       </footer>
     </div>
+    <script src="./MainPage/menu.js"></script>
+    <script src="./MainPage/carrousel.js"></script>
   </body>
 </html>

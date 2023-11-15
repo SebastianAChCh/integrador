@@ -155,6 +155,7 @@ const changeChat = async (userName, email) => {
   chatMessages.innerHTML = '';
 
   loadMessages(email);
+  chatTitle.classList.remove('disspear');
 };
 
 // Agrega un evento clic a cada elemento de usuario en la lista de chats
@@ -218,6 +219,8 @@ const loadUsers = async (email) => {
   );
 
   Contacts.forEach((contact) => loadUserData(contact.Email));
+  chatTitle.innerText = 'Chats';
+  chatTitle.classList.add('disspear');
 };
 
 //Funcion para guardar los mensajes en la base de datos
@@ -288,7 +291,7 @@ const displayMessage = (messageData) => {
   openDialogImg.forEach((image) => {
     const modal = document.getElementById('image-popups');
     image.addEventListener('click', (e) => {
-      modal.innerHTML = `<img heigh='500px' width='500px' src='${e.target.currentSrc}'>`;
+      modal.innerHTML = `<img heigh='200px' width='200px' src='${e.target.currentSrc}'>`;
       modal.showModal();
     });
 

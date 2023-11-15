@@ -1,21 +1,56 @@
-<nav>
-    <ul class="flex justify-around h-20 items-center px-8 bg-slate-800 text-2xl text-white">
-        <li>
-            <a href="http://localhost:4000/">
-                <figure class="flex items-center gap-2">
-                    <img src="../images/icon.jpeg" class="h-16 rounded-full" alt="Logo" />
-                    <figcaption>U'DesEv</figcaption>
-                </figure>
-            </a>
+<img id="logop" src="../pictures/logo-name.png" />
+
+<nav class="menú">
+  <ul>
+    <li id="categorias-link" class="categorias-item">
+      <button>Categorías</button>
+      <ul class="submenu" id="submenu">
+        <li class="categorias-subitem" id="publicacionesLink">
+          <button>Publicaciones</button>
+          <div class="categorias-lista" id="publicacionesLista">
+            <ul>
+              <li><button>*Arquitectura</button></li>
+              <li><button>*Carpintería</button></li>
+              <li><button>*Interiores</button></li>
+              <li><button>*Moda</button></li>
+            </ul>
+          </div>
         </li>
-        <li>
-            <a href="http://localhost:4000/BecomeSeller">Sell</a>
+        <li class="categorias-subitem" id="vendedoresLink">
+          <button>Vendedores</button>
+          <div class="categorias-lista" id="vendedoresLista">
+            <ul>
+              <li><button>*Arquitectura</button></li>
+              <li><button>*Carpintería</button></li>
+              <li><button>*Interiores</button></li>
+              <li><button>*Moda</button></li>
+            </ul>
+          </div>
         </li>
-        <li>
-            <a href="http://localhost:4000">Chats</a>
-        </li>
-        <li>
-            <a href="http://localhost:4000">Support</a>
-        </li>
-    </ul>
+      </ul>
+    </li>
+
+    <li>
+      <a href="/Chats">
+        <button>Chats</button>
+      </a>
+    </li>
+    <li>
+      <a href="Sell">
+        <button>Vender</button>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="FotoPerfil">
+  <ul>
+    <li>
+      <a href="">
+        <button>
+          <img class="Foto" src="../pictures/Profile.png" alt="" />
+        </button>
+      </a>
+    </li>
+  </ul>
 </nav>

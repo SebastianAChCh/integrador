@@ -306,3 +306,27 @@ input[type='text'] {
   color: #fff;
   cursor: pointer;
 }
+
+.disspear {
+  position: absolute;
+}
+
+@media screen and (max-width: 1098px) {
+  .chat-title {
+    position: relative;
+    color: transparent;
+    left: -1000px;
+  }
+  .back-button {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .chat-sidebar > div {
+    height: 80.5px;
+  }
+  .disspear {
+    position: relative;
+  }
+}
