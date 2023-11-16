@@ -1,157 +1,251 @@
-body {
+* {
+  font-family: 'Poppins', sans-serif;
   color: white;
-  font-family: 'Poppins';
-  align-items: center;
-  place-content: center;
-  height: 100vh;
-  background-image: url('/publicacion/img/fondo.png');
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px; /* Ajusta la altura del encabezado según tus preferencias */
-  padding: 10px; /* Añade relleno al encabezado si es necesario */
-}
-
-.header h1 {
-  margin: 0; /* Elimina el margen predeterminado del h1 */
-  color: white; /* Cambia el color del texto del h1 si es necesario */
-  font-size: 24px; /* Ajusta el tamaño del texto del h1 según tus preferencias */
-  text-align: center; /* Centra el texto horizontalmente */
-  flex: 1; /* Para que ocupe todo el espacio disponible en el encabezado */
-}
-
-.main {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  height: 70vh; /* Aumenta la altura al 80% de la altura de la ventana (viewport) */
-  border: 2px solid black;
-}
-
-.sidebar {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
-  border-radius: 5px;
-  background: #010b14;
-  order: 2; /* Poner el sidebar al final */
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 2fr 1.5fr;
-  grid-template-rows: 1fr auto;
-  grid-gap: 20px; /* Eliminar el espacio entre las columnas */
-  margin: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  order: 1; /* Poner el carrusel al principio */
-  width: 40%;
-}
-
-.item {
-  width: 100%;
-  height: 100%;
-  max-width: 400px; /* Establecer el ancho máximo de la imagen en 300 píxeles */
-  object-fit: cover; /* Recortar la imagen para que cubra todo el espacio sin deformarse */
-  border-radius: 5px;
-}
-
-.secondary {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 10px;
-}
-
-.info {
-  box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
-  border-radius: 5px;
-  background: #010b14;
-  border-radius: 5px;
-  padding: 10px;
-
-  grid-column: span 2; /* Hacer que los datos del vendedor ocupen las dos columnas */
-  display: flex;
-  flex-direction: column; /* Cambia a dirección de columna */
-  height: 100px; /* Elimina la altura fija */
-}
-
-.infoSecondary {
-  align-items: left;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.infoSecondary img {
-  width: 50px;
-  border-radius: 50%;
-}
-
-.name {
-  font-weight: bold;
-  margin: 5px 0; /* Agrega margen superior e inferior para espaciar los elementos */
-}
-
-.rating {
-  justify-content: center;
-  align-items: center;
-  color: gold;
-  margin: 5px 0; /* Agrega margen superior e inferior para espaciar los elementos */
-}
-
-.description {
-  margin-top: 5px;
-  font-style: arial;
-  font-size: 15px;
-  text-align: justify;
-}
-
-h1 {
-  font-size: 20px;
-  margin-top: 0px;
-  text-align: justify;
-  font-weight: bold;
 }
 
 body {
+  background-image: url(../pictures/FONDO.png);
+  background-size: contain;
+  background-repeat: repeat;
   margin: 0;
   padding: 0;
+  align-items: center;
+  justify-content: center;
 }
 
-.header {
+header {
+  width: 100%;
+  height: 50px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
-  height: 60px; /* Ajusta la altura del encabezado según tus preferencias */
-  padding: 10px; /* Añade relleno al encabezado si es necesario */
-}
-
-.back-button {
-  width: 40px;
-  height: 40px;
-  border: none;
   background: transparent;
+  z-index: 2;
+}
+
+.return svg {
+  width: 30px;
+  height: 30px;
+}
+
+.return {
+  width: 34px;
+  height: 34px;
+  padding: 2px;
+  margin-left: 10px;
+  position: absolute;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 100;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: #a7a7a7;
+  transition: color 0s ease;
 }
 
-.back-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+.informationcomplet {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-.arrow {
-  fill: white; /* Cambia el color de la flecha si es necesario */
-  width: 24px;
-  height: 24px;
+.profile {
+  margin: 10px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  background: #0a1319;
+  border: 2px solid #0a1319;
+  object-fit: cover;
+}
+
+.calificación {
+  height: 180px;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.name {
+  width: 400px;
+  height: 40px;
+  margin-top: 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
+  border-radius: 5px;
+  background: #010b14;
+}
+
+.proffession {
+  width: 400px;
+  height: 40px;
+  margin-top: 5px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
+  border-radius: 5px;
+  background: #010b14;
+}
+
+.chatyreport {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.chat svg {
+  fill: #a7a7a7;
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+.chat {
+  margin-right: 15px;
+  padding: 5px;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  color: #a7a7a7;
+  transition: color 0s ease;
+  background: #010b14;
+  border: 1px solid #031828;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(3, 24, 40, 0.9);
+}
+
+.report {
+  font-size: 18px;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  color: #a7a7a7;
+  transition: color 0s ease;
+  background: #010b14;
+  border: 1px solid #031828;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(3, 24, 40, 0.9);
+}
+
+.description {
+  margin-top: 10px;
+  width: 500px;
+  height: 94px;
+  margin-left: 20px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
+  border-radius: 5px;
+  background: #010b14;
+}
+
+.OpinionsSpace {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Opinions {
+  overflow-y: auto;
+  width: 800px;
+  height: 200px;
+  padding: 5px 10px;
+  box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
+  border-radius: 5px;
+  background: #010b14;
+}
+
+.publicaciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.publicacion {
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  width: 550px;
+  height: 265px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.imgprin {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  width: 340px;
+  height: 200px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secundaries {
+  position: absolute;
+  top: 0;
+  left: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.imgsec {
+  margin-top: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  width: 195px;
+  height: 97.5px;
+  object-fit: cover;
+}
+
+.descripcion {
+  margin: 5px;
+  width: 540px;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: #010b14;
+  border: 1px solid #031828;
+  box-shadow: 0 0 10px rgba(3, 24, 40, 0.9);
+}
+
+button:hover {
+  background: #031828;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }

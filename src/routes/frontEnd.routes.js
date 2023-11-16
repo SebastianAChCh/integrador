@@ -29,15 +29,9 @@ route.get('/', (req, res) => {
 });
 
 route.get('/post/:project', (req, res) => {
-  const { normalUser } = req.cookies;
   let { project } = req.params;
 
-  let navBar = '';
-  if (normalUser) navBar = 'NavBar.ejs';
-  else navBar = 'NoAccount.ejs';
-
   return res.render(join('post', 'index'), {
-    navBar,
     project,
   });
 });
@@ -102,7 +96,7 @@ route.get('/profile/:seller', authUser, (req, res) => {
   if (normalUser) navBar = 'NavBar.ejs';
   else navBar = 'NoAccount.ejs';
 
-  return res.render(join('profiles', 'index'), {
+  return res.render(join('profile', 'index'), {
     navBar,
     seller,
   });

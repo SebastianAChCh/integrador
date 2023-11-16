@@ -34,7 +34,7 @@
           <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
         </svg>
       </button>
-      <h1><%= project%></h1>
+      <h1 id="project"><%= project%></h1>
     </header>
     <!-- Agregar la sección principal con el carrusel y el sidebar -->
     <div class="main">
@@ -42,93 +42,11 @@
       <div id="container" class="container">
         <!-- Agregar el atributo data-lightbox con el mismo valor para todas las imágenes -->
         <!-- Agregar el atributo data-title con el texto que quieres mostrar debajo de cada imagen -->
-        <a
-          href="img/r-architecture-2gDwlIim3Uw-unsplash.jpg"
-          data-lightbox="galeria"
-          data-title="Imagen 1"
-          ><img src="img/r-architecture-2gDwlIim3Uw-unsplash.jpg" class="item"
-        /></a>
-        <div class="secondary">
-          <a
-            href="img/r-architecture-2gDwlIim3Uw-unsplash.jpg"
-            data-lightbox="galeria"
-            data-title="Imagen 2"
-            ><img
-              src="img/r-architecture-2gDwlIim3Uw-unsplash.jpg"
-              class="item"
-          /></a>
-          <a
-            href="img/r-architecture-2gDwlIim3Uw-unsplash.jpg"
-            data-lightbox="galeria"
-            data-title="Imagen 3"
-            ><img
-              src="img/r-architecture-2gDwlIim3Uw-unsplash.jpg"
-              class="item"
-          /></a>
-        </div>
 
         <!-- Ocultar las imágenes restantes con el estilo display:none -->
-        <a
-          href="imagen4.jpg"
-          data-lightbox="galeria"
-          data-title="Imagen 4"
-          style="display: none"
-        >
-          <img src="imagen4.jpg" class="item" />
-        </a>
-        <a
-          href="imagen5.jpg"
-          data-lightbox="galeria"
-          data-title="Imagen 5"
-          style="display: none"
-          ><img src="imagen5.jpg" class="item"
-        /></a>
-        <a
-          href="imagen6.jpg"
-          data-lightbox="galeria"
-          data-title="Imagen 6"
-          style="display: none"
-          ><img src="imagen6.jpg" class="item"
-        /></a>
-        <a
-          href="imagen7.jpg"
-          data-lightbox="galeria"
-          data-title="Imagen 7"
-          style="display: none"
-          ><img src="imagen7.jpg" class="item"
-        /></a>
-        <a
-          href="imagen8.jpg"
-          data-lightbox="galeria"
-          data-title="Imagen 8"
-          style="display: none"
-          ><img src="imagen8.jpg" class="item"
-        /></a>
-        <a
-          href="imagen9.jpg"
-          data-lightbox="galeria"
-          data-title="Imagen 9"
-          style="display: none"
-          ><img src="imagen9.jpg" class="item"
-        /></a>
-        <a
-          href="imagen10.jpg"
-          data-lightbox="galeria"
-          data-title="Imagen 10"
-          style="display: none"
-          ><img src="imagen10.jpg" class="item"
-        /></a>
 
         <!-- Agregar la sección con el nombre del usuario vendedor y su calificación -->
-        <div class="info">
-          <div class="infoSecondary">
-            <img
-              src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAxL3JtNjA5LXNvbGlkaWNvbi13LTAwMi1wLnBuZw.png"
-            />
-            <span class="name">Juan Pérez</span>
-          </div>
-          <span class="rating">★★★★☆</span>
-        </div>
+        <div id="info" class="info"></div>
       </div>
 
       <!-- Agregar la sección lateral con la descripción de la publicación -->

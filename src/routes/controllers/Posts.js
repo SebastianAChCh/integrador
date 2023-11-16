@@ -99,7 +99,6 @@ export const ShowPosts = async (req, res) => {
 
 export const ShowPost = async (req, res) => {
   const { post } = req.params;
-  console.log(post);
   try {
     const [response] = await Pool.query(
       'SELECT * FROM Posts WHERE Name_product = ?',
