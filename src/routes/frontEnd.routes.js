@@ -90,14 +90,14 @@ route.get('/Chats', authUser, (req, res) => {
 });
 
 route.get('/profile/:email', authUser, async (req, res) => {
-  const { Seller = '' } = req.cookies;
   const { email } = req.params;
   const userDataObject = {};
   const posts = {};
 
   try {
-    const verify = jwt.verify(Seller, SECRET);
-    if (Seller && verify) {
+    const [isNormalUser] = await Pool.query('CALL profile_user(?)', [email]);
+
+    if (isNormalUser[0][0].IsSeller === 1) {
       const [sellerInfoOpinions] = await Pool.query(
         'CALL Profile_Seller_User_Opinions(?)',
         [email]
@@ -129,32 +129,30 @@ route.get('/profile/:email', authUser, async (req, res) => {
         });
 
       if (sellerPost.length > 1) {
-        if (!posts[sellerPost[0].Name_product]) {
-          posts[sellerPost[0].Name_product] = {
-            Name: sellerPost[0].Name_product,
-            Description: sellerPost[0].Description,
-            Email: sellerPost[0].Email,
-            Model_Route: sellerPost[0].Model_Route,
-            Screen_Model_Route: sellerPost[0].Screen_Model_Route,
-            Type: sellerPost[0].Type,
-            Images: [],
-          };
-        } else {
-          sellerPost.forEach((post) => {
-            posts[sellerPost.Name_product].Images.push(post);
-          });
-        }
+        sellerPost.forEach((post) => {
+          if (!posts[post.ID]) {
+            posts[post.ID] = {
+              Name: post.Name_product,
+              Description: post.Description,
+              Email: post.Email,
+              Model_Route: post.Model_Route,
+              Screen_Model_Route: post.Screen_Model_Route,
+              Type: post.Type,
+              Images: [post.Route],
+            };
+          } else {
+            posts[post.ID].Images.push(post.Route);
+          }
+        });
         const postsObject = Object.values(posts);
-        console.log(posts);
-        userDataObject[sellerInfoOpinions[0][0].Names].Posts.push(postsObject);
+        userDataObject[sellerInfoOpinions[0][0].Names].Posts = postsObject;
       }
-
-      console.log(userDataObject[sellerInfoOpinions[0][0].Names]);
 
       return res.render(join('profile', 'index'), {
         data: userDataObject[sellerInfoOpinions[0][0].Names],
       });
     } else {
+      return res.send('Hello world');
     }
   } catch (error) {
     console.log('the error was', error);
@@ -162,14 +160,15 @@ route.get('/profile/:email', authUser, async (req, res) => {
 });
 
 route.get('/editProfile/:email', authUser, async (req, res) => {
-  const { Seller = '' } = req.cookies;
-  const verify = jwt.verify(Seller, SECRET);
+  const { email } = req.params;
+  const userDataObject = {};
   try {
+    const [isNormalUser] = await Pool.query('CALL profile_user(?)', [email]);
+
+    return res.render(join(''));
   } catch (error) {
     console.log(error);
   }
 });
-
-route.post('/editProfile', (req, res) => {});
 
 export default route;
