@@ -14,7 +14,7 @@ export const SingUp = async (req, res) => {
         message: 'error, the field can not be avoid',
       });
 
-    const [exist] = await Pool.query('SELECT * FROM Users WHERE Names = ?', [
+    const [exist] = await Pool.query('SELECT * FROM users WHERE Names = ?', [
       names,
     ]);
 
@@ -27,7 +27,7 @@ export const SingUp = async (req, res) => {
     const encryptPass = await bcrypt.hash(pass, 10);
 
     const [rows] = await Pool.query(
-      'INSERT INTO Users ( Names, LastNames, Email, Password, Phone, IsSeller) VALUES (?,?,?,?,?,?)',
+      'INSERT INTO users ( Names, LastNames, Email, Password, Phone, IsSeller) VALUES (?,?,?,?,?,?)',
       [names, lastnames, email, encryptPass, phone, 0]
     );
 
@@ -77,7 +77,7 @@ export const logIn = async (req, res) => {
       });
 
     const [userIS] = await Pool.query(
-      'SELECT ID, Names, Email, Password FROM Users WHERE Email = ?',
+      'SELECT ID, Names, Email, Password FROM users WHERE Email = ?',
       [email]
     );
 
@@ -152,7 +152,7 @@ export const createAccountSeller = async (req, res) => {
       });
 
     const [SellerExist] = await Pool.query(
-      'SELECT IsSeller FROM Users WHERE id = ?',
+      'SELECT IsSeller FROM users WHERE id = ?',
       [UserIs.user]
     );
 
@@ -163,7 +163,7 @@ export const createAccountSeller = async (req, res) => {
       });
 
     const [seller] = await Pool.query(
-      'INSERT INTO Seller (ID_USER, Birth_Date, ClaveElector, Curp, NoIne, NoEmision, Calificaciones) VALUES (?,?,?,?,?,?,?)',
+      'INSERT INTO seller (ID_USER, Birth_Date, ClaveElector, Curp, NoIne, NoEmision, Calificaciones) VALUES (?,?,?,?,?,?,?)',
       [UserIs.user, birth, claveElector, curp, NoIne, NoEmision, 0]
     );
 
@@ -173,7 +173,7 @@ export const createAccountSeller = async (req, res) => {
         message: 'there was an error creating the account',
       });
 
-    const [id] = await Pool.query('SELECT ID FROM Seller WHERE ID_USER = ?', [
+    const [id] = await Pool.query('SELECT ID FROM seller WHERE ID_USER = ?', [
       UserIs.user,
     ]);
 

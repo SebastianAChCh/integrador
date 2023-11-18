@@ -8,7 +8,7 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
-  const response = await fetch('http://localhost:4000/createAccount', {
+  const response = await fetch(`${location.origin}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

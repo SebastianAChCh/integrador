@@ -3,7 +3,7 @@ const form = document.getElementById('logIn');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const response = await fetch('http://localhost:4000/logIn', {
+  const response = await fetch(`${location.origin}/logIn`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

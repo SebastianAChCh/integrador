@@ -25,7 +25,7 @@ CreatePost.addEventListener('submit', async (e) => {
   });
   formData.append('type', e.target.kind.value);
 
-  const response = await fetch('http://localhost:4000/createPost', {
+  const response = await fetch(`${location.origin}/createPost`, {
     method: 'POST',
     body: formData,
   });

@@ -88,7 +88,7 @@ export const createPost = async (req, res) => {
 export const ShowPosts = async (req, res) => {
   try {
     //Esta es una view, acuerdate baboso, ya se me habia olvidado
-    const response = await Pool.query('SELECT * FROM Posts');
+    const response = await Pool.query('SELECT * FROM posts');
 
     const data = response[0];
     return res.status(200).json({ data });
@@ -101,10 +101,10 @@ export const ShowPost = async (req, res) => {
   const { post } = req.params;
   try {
     const [response] = await Pool.query(
-      'SELECT * FROM Posts WHERE Name_product = ?',
+      'SELECT * FROM posts WHERE Name_product = ?',
       [post]
     );
-    const [infoSeller] = await Pool.query('CALL Profile_Seller_User(?)', [
+    const [infoSeller] = await Pool.query('CALL profile_seller_user(?)', [
       response[0].Email,
     ]);
 

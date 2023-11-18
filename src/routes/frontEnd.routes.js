@@ -8,6 +8,7 @@ import {
 } from '../middlewares/auth.js';
 import { join } from 'path';
 import { SECRET } from '../conf.js';
+import Pool from '../db/db.js';
 
 const route = Router();
 
@@ -88,20 +89,56 @@ route.get('/Chats', authUser, (req, res) => {
   });
 });
 
-route.get('/profile/:seller', authUser, (req, res) => {
-  const { seller } = req.params;
-  const { normalUser } = req.cookies;
+route.get('/profile/:email', authUser, async (req, res) => {
+  const { Seller = '' } = req.cookies;
+  const { email } = req.params;
+  const userDataObject = {};
+  try {
+    const verify = jwt.verify(Seller, SECRET);
+    if (Seller && verify) {
+      const [sellerInfoOpinions] = await Pool.query(
+        'CALL Profile_Seller_User_Opinions(?)',
+        [email]
+      );
 
-  let navBar = '';
-  if (normalUser) navBar = 'NavBar.ejs';
-  else navBar = 'NoAccount.ejs';
+      if (!userDataObject[sellerInfoOpinions[0][0].Names]) {
+        userDataObject[sellerInfoOpinions[0][0].Names] = {
+          Names: sellerInfoOpinions[0][0].Names,
+          Email: sellerInfoOpinions[0][0].Email,
+          Description: sellerInfoOpinions[0][0].Description,
+          Profession: sellerInfoOpinions[0][0].Profession,
+          Opinions: [],
+          Raiting: sellerInfoOpinions[0][0].Calificaciones,
+          Avatar: sellerInfoOpinions[0][0].AVATAR,
+        };
+      }
 
-  return res.render(join('profile', 'index'), {
-    navBar,
-    seller,
-  });
+      if (sellerInfoOpinions[0].Opinion)
+        sellerInfoOpinions[0].forEach((opinion) => {
+          userDataObject[sellerInfoOpinions[0][0].Names].Opinions.push(
+            opinion.Opinion
+          );
+        });
+
+      return res.render(join('profile', 'index'), {
+        data: userDataObject[sellerInfoOpinions[0][0].Names],
+      });
+    } else {
+    }
+  } catch (error) {
+    console.log('the error was', error);
+  }
 });
 
-route.get('/editProfile/:email', authUser, (req, res) => {});
+route.get('/editProfile/:email', authUser, async (req, res) => {
+  const { Seller = '' } = req.cookies;
+  const verify = jwt.verify(Seller, SECRET);
+  try {
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+route.post('/editProfile', (req, res) => {});
 
 export default route;

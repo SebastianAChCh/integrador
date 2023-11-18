@@ -128,7 +128,7 @@ const createCard = ({ img1, img2, img3, title, description }) => {
 
 const loadPosts = async () => {
   const postStorage = {};
-  const response = await fetch('http://localhost:4000/loadPosts', {
+  const response = await fetch(`${location.origin}/loadPosts`, {
     method: 'GET',
   });
 

@@ -1,5 +1,8 @@
 const title = document.getElementById('title');
 const container = document.getElementById('container');
+const backButton = document.getElementById('back-button');
+
+backButton.addEventListener('click', () => history.back());
 
 const createCard = (data) => {
   const fragment = document.createDocumentFragment();
@@ -9,6 +12,7 @@ const createCard = (data) => {
   mainA.setAttribute('data-title', 'Imagen 1');
   mainImg.classList.add('item');
   mainImg.src = data.primaryImg;
+  mainA.href = data.primaryImg;
   mainA.appendChild(mainImg);
   const secondaryContainer = document.createElement('div');
   secondaryContainer.classList.add('secondary');
@@ -19,6 +23,7 @@ const createCard = (data) => {
   secondImg.src = data.secondImg;
   secondA.setAttribute('data-lightbox', 'galeria');
   secondA.setAttribute('data-title', 'Imagen 2');
+  secondA.href = data.secondImg;
   secondA.appendChild(secondImg);
   const thirdA = document.createElement('a');
   const thirdImg = document.createElement('img');
@@ -27,6 +32,7 @@ const createCard = (data) => {
   thirdImg.style = 'height: 10rem';
   thirdA.setAttribute('data-lightbox', 'galeria');
   thirdA.setAttribute('data-title', 'Imagen 3');
+  thirdA.href = data.lastImg;
   thirdA.appendChild(thirdImg);
   secondaryContainer.append(secondA, thirdA);
   const sellerInfo = document.getElementById('info');
@@ -52,7 +58,7 @@ const loadPost = async () => {
 
   const project = document.getElementById('project');
   const response = await fetch(
-    `http://localhost:4000/loadPost/${project.innerText}`,
+    `${location.origin}/loadPost/${project.innerText}`,
     { method: 'GET' }
   );
 

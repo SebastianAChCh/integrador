@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="perfilpublicovendedor.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,7 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../profile/style.css" />
-    <title>Perfil Publico Vend</title>
+    <title>Profile</title>
   </head>
   <body>
     <header>
@@ -38,14 +37,14 @@
       <section id="informationcomplet" class="informationcomplet">
         <img class="profile" src="../pictures/Profile.png" alt="" />
 
-        <img
-          class="calificación"
-          src="/FOTOSINTEGRADOR/CALIFIPERFIL5.png"
-          alt=""
-        />
+        <img class="calificación" src="../pictures/CALIFIPERFIL5.png" alt="" />
         <section class="information">
-          <p class="name">Max Morales</p>
-          <p class="proffession">Diseñador</p>
+          <%if(data.Names){%>
+          <p class="name"><%= data.Names %></p>
+          <%}%>
+          <%if(data.Profession){%>
+            <p class="proffession"><%= data.Profession %></p>
+            <%}%>
 
           <section class="chatyreport">
             <a href="">
@@ -67,17 +66,30 @@
               </button>
             </a>
 
-            <a href="">
+            <a href="/report/">
               <button class="report">Reportar</button>
             </a>
           </section>
         </section>
-        <p class="description">Descripción</p>
+        <%if(data.Description !== ''){%>
+          <p class="description"><%= data.Description %></p>
+        <%}else{%>
+          <p class="description">No description available</p>
+          <%}%>
       </section>
-
       <section class="OpinionsSpace">
-        <p class="Opinions">Opiniones</p>
-      </section>
+        <!-- Verificamos si el arreglo contiene algun dato -->
+        <% if (data.Opinions && data.Opinions.length > 0) { %>
+          <p class="Opinions">
+            <% data.Opinions.forEach((opinion) => { %>
+              <%= opinion %></br>
+            <% }); %>
+          </p>
+        <% } else { %>
+          <p>No opinions available</p>
+        <% } %>
+        
+        </section>
 
       <section class="publicaciones">
         <div class="publicacion">
@@ -181,6 +193,5 @@
         </div>
       </section>
     </main>
-    <script src="../profile/main.js"></script>
   </body>
 </html>
