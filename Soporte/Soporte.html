@@ -8,12 +8,19 @@
 </head>
 <body style="background-image: url(FONDO.png);">
     <header class="flex justify-center">
-        <img src="logo-name.png" class="h-20 self-center" alt="">
+        <button href="#">
+          <img src="logo-name.png" class="h-20 self-center" alt="">
+        </button>
     </header>	
     <div class="flex items-center justify-center p-12">
-        
+      
         <div class="mx-auto w-full max-w-[550px]">
           <form action="https://formbold.com/s/FORM_ID" method="POST">
+            <div>
+              <p class="text-gray-600">Bienvenido a la sección de soporte.</p>
+              <p class="text-gray-600"> Por favor intenta ser lo más breve posible en tu asunto.</p>
+              <br>
+            </div>
             <div class="mb-5">
               <label
                 for="name"
@@ -34,15 +41,7 @@
                 for="email"
                 class="mb-3 block text-base font-medium text-gray-300"
               >
-                Correo Electronico
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="example@domain.com"
-                class="w-full rounded-md border border-[#6b7280] bg-[#6b7280] py-3 px-6 text-base font-medium text-white outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
+              
             </div>
             <div class="mb-5">
               <label for="subject" class="mb-3 block text-base font-medium text-gray-300"> Asunto </label>
@@ -66,7 +65,9 @@
             </div>
             <div>
               <button
-                class="hover:shadow-form rounded-md bg-[#13253d] py-3 px-8 text-base font-semibold text-white outline-none"
+                class="bg-[#010b14] text-gray-600 py-2 px-4 rounded-md shadow-md shadow-[#121e25] transition-all 
+                hover:shadow-lg hover:bg-[#010e17] hover:shadow-[#13253d] hover:text-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] 
+                active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none mx-3"
               >
                 Enviar
               </button>
