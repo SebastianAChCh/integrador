@@ -104,6 +104,7 @@ export const ShowPost = async (req, res) => {
       'SELECT * FROM posts WHERE Name_product = ?',
       [post]
     );
+
     const [infoSeller] = await Pool.query('CALL profile_seller_user(?)', [
       response[0].Email,
     ]);

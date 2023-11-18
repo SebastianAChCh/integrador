@@ -93,12 +93,19 @@ route.get('/profile/:email', authUser, async (req, res) => {
   const { Seller = '' } = req.cookies;
   const { email } = req.params;
   const userDataObject = {};
+  const posts = {};
+
   try {
     const verify = jwt.verify(Seller, SECRET);
     if (Seller && verify) {
       const [sellerInfoOpinions] = await Pool.query(
         'CALL Profile_Seller_User_Opinions(?)',
         [email]
+      );
+
+      const [sellerPost] = await Pool.query(
+        'SELECT * FROM posts WHERE Email = ?',
+        [sellerInfoOpinions[0][0].Email]
       );
 
       if (!userDataObject[sellerInfoOpinions[0][0].Names]) {
@@ -108,17 +115,41 @@ route.get('/profile/:email', authUser, async (req, res) => {
           Description: sellerInfoOpinions[0][0].Description,
           Profession: sellerInfoOpinions[0][0].Profession,
           Opinions: [],
+          Posts: [],
           Raiting: sellerInfoOpinions[0][0].Calificaciones,
           Avatar: sellerInfoOpinions[0][0].AVATAR,
         };
       }
 
-      if (sellerInfoOpinions[0].Opinion)
+      if (!sellerInfoOpinions[0].Opinion)
         sellerInfoOpinions[0].forEach((opinion) => {
           userDataObject[sellerInfoOpinions[0][0].Names].Opinions.push(
             opinion.Opinion
           );
         });
+
+      if (sellerPost.length > 1) {
+        if (!posts[sellerPost[0].Name_product]) {
+          posts[sellerPost[0].Name_product] = {
+            Name: sellerPost[0].Name_product,
+            Description: sellerPost[0].Description,
+            Email: sellerPost[0].Email,
+            Model_Route: sellerPost[0].Model_Route,
+            Screen_Model_Route: sellerPost[0].Screen_Model_Route,
+            Type: sellerPost[0].Type,
+            Images: [],
+          };
+        } else {
+          sellerPost.forEach((post) => {
+            posts[sellerPost.Name_product].Images.push(post);
+          });
+        }
+        const postsObject = Object.values(posts);
+        console.log(posts);
+        userDataObject[sellerInfoOpinions[0][0].Names].Posts.push(postsObject);
+      }
+
+      console.log(userDataObject[sellerInfoOpinions[0][0].Names]);
 
       return res.render(join('profile', 'index'), {
         data: userDataObject[sellerInfoOpinions[0][0].Names],

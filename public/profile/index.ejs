@@ -41,10 +41,9 @@
         <section class="information">
           <%if(data.Names){%>
           <p class="name"><%= data.Names %></p>
+          <%}%> <%if(data.Profession){%>
+          <p class="proffession"><%= data.Profession %></p>
           <%}%>
-          <%if(data.Profession){%>
-            <p class="proffession"><%= data.Profession %></p>
-            <%}%>
 
           <section class="chatyreport">
             <a href="">
@@ -72,26 +71,25 @@
           </section>
         </section>
         <%if(data.Description !== ''){%>
-          <p class="description"><%= data.Description %></p>
+        <p class="description"><%= data.Description %></p>
         <%}else{%>
-          <p class="description">No description available</p>
-          <%}%>
+        <p class="description">No description available</p>
+        <%}%>
       </section>
       <section class="OpinionsSpace">
         <!-- Verificamos si el arreglo contiene algun dato -->
         <% if (data.Opinions && data.Opinions.length > 0) { %>
-          <p class="Opinions">
-            <% data.Opinions.forEach((opinion) => { %>
-              <%= opinion %></br>
-            <% }); %>
-          </p>
+        <p class="Opinions">
+          <% data.Opinions.forEach((opinion) => { %>
+          <br />
+          <%= opinion %> <% }); %>
+        </p>
         <% } else { %>
-          <p>No opinions available</p>
+        <p>No opinions available</p>
         <% } %>
-        
-        </section>
-
+      </section>
       <section class="publicaciones">
+        <%data.Posts.forEach((post) => {%>
         <div class="publicacion">
           <img
             class="imgprin"
@@ -111,86 +109,12 @@
             />
           </div>
           <p class="descripcion">
-            Title: Vestido
+            Title: <%= post.Name%>
             <br />
-            Descripcion: Vestido estilo contemporaneo, inspirado en ...
+            Descripcion: <%= post.Description%>
           </p>
         </div>
-
-        <div class="publicacion">
-          <img
-            class="imgprin"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6DC7eJwFSwtZcokEOsbzN0CheAFwAMuNrYnW-_fB9lhjWihN5vkg2VJsvCFrm92y8w4&usqp=CAU"
-            alt=""
-          />
-          <div class="secundaries">
-            <img
-              class="imgsec"
-              src="https://image.winudf.com/v2/image1/Y29tLmJ1Z2hhdHMuRHJhd2luZ0Zhc2hpb25DbG90aGVzRGVzaWduX3NjcmVlbl80XzE1NDIzOTM0MTJfMDk3/screen-4.jpg?fakeurl=1&type=.webp"
-              alt=""
-            />
-            <img
-              class="imgsec"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbBALp69ozg1O-YPQJFyl7W66c0AbsVpfRKhsW6sjx_7Tw7csm-ySKjQfMZJjw2IszVy8&usqp=CAU"
-              alt=""
-            />
-          </div>
-          <p class="descripcion">
-            Title: Vestido
-            <br />
-            Descripcion: Vestido estilo contemporaneo, inspirado en ...
-          </p>
-        </div>
-
-        <div class="publicacion">
-          <img
-            class="imgprin"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6DC7eJwFSwtZcokEOsbzN0CheAFwAMuNrYnW-_fB9lhjWihN5vkg2VJsvCFrm92y8w4&usqp=CAU"
-            alt=""
-          />
-          <div class="secundaries">
-            <img
-              class="imgsec"
-              src="https://image.winudf.com/v2/image1/Y29tLmJ1Z2hhdHMuRHJhd2luZ0Zhc2hpb25DbG90aGVzRGVzaWduX3NjcmVlbl80XzE1NDIzOTM0MTJfMDk3/screen-4.jpg?fakeurl=1&type=.webp"
-              alt=""
-            />
-            <img
-              class="imgsec"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbBALp69ozg1O-YPQJFyl7W66c0AbsVpfRKhsW6sjx_7Tw7csm-ySKjQfMZJjw2IszVy8&usqp=CAU"
-              alt=""
-            />
-          </div>
-          <p class="descripcion">
-            Title: Vestido
-            <br />
-            Descripcion: Vestido estilo contemporaneo, inspirado en ...
-          </p>
-        </div>
-
-        <div class="publicacion">
-          <img
-            class="imgprin"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIaDGrW44yiZFBaLk7b5I_G6GpTN6zZ61XxQ&usqp=CAU"
-            alt=""
-          />
-          <div class="secundaries">
-            <img
-              class="imgsec"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsDMUEsrxYdco7F3mkwqNJn-5x-6Rv4DmjgASkeFj1BLQJANZy5XGysPLXb9C6t-L2XSU&usqp=CAU"
-              alt=""
-            />
-            <img
-              class="imgsec"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfhVuf96xnJDYn-UDeKysQFTq5lbLFkMrgvg&usqp=CAU"
-              alt=""
-            />
-          </div>
-          <p class="descripcion">
-            Title: Vestido
-            <br />
-            Descripcion: Vestido estilo contemporaneo, inspirado en ...
-          </p>
-        </div>
+        <%});%>
       </section>
     </main>
   </body>
