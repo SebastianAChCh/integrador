@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:ital,wght@0,100;1,900&family=Sulphur+Point:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="signup.css" />
+  </head>
+  <body>
+    <div class="main-container"></div>
+    <div class="flex-container">
+      <div class="logo-container">
+        <a href=>
+          <img
+            class="logo"
+            src="/registrarvendedor/img/logo.png"
+            alt="Your Company"
+          />
+        </a>
+        <h2 class="title">Registra tus datos</h2>
+      </div>
+
+      <div class="form-container">
+        <form action="#" method="POST" class="form">
+          <div class="form-group">
+            <label for="fechanac" class="label">Fecha de nacimiento</label>
+            <div class="input-container">
+              <input
+                id="fechanac"
+                name="fechanac"
+                type="date"
+                class="input"
+                required
+              />
+              <!-- Cambiado de 'tel' a 'date' -->
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="label">Clave de elector</label>
+            <div class="input-container">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="label">CURP</label>
+            <div class="input-container">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password" class="label">No. de INE</label>
+            <div class="input-container">
+              <input
+                id="confirm-password"
+                name="confirm-password"
+                type="password"
+                autocomplete="current-password"
+                required
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password" class="label">No. de emisión</label>
+            <div class="input-container">
+              <input
+                id="confirm-password"
+                name="confirm-password"
+                type="password"
+                autocomplete="current-password"
+                required
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="button">Registrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
