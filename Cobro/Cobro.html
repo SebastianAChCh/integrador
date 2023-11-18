@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    <script defer src="https://unpkg.com/alpinejs@3.2.2/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <body>
+      <body style="background-image: url(FONDO.png);">
+      <header class="flex justify-center">
+        <a href="#"><img src="logo-name.png" class="h-20 self-center" alt=""></a>
+      </header>	
+
+      <body class="bg-gray-200 p-8">
+
+        <div class="max-w-md mx-auto bg-[#010b14] p-6 rounded-md shadow-md">
+            <h2 class="text-2xl font-semibold mb-4 text-white">Subir Archivo</h2>
+    
+
+            <form action="/ruta-de-tu-servidor" method="post" enctype="multipart/form-data">
+                <div class="mb-4">
+                    <label for="archivo" class="block text-gray-700 text-sm font-bold mb-2">Seleccionar Archivo</label>
+                    <input type="file" name="archivo" id="archivo" class="w-full rounded-md py-2 px-3 text-gray-600">
+                </div>
+
+                <div class="mb-4">
+                    <!-- No supe como limitarlo a que fuera sólo entrada de números con el formato-->
+                    <label for="miEntrada" class="bg-[#6b7280 ]block text-gray-700 text-sm font-bold mb-2">Ingresa el monto a cobrar</label>
+                    <input
+                        type="text"
+                        id="miEntrada"
+                        name="miEntrada"
+                        placeholder="$00.00"
+                        class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                    >
+                </div>
+    
+                <button type="submit" class="bg-[#010b14] text-gray-600 py-2 px-4 rounded-md shadow-md shadow-[#121e25] transition-all 
+                hover:shadow-lg hover:bg-[#010e17] hover:shadow-[#13253d] hover:text-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] 
+                active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none mx-3">Aceptar</button>
+            </form>
+
+            
+            
+        </div>
+        
+        
+    </body>
+    </html>
