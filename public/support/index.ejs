@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body style="background-image: url(../pictures/FONDO.png);">
+    <header class="flex justify-center">
+        <button href="#">
+          <img src="../pictures/logo-name.png" class="h-20 self-center" alt="">
+        </button>
+    </header>	
+    <div class="flex items-center justify-center p-12">
+      
+        <div class="mx-auto w-full max-w-[550px]">
+          <form id="form">
+            <div>
+              <p class="text-gray-600">Bienvenido a la sección de soporte.</p>
+              <p class="text-gray-600"> Por favor intenta ser lo más breve posible en tu asunto.</p>
+              <br>
+            </div>
+            <div class="mb-5">
+              <label
+                for="name"
+                class="mb-3 block text-base font-medium text-gray-300"
+              >
+                Nombre Completo
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Nombre Completo"
+                class="w-full rounded-md border border-[#6b7280] bg-[#6b7280] py-3 px-6 text-base font-medium text-white outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+            <div class="mb-5">
+              <label
+                for="email"
+                class="mb-3 block text-base font-medium text-gray-300"
+              >
+              
+            </div>
+            <div class="mb-5">
+              <label for="issue" class="mb-3 block text-base font-medium text-gray-300"> Asunto </label>
+              <input
+                type="text"
+                name="issue"
+                id="issue"
+                placeholder="Escribe tu asunto"
+                class="w-full rounded-md border border-[#6b7280] bg-[#6b7280] py-3 px-6 text-base font-medium text-white outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+            <div class="mb-5">
+              <label for="message" class="mb-3 block text-base font-medium text-gray-300"> Describe tu problema </label>
+              <textarea
+                rows="4"
+                name="message"
+                id="message"
+                placeholder="Problema..."
+                class="w-full resize-none rounded-md border border-[#6b7280] bg-[#6b7280] py-3 px-6 text-base font-medium text-white outline-none focus:border-[#6A64F1] focus:shadow-md"
+              ></textarea>
+            </div>
+            <div>
+              <button
+                class="bg-[#010b14] text-gray-600 py-2 px-4 rounded-md shadow-md shadow-[#121e25] transition-all 
+                hover:shadow-lg hover:bg-[#010e17] hover:shadow-[#13253d] hover:text-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] 
+                active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none mx-3"
+              >
+                Enviar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <script src="../support/main.js"></script>
+  </body>
+
+</html>

@@ -10,6 +10,7 @@ import Payments from './routes/payloads.routes.js';
 import UserPublicData from './routes/userPublicData.routes.js';
 import Messages from './routes/messages.routes.js';
 import session from 'express-session';
+import Email from './routes/email.routes.js';
 import { SECRET } from './conf.js';
 
 const app = express();
@@ -41,6 +42,7 @@ app.use(Sessions);
 app.use(Post);
 app.use(Messages);
 app.use(UserPublicData);
+app.use(Email);
 app.use(FrontEnd);
 
 let users = [];

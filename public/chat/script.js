@@ -7,6 +7,7 @@ const chatForm = document.getElementById('chat-form');
 let messageInput;
 let chatMessages;
 let Form;
+let createPayload;
 const chatTitle = document.querySelector('.chat-header h2');
 const backButton = document.querySelector('.back-button');
 
@@ -73,7 +74,8 @@ const loadForm = () => {
   <form id="form" class="form">
   <input type="text" name="messageInput" id="message-input" placeholder="Escribe un mensaje..."/>
   <input type="submit" value="Send" id="send-button" />
-  </form>`;
+  </form>
+  <button id="createPayload" style="font-size: 10px;">Create payload</button>`;
 
   Form = document.getElementById('form');
   const attachButton = document.getElementById('attach-button');
@@ -82,7 +84,12 @@ const loadForm = () => {
 
   messageInput = document.getElementById('message-input');
   chatMessages = document.getElementById('chat-messages');
+  createPayload = document.getElementById('createPayload');
 
+  createPayload.addEventListener('click', (e) => {
+    const windowPayload = document.getElementById('windowPayload');
+    windowPayload.showModal();
+  });
   handleSendMessages(currentUser);
 };
 

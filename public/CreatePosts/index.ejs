@@ -1,67 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:ital,wght@0,100;1,900&family=Sulphur+Point:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/CreatePosts/style.css" />
+    <link rel="stylesheet" href="../CreatePosts/style.css" />
     <title>U'DesEv</title>
   </head>
-
-  <body class="bg-slate-900 text-white">
-    <header></header>
-    <nav>
-      <ul
-        class="flex justify-around h-20 items-center px-8 bg-slate-800 text-2xl text-white"
-      >
-        <li>
-          <a href="http://localhost:4000/">
-            <figure class="flex items-center gap-2">
-              <img
-                src="../images/icon.jpeg"
-                class="h-16 rounded-full"
-                alt="Logo"
-              />
-              <figcaption>U'DesEv</figcaption>
-            </figure>
-          </a>
-        </li>
-        <li>
-          <a href="http://localhost:4000/BecomeSeller">Sell</a>
-        </li>
-        <li>
-          <a href="http://localhost:4000/CreateAccount">SignUp</a>
-        </li>
-      </ul>
-    </nav>
+  <body>
+    <header>
+      <img class="logo" src="../pictures/logo.png" alt="Your Company" />
+    </header>
     <main>
-      <section class="container-form">
-        <form class="CreatePost" id="CreatePost" enctype="multipart/form-data">
-          <label for="name">Name:</label>
-          <input class="text-black" type="text" name="name" />
+      <div class="flex-container">
+        <div class="logo-container">
+          <h2 class="title">Crea tu publicación</h2>
+        </div>
+        <div class="flex-container">
+          <form
+            method="post"
+            enctype="multipart/form-data"
+            id="CreatePost"
+            class="form-container"
+          >
+            <div class="form-group">
+              <label for="titulo" class="label">Título de la publicación</label>
+              <div class="input-container">
+                <input
+                  id="title"
+                  name="title"
+                  type="text"
+                  required
+                  class="input"
+                />
+              </div>
+            </div>
 
-          <label for="description">Description:</label>
-          <textarea class="text-black" name="description"></textarea>
+            <div class="form-group">
+              <label for="descripcion" class="label"
+                >Descripción del diseño</label
+              >
+              <div class="input-container">
+                <input
+                  id="description"
+                  name="description"
+                  type="text"
+                  required
+                  class="input"
+                />
+              </div>
+            </div>
 
-          <label for="cost">Cost</label>
-          <input class="text-black" type="number" name="cost" />
+            <div class="form-group">
+              <label for="descripcion" class="label">Precio</label>
+              <div class="input-container">
+                <input
+                  id="cost"
+                  name="cost"
+                  type="number"
+                  required
+                  class="input"
+                  min="1"
+                />
+              </div>
+            </div>
 
-          <label for="files">Images and model 3D</label>
-          <input class="text-black" type="file" name="files" multiple />
+            <div class="form-group">
+              <label for="archivo-3d" class="label"
+                >Imagen del diseño 3D principal</label
+              >
+              <div class="input-container">
+                <input
+                  id="screen"
+                  name="screen"
+                  type="file"
+                  required
+                  class="input"
+                />
+              </div>
+            </div>
 
-          <label for="screen">Screenshot of the model 3D</label>
-          <input class="text-black" type="file" name="screen" />
+            <div class="form-group">
+              <label for="imagenes" class="label">Tipo de publicación</label>
+              <div class="input-container">
+                <select name="type" class="input" style="width: 100%">
+                  <%result.forEach(type => {%>
+                  <option value="<%= type.ID%>"><%= type.Type%></option>
+                  <%});%>
+                </select>
+              </div>
+            </div>
 
-          <label for="kind">Type:</label>
-          <input class="text-black" type="number" name="kind" max="2" />
+            <div class="form-group">
+              <label for="imagenes" class="label">Imagenes y/o diseño 3D</label>
+              <div class="input-container">
+                <input
+                  id="imagenesModelo3d"
+                  name="imagenesModelo3d"
+                  type="file"
+                  multiple
+                  class="input"
+                />
+              </div>
+            </div>
 
-          <div>
-            <input type="submit" value="Create Post" />
-          </div>
-        </form>
-      </section>
+            <div class="form-group">
+              <input type="submit" class="button" value="Crear publicación" />
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
-    <script src="/CreatePosts/main.js"></script>
+    <script src="../CreatePosts/main.js"></script>
   </body>
 </html>

@@ -7,12 +7,11 @@ import { MulterError } from 'multer';
 export const createPost = async (req, res) => {
   try {
     const { Seller } = req.cookies;
-
     const imagesArr = [];
     let screen = '';
 
     uploadImages(req, res, async (err) => {
-      if (err instanceof MulterError || err) {
+      if (err instanceof MulterError) {
         return res.status(400).json({
           status: 'failed',
           message:
@@ -28,7 +27,7 @@ export const createPost = async (req, res) => {
           const pos = req.files[i].originalname.lastIndexOf('.');
           const names = req.files[i].originalname.slice(0, pos);
 
-          if (mimeType[1] === 'octet-stream') path = req.files[i].path;
+          if (mimeType[1] === 'gltf-binary') path = req.files[i].path;
           else if (names === 'screen') {
             screen = req.files[i].path;
           } else imagesArr.push(req.files[i].path);

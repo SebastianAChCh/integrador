@@ -5,7 +5,7 @@ CreatePost.addEventListener('submit', async (e) => {
 
   const formData = new FormData();
 
-  formData.append('name', e.target.name.value);
+  formData.append('name', e.target.title.value);
   formData.append('description', e.target.description.value);
   formData.append('cost', e.target.cost.value);
 
@@ -16,14 +16,13 @@ CreatePost.addEventListener('submit', async (e) => {
     type: screen.type,
   });
 
-  const arrFiles = Object.values(e.target.files.files);
-
+  const arrFiles = Object.values(e.target.imagenesModelo3d.files);
   arrFiles.push(modifiedFile);
-
   arrFiles.forEach((file) => {
     formData.append(`files`, file);
   });
-  formData.append('type', e.target.kind.value);
+
+  formData.append('type', e.target.type.value);
 
   const response = await fetch(`${location.origin}/createPost`, {
     method: 'POST',

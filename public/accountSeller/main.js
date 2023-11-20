@@ -1,4 +1,4 @@
-const form = document.getElementById('volverseVendedor');
+const form = document.getElementById('seller');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -13,7 +13,7 @@ form.addEventListener('submit', async (e) => {
       NoIne: e.target.noine.value,
       curp: e.target.curp.value,
       claveElector: e.target.claveelector.value,
-      birth: e.target.cumpleanos.value,
+      birth: e.target.date.value,
     }),
   });
 

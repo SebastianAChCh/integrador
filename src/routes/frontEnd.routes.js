@@ -9,7 +9,6 @@ import {
 import { join } from 'path';
 import { SECRET } from '../conf.js';
 import Pool from '../db/db.js';
-import { createCipheriv } from 'crypto';
 
 const route = Router();
 
@@ -40,15 +39,18 @@ route.get('/post/:project', (req, res) => {
   });
 });
 
-route.get('/createPublication', authUser, authSeller, (req, res) => {
-  const { normalUser } = req.cookies;
-  let navBar = '';
-  if (normalUser) navBar = 'NavBar.ejs';
-  else navBar = 'NoAccount.ejs';
+route.get('/createPublication', authUser, authSeller, async (req, res) => {
+  try {
+    const connection = await Pool.getConnection();
+    const [result] = await connection.query('SELECT * FROM catalog_designs');
 
-  return res.render(join('CreatePosts', 'index'), {
-    navBar,
-  });
+    connection.supportrelease();
+    return res.render(join('CreatePosts', 'index'), {
+      result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 //Iniciar sesion
@@ -70,9 +72,7 @@ route.get('/CreateAccount', userExist, (_req, res) => {
 });
 
 route.get('/Sell', sellerExist, (req, res) => {
-  return res.sendFile('index.html', {
-    root: join(process.cwd(), 'public', 'Account', 'accountSeller'),
-  });
+  return res.render(join('accountSeller', 'index'));
 });
 
 route.get('/Chats/:email', authUser, (req, res) => {
@@ -85,7 +85,7 @@ route.get('/Chats/:email', authUser, (req, res) => {
 
 route.get('/Chats', authUser, (req, res) => {
   let email = null;
-  console.log(req.session.saludo);
+
   return res.render(join('chat', 'index'), {
     email,
     separacion: false,
@@ -213,6 +213,10 @@ route.get('/sellers/:type', async (req, res) => {
     type,
     navBar,
   });
+});
+
+route.get('/support', (req, res) => {
+  return res.render(join('support', 'index'));
 });
 
 export default route;
