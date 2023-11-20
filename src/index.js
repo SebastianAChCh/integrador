@@ -9,6 +9,8 @@ import FrontEnd from './routes/frontEnd.routes.js';
 import Payments from './routes/payloads.routes.js';
 import UserPublicData from './routes/userPublicData.routes.js';
 import Messages from './routes/messages.routes.js';
+import session from 'express-session';
+import { SECRET } from './conf.js';
 
 const app = express();
 
@@ -21,8 +23,17 @@ const io = new Server(server, {
 
 app.use(express.static(join(process.cwd(), 'public')));
 app.use(express.urlencoded({ extended: false }));
+app.use(
+  session({
+    secret: SECRET,
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
 app.set('view engine', 'ejs');
 app.set('views', join(process.cwd(), 'public'));
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(Payments);

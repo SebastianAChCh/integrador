@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.2.2/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <body style="background-image: url(../pictures/FONDO.png)">
+      <header class="flex justify-center">
+        <a href="#"
+          ><img src="logo-name.png" class="h-20 self-center" alt=""
+        /></a>
+      </header>
+
+      <div class="max-w-lg mx-auto my-10 bg-[#0a161f] rounded-lg shadow-md p-5">
+        <%if(data){%>
+        <img
+          class="w-32 h-32 rounded-full mx-auto bg-[#0a1319]"
+          src="../<%= data.AVATAR%>"
+          alt=""
+        />
+        <h2 class="text-center text-white text-2xl font-semibold mt-3">
+          <%= data.Names%>
+        </h2>
+        <%}%>
+
+        <div class="flex justify-center mt-5">
+          <button
+            href="#"
+            class="bg-[#010b14] text-gray-600 py-2 px-4 rounded-md shadow-md shadow-[#121e25] transition-all hover:shadow-lg hover:bg-[#010e17] hover:shadow-[#13253d] hover:text-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none mx-3"
+          >
+            Reportar
+          </button>
+        </div>
+      </div>
+    </body>
+  </head>
+</html>

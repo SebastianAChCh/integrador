@@ -3,93 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./MainPage/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://unpkg.com/three@<version>/build/three.module.js",
-          "three/addons/": "https://unpkg.com/three@<version>/examples/jsm/"
-        }
-      }
-    </script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap"
       rel="stylesheet"
     />
-
-    <title>Main page</title>
+    <link rel="stylesheet" href="../categories/style.css" />
+    <title>Publicación <%= category%></title>
   </head>
   <body>
-    <div id="container">
-      <div class="container-header">
-        <div class="carousel">
-          <button id="prevBtn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-chevron-left"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-              />
-            </svg>
-          </button>
-
-          <div class="carousel-container">
-            <a href="/category/architecture" class="slide">
-              <img
-                class="imgcarrousel"
-                src="../pictures/Arquitectura.png"
-                alt=""
-              />
-            </a>
-            <a href="/category/carpentry" class="slide">
-              <img
-                class="imgcarrousel"
-                src="../pictures/Carpintería.png"
-                alt=""
-              />
-            </a>
-            <a href="/category/interiors" class="slide">
-              <img
-                class="imgcarrousel"
-                src="../pictures/Interiores.png"
-                alt=""
-              />
-            </a>
-            <a href="/category/fashion" class="slide">
-              <img class="imgcarrousel" src="../pictures/Moda.png" alt="" />
-            </a>
-          </div>
-          <button id="nextBtn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-chevron-right"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <header id="container-links">
-          <%- include('../partitions/'+navBar)%>
-        </header>
-      </div>
-
-      <div class="clearfix"></div>
+    <main>
+      <header><%- include('../partitions/'+navBar)%></header>
       <div id="temp" style="display: none; height: 37px"></div>
       <div class="searchBox" id="searchBox">
         <input class="searchInput" type="text" name="" placeholder="Buscar" />
@@ -165,36 +89,32 @@
         </button>
       </div>
 
-      <div class="clearfix"></div>
+      <h2 id="category"><%= category%></h2>
 
-      <main>
-        <h2>Destacados</h2>
+      <section id="posts" class="publicaciones"></section>
+    </main>
 
-        <section id="publicaciones" class="publicaciones"></section>
-      </main>
-
-      <footer>
-        <nav class="footer">
-          <ul>
-            <li>
-              <a href="/aboutUs">
-                <button>Sobre nosotros</button>
-              </a>
-            </li>
-            <li>
-              <a href="/support">
-                <button>Soporte</button>
-              </a>
-            </li>
-            <li>
-              <a href="/terms&conditions">
-                <button>Términos y Condiciones</button>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </footer>
-    </div>
-    <script src="../MainPage/menu.js"></script>
+    <footer>
+      <nav class="patas">
+        <ul>
+          <li>
+            <a href="">
+              <button>Sobre nosotros</button>
+            </a>
+          </li>
+          <li>
+            <a href="/Soporte/Soporte.html">
+              <button>Soporte</button>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <button>Términos y Condiciones</button>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+    <script src="../categories/main.js"></script>
   </body>
 </html>

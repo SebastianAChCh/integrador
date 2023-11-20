@@ -121,3 +121,29 @@ export const ShowPost = async (req, res) => {
     console.log(error);
   }
 };
+
+export const loadPostsByType = async (req, res) => {
+  const { category } = req.params;
+  console.log(category);
+  try {
+    const [response] = await Pool.query('SELECT * FROM posts WHERE Type = ?', [
+      category,
+    ]);
+
+    if (response.length < 1) {
+      return res.status(404).json({
+        status: 'failed',
+        message: 'does not exist posts of',
+      });
+    }
+
+    return res.status(200).json({
+      status: 'ok',
+      posts: response,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editPost = async () => {};

@@ -4,6 +4,8 @@ const publicacionesLista = document.getElementById('publicacionesLista');
 const vendedoresLista = document.getElementById('vendedoresLista');
 const searchBox = document.getElementById('searchBox');
 const temp = document.getElementById('temp');
+const publicacionesLink = document.getElementById('publicacionesLink');
+const vendedoresLink = document.getElementById('vendedoresLink');
 
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
@@ -56,9 +58,6 @@ categoriasLink.addEventListener('click', function (event) {
 
   event.stopPropagation();
 });
-
-const publicacionesLink = document.getElementById('publicacionesLink');
-const vendedoresLink = document.getElementById('vendedoresLink');
 
 publicacionesLink.addEventListener('click', function (event) {
   vendedoresLista.style.display = 'none';

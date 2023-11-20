@@ -5,7 +5,7 @@ export const saveMessages = async (req, res) => {
   const { receiver, sender, message, type } = req.body;
   try {
     const [responseMessages] = await Pool.query(
-      'INSERT INTO Messages (EMAIL_SENDER, EMAIL_RECEIVER, Message, Type, OriginalName,Date) VALUES (?,?,?,?,"",NOW())',
+      'INSERT INTO messages (EMAIL_SENDER, EMAIL_RECEIVER, Message, Type, OriginalName,Date) VALUES (?,?,?,?,"",NOW())',
       [sender, receiver, message, type]
     );
 
@@ -28,7 +28,7 @@ export const saveFiles = async (req, res) => {
       const file = req.file;
 
       const [filesSaved] = await Pool.query(
-        'INSERT INTO Messages (EMAIL_RECEIVER, EMAIL_SENDER, Message, Type, OriginalName,Date) VALUES(?,?,?,?,?,NOW())',
+        'INSERT INTO messages (EMAIL_RECEIVER, EMAIL_SENDER, Message, Type, OriginalName,Date) VALUES(?,?,?,?,?,NOW())',
         [receiver, sender, file.path, type, file.originalname]
       );
 
@@ -48,7 +48,7 @@ export const loadMessages = async (req, res) => {
 
   try {
     const [messages] = await Pool.query(
-      'SELECT Message, Type, EMAIL_SENDER, EMAIL_RECEIVER, OriginalName FROM Messages WHERE (EMAIL_SENDER = ? AND EMAIL_RECEIVER = ?) OR (EMAIL_SENDER = ? AND EMAIL_RECEIVER = ?)',
+      'SELECT Message, Type, EMAIL_SENDER, EMAIL_RECEIVER, OriginalName FROM messages WHERE (EMAIL_SENDER = ? AND EMAIL_RECEIVER = ?) OR (EMAIL_SENDER = ? AND EMAIL_RECEIVER = ?)',
       [me, other, other, me]
     );
 
@@ -65,7 +65,7 @@ export const loadContacts = async (req, res) => {
 
   try {
     const [users] = await Pool.query(
-      'SELECT EMAIL_RECEIVER, EMAIL_SENDER, Message, Date FROM Messages WHERE EMAIL_RECEIVER = ? OR EMAIL_SENDER = ?',
+      'SELECT EMAIL_RECEIVER, EMAIL_SENDER, Message, Date FROM messages WHERE EMAIL_RECEIVER = ? OR EMAIL_SENDER = ?',
       [email, email]
     );
 
