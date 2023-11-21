@@ -132,12 +132,11 @@ header {
     cursor: pointer;
     outline: none;
     text-decoration: none;
-    color: #A7A7A7;
+    color: white;
     transition: color 0.0s ease;
 }
 
 .menú button:hover {
-    color: white;
     transform: translateY(-2px);
 }
 
@@ -172,13 +171,12 @@ header {
     cursor: pointer;
     outline: none;
     text-decoration: none;
-    color: #A7A7A7;
+    color: white;
     transition: color 0.0s ease;
     margin-right: 5px;
 }
 
 .submenu button:hover {
-    color: white;
     transform: translateY(-2px);
 }
 
@@ -208,13 +206,12 @@ header {
     cursor: pointer;
     outline: none;
     text-decoration: none;
-    color: #A7A7A7;
+    color: white;
     transition: color 0.0s ease;
 }
 
 .categorias-lista button:hover {
     text-decoration: underline;
-    color: white;
     transform: translateY(-2px);
 }
 
@@ -261,16 +258,60 @@ header {
     cursor: pointer;
     outline: none;
     text-decoration: none;
-    color: #A7A7A7;
     transition: color 0.0s ease;
 }
 
 .FotoPerfil button:hover {
+    transform: translateY(-2px);
+}
+
+.FotoPerfil .perfil-options {
+    margin-top: -2px;
+    text-align: center; 
+    list-style: none;
+    justify-content: center;
+    display: flex;
+    width: 120px;
+}
+
+.FotoPerfil .perfil-options ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 120px;
+}
+
+.FotoPerfil .perfil-options li {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin-top: 5px;
+    margin-right: 43px;
+    width: 150px;
+}
+
+.FotoPerfil .perfil-options button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
     color: white;
+    transition: color 0.0s ease;
+}
+
+.FotoPerfil .perfil-options button:hover {
     transform: translateY(-2px);
 }
 
 #searchBox {
+    margin-top: 60px;
     display: block;
     position: relative;
 }
@@ -333,7 +374,7 @@ header {
 
 main{
     position: relative;
-    margin-top: 230px;
+    margin-top: 170px;
 }
 
 h2{
@@ -401,20 +442,34 @@ height: 97.5px;
 object-fit: cover;
 }
 
-.descripcion{
-    margin: 5px;
+.infopubli{
     width: 540px;
     height: 50px;
     position: absolute;
     bottom: 0;
     left: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    padding-left: 10px;
     border-radius: 5px;
     background: #010b14;
     border: 1px solid #031828;
     box-shadow: 0 0 10px rgba(3, 24, 40, 0.9);
+    text-align: left;
+}
+
+.titulop{
+margin: 0;
+height: 15px;
+}
+
+.descripcionp{
+    display: flex;
+justify-content: flex-start;
+margin: 0;
+margin-top: 5px;
+height: auto;
 }
 
 footer{
