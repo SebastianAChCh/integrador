@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link rel="stylesheet" type="text/css" href="calificardiseñador.css" />
+    <script src="calificardiseñador.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:ital,wght@0,100;1,900&family=Sulphur+Point:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="/signin/signin/img/logo.png" alt="Your Company" />
+    </header>
+    <div id="modal">
+      <div id="modal-content">
+        <p id="modal-text"></p>
+        <button id="acceptModal" onclick="acceptModal()">Aceptar</button>
+      </div>
+    </div>
+
+    <main>
+      <div id="container">
+        <img
+          id="userImage"
+          src="/chat/CHAT/img/iStock-1409540606.jpg"
+          alt="Imagen de usuario"
+        />
+        <div id="nombreperfil">
+          <h2>Johan Bader</h2>
+        </div>
+        <div class="rating">
+          <img
+            src="/calificardiseñador/img/CALIFIPERFIL1.png"
+            alt="Estrella vacía"
+            onmouseover="hoverRating(1)"
+            onclick="rate(1)"
+          />
+          <img
+            src="/calificardiseñador/img/CALIFIPERFIL1.png"
+            alt="Estrella vacía"
+            onmouseover="hoverRating(2)"
+            onclick="rate(2)"
+          />
+          <img
+            src="/calificardiseñador/img/CALIFIPERFIL1.png"
+            alt="Estrella vacía"
+            onmouseover="hoverRating(3)"
+            onclick="rate(3)"
+          />
+          <img
+            src="/calificardiseñador/img/CALIFIPERFIL1.png"
+            alt="Estrella vacía"
+            onmouseover="hoverRating(4)"
+            onclick="rate(4)"
+          />
+          <img
+            src="/calificardiseñador/img/CALIFIPERFIL1.png"
+            alt="Estrella vacía"
+            onmouseover="hoverRating(5)"
+            onclick="rate(5)"
+          />
+        </div>
+
+        <input class="input" type="text" placeholder="Ingresa una opinion." />
+
+        <button id="submitButton" onclick="submitRating()">
+          Enviar Calificación
+        </button>
+      </div>
+    </main>
+  </body>
+</html>
