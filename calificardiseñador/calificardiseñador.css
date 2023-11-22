@@ -1,0 +1,109 @@
+
+      body {
+        background-image: url("/calificardiseñador/img/fondo.png");
+      }
+
+      header {
+        display: flex;
+        justify-content: flex-start;
+        height: 60px;
+      }
+
+      .logo {
+        display: flex;
+        width: 50px;
+        height: auto;
+      }
+
+      main {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        position: relative; /* Añadido para el posicionamiento relativo */
+      }
+
+      #container {
+        width: 50%;
+        background-color: #13253d;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        color: #ffffff;
+      }
+
+      #userImage {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin-bottom: 0px;
+      }
+
+      .rating {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+        margin-top: 40px;
+      }
+
+      .rating img {
+        width: 50px;
+        height: auto;
+        cursor: pointer;
+        opacity: 0.5; /* Establecer opacidad inicial */
+        transition: opacity 0.3s ease; /* Agregar transición suave */
+      }
+
+      .rating img:hover,
+      .rating img.selected,
+      .rating img.selected ~ img:hover {
+        opacity: 1; /* Cambiar opacidad al pasar el ratón, al hacer clic o al pasar sobre estrellas pintadas */
+      }
+
+      #submitButton,
+      #acceptButton {
+        width: 150px;
+        height: 50px;
+        margin: 10px 0px;
+        font-size: 15px;
+        cursor: pointer;
+        outline: none;
+        text-decoration: none;
+        color: #a7a7a7;
+        transition: color 0s ease;
+        background: #010b14;
+        border: 1px solid #031828;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(3, 24, 40, 0.9);
+      }
+
+      #modal {
+        display: none;
+        position: absolute; /* Cambiado a posición absoluta */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 1; /* Asegura que esté por encima de otros elementos */
+      }
+
+      #modal-content {
+        background: #13253d;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      #closeModal,
+      #acceptModal {
+        cursor: pointer;
+      }
+   
