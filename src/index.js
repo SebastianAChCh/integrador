@@ -12,10 +12,22 @@ import Messages from './routes/messages.routes.js';
 import session from 'express-session';
 import Email from './routes/email.routes.js';
 import { SECRET } from './conf.js';
+import MySQLStore from 'express-mysql-session';
+import Pool from './db/db.js';
 
 const app = express();
 
 const server = createServer(app);
+
+const sessionStore = new (MySQLStore(session))(
+  {
+    clearExpired: true,
+    expiration: 1 * 24 * 60 * 60 * 1000,
+    checkExpirationInterval: 1 * 24 * 60 * 60 * 1000,
+    createDatabaseTable: true,
+  },
+  Pool
+);
 
 const io = new Server(server, {
   connectionStateRecovery: {},
@@ -27,6 +39,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(
   session({
     secret: SECRET,
+    store: sessionStore,
     resave: true,
     saveUninitialized: true,
   })

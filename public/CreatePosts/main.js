@@ -8,6 +8,7 @@ CreatePost.addEventListener('submit', async (e) => {
   formData.append('name', e.target.title.value);
   formData.append('description', e.target.description.value);
   formData.append('cost', e.target.cost.value);
+  formData.append('type', e.target.type.value);
 
   const screen = e.target.screen.files[0];
   const pos = screen.name.lastIndexOf('.');
@@ -16,13 +17,14 @@ CreatePost.addEventListener('submit', async (e) => {
     type: screen.type,
   });
 
-  const arrFiles = Object.values(e.target.imagenesModelo3d.files);
-  arrFiles.push(modifiedFile);
-  arrFiles.forEach((file) => {
-    formData.append(`files`, file);
-  });
+  formData.append('postImages', modifiedFile);
 
-  formData.append('type', e.target.type.value);
+  // Loop through and append each file from e.target.files.files
+  const arrFiles = Object.values(e.target.files.files);
+
+  arrFiles.forEach((file) => {
+    formData.append('postImages', file);
+  });
 
   const response = await fetch(`${location.origin}/createPost`, {
     method: 'POST',
@@ -32,17 +34,6 @@ CreatePost.addEventListener('submit', async (e) => {
   const data = await response.json();
 
   if (data.status === 'ok') {
-    const result = await Swal.fire({
-      title: 'Post created successfully!',
-      text: 'Click in ok to go to the main page or wait 3 seconds',
-      icon: 'success',
-      confirmButtonText: 'Ok',
-    });
-
-    if (result.isConfirmed) {
-      location.href = '/';
-    }
-
     setTimeout(() => {
       location.href = '/';
     }, 3000);

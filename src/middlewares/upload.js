@@ -1,10 +1,9 @@
 import multer from 'multer';
 import { v4 as uuidv4 } from 'uuid';
 
-let exceed = 0;
+let exceed = 1;
 const storeImages = multer.diskStorage({
   destination: (_req, file, cb) => {
-    console.log(file);
     cb(null, './public/uploads');
   },
   filename: (_req, file, cb) => {
@@ -26,12 +25,14 @@ const handleErrorsImgs = (req, file, cb) => {
   const types = ['jpg', 'jpeg', 'png', 'gif', 'blend'];
   const mimeType = file.mimetype.toString().split('/');
 
+  console.log(file);
+
   for (let i = 0; i < types.length; i++) {
     if (
       mimeType[1] == types[i] ||
-      (mimeType[1] === 'gltf-binary' && exceed <= 1)
+      (mimeType[1] === 'octet-stream' && exceed === 1)
     ) {
-      if (mimeType[1] === 'gltf-binary' && exceed <= 1) exceed++;
+      if (mimeType[1] === 'octet-stream' && exceed === 1) exceed++;
       return cb(null, true);
     } else if (i == types.length - 1 && mimeType[1] != types[i]) {
       cb(new Error('error'), false);
@@ -41,9 +42,13 @@ const handleErrorsImgs = (req, file, cb) => {
 };
 
 export const uploadImages = multer({
+  // fileFilter: handleErrorsImgs,
   storage: storeImages,
-  fileFilter: handleErrorsImgs,
-}).array('files', 20);
+  // limits: {
+  //   fileSize: 1000000000000000,
+  //   fieldNameSize: 1000000000000000,
+  // },
+}).array('postImages', 10);
 
 export const uploadFiles = multer({
   storage: storeFiles,

@@ -1,17 +1,8 @@
 import Stripe from 'stripe';
-import { STRIPE_KEY_SECRET } from '../../conf.js';
+import { SECRET } from '../../conf.js';
+import jwt from 'jsonwebtoken';
 
-const stripe = new Stripe(STRIPE_KEY_SECRET);
-
-export const payloads = async (req, res) => {
-  const { totalAmount, email, account } = req.body;
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: totalAmount,
-    currency: 'mxn',
-    automatic_payment_methods: ['card', 'oxxo'],
-    receipt_email: email,
-    transfer_data: account,
-  });
-
-  res.json({ data: paymentIntent.client_secret });
-};
+const stripe = new Stripe(
+  'sk_test_51O2HtxBGoB4DABgdpS7ZOyOaaZ2ipJpfG1LyARVupRQdJkNOJ4xcNpXiSfEIW7j21FT6E3a3J8tqiTJuY11dPGC100Fsqw8Idh'
+);
+export const payloads = () => {};

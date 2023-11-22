@@ -4,12 +4,70 @@ const socket = io();
 
 // Obtén elementos del DOM
 const chatForm = document.getElementById('chat-form');
+const backButton = document.querySelector('.back-button');
+const chatTitle = document.querySelector('.chat-header h2');
+
+const stripe = Stripe(
+  'pk_test_51O2HtxBGoB4DABgdENU7xh6iqI3aSSGKtI3PSzHtpdcnIFRczy6ZnVI5XOtdtJAKZQ4vO2ZeZTW2VIPC1jVC6LSa00MByFIPMV'
+);
+
 let messageInput;
 let chatMessages;
 let Form;
 let createPayload;
-const chatTitle = document.querySelector('.chat-header h2');
-const backButton = document.querySelector('.back-button');
+
+let elements = null;
+
+const initial = async (data) => {
+  document.getElementById('payloadElement').showModal();
+
+  const response = await fetch(`${location.origin}/payments`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      totalAmount: data.totalAmount,
+      accountReceiver: data.accountReceiver,
+    }),
+  });
+
+  const { clientSecret } = await response.json();
+
+  const appearance = {
+    variables: { colorPrimaryText: '#262626' },
+    theme: 'night',
+  };
+
+  elements = stripe.elements({ clientSecret, appearance });
+
+  const options = {
+    business: {
+      name: 'RocketRides',
+    },
+    layout: {
+      type: 'accordion',
+      defaultCollapsed: false,
+      radios: true,
+      spacedAccordionItems: false,
+    },
+  };
+
+  const paymentElement = elements.create('payment', options);
+  paymentElement.mount('#payment-element');
+
+  document
+    .getElementById('payment-form')
+    .addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { error } = await stripe.confirmPayment({
+        elements,
+        confirmParams: {
+          return_url: 'http://localhost:3000/',
+        },
+      });
+    });
+};
 
 //El usuario actual con el que este hablando el usuario
 let currentUser = '';
@@ -75,7 +133,7 @@ const loadForm = () => {
   <input type="text" name="messageInput" id="message-input" placeholder="Escribe un mensaje..."/>
   <input type="submit" value="Send" id="send-button" />
   </form>
-  <button id="createPayload" style="font-size: 10px;">Create payload</button>`;
+  <button id="createPayloadCard" style="font-size: 10px;">Create payload</button>`;
 
   Form = document.getElementById('form');
   const attachButton = document.getElementById('attach-button');
@@ -84,12 +142,25 @@ const loadForm = () => {
 
   messageInput = document.getElementById('message-input');
   chatMessages = document.getElementById('chat-messages');
-  createPayload = document.getElementById('createPayload');
+  createPayload = document.getElementById('createPayloadCard');
 
   createPayload.addEventListener('click', (e) => {
     const windowPayload = document.getElementById('windowPayload');
     windowPayload.showModal();
+
+    const createPayloads = document.getElementById('createPayload');
+    createPayloads.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      initial({
+        accountReceiver: e.target.accountReceiver.value,
+        totalAmount: cost,
+      });
+
+      windowPayload.close();
+    });
   });
+
   handleSendMessages(currentUser);
 };
 

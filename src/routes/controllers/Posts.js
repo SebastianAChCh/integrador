@@ -11,7 +11,7 @@ export const createPost = async (req, res) => {
     let screen = '';
 
     uploadImages(req, res, async (err) => {
-      if (err instanceof MulterError) {
+      if (err instanceof MulterError || err) {
         return res.status(400).json({
           status: 'failed',
           message:
@@ -21,17 +21,23 @@ export const createPost = async (req, res) => {
         const { name, description, cost, type } = req.body;
         let mimeType = null;
         let path = '';
-
+        console.log(req);
         for (let i = 0; i < req.files.length; i++) {
           mimeType = req.files[i].mimetype.split('/');
           const pos = req.files[i].originalname.lastIndexOf('.');
           const names = req.files[i].originalname.slice(0, pos);
 
-          if (mimeType[1] === 'gltf-binary') path = req.files[i].path;
+          if (
+            mimeType[1] === 'octet-stream' ||
+            mimeType[0] === 'model' ||
+            mimeType[1] === 'gltf-binary'
+          )
+            path = req.files[i].path;
           else if (names === 'screen') {
             screen = req.files[i].path;
           } else imagesArr.push(req.files[i].path);
         }
+
         const sellerIs = jwb.verify(Seller, SECRET);
 
         const newPath = path.slice(7);
@@ -87,9 +93,10 @@ export const createPost = async (req, res) => {
 export const ShowPosts = async (req, res) => {
   try {
     //Esta es una view, acuerdate baboso, ya se me habia olvidado
-    const response = await Pool.query('SELECT * FROM posts');
-
-    const data = response[0];
+    const connection = await Pool.getConnection();
+    const [response] = await connection.query('SELECT * FROM posts');
+    connection.release();
+    const data = response;
     return res.status(200).json({ data });
   } catch (error) {
     console.log(error);

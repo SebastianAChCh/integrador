@@ -17,6 +17,7 @@
       src="https://unpkg.com/alpinejs@3.2.2/dist/cdn.min.js"
     ></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     <link rel="stylesheet" type="text/css" href="/chat/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -71,19 +72,16 @@
         >
           <h2 class="text-2xl font-semibold mb-4 text-white">Subir Archivo</h2>
 
-          <form
-            action="/ruta-de-tu-servidor"
-            method="post"
-            enctype="multipart/form-data"
-          >
+          <form id="createPayload" enctype="multipart/form-data">
             <div class="mb-4">
               <label
                 for="archivo"
                 class="block text-gray-700 text-sm font-bold mb-2"
-                >Seleccionar Archivo</label
+                >Seleccionar Archivos</label
               >
               <input
                 type="file"
+                multiple
                 name="archivo"
                 id="archivo"
                 class="w-full rounded-md py-2 px-3 text-gray-600"
@@ -91,33 +89,31 @@
             </div>
 
             <div class="mb-4">
-              <!-- No supe como limitarlo a que fuera sólo entrada de números con el formato-->
               <label
-                for="miEntrada"
-                class="bg-[#6b7280 ]block text-gray-700 text-sm font-bold mb-2"
+                for="cost"
+                class="bg-[#6b7280 ]block text-gray-700 text-sm font-bold mb-7"
                 >Ingresa el monto a cobrar</label
               >
               <input
-                type="text"
-                id="miEntrada"
-                name="miEntrada"
-                placeholder="$00.00"
+                type="number"
+                id="cost"
+                name="cost"
+                placeholder="$000.00"
                 class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
               />
             </div>
 
             <div class="mb-4">
-              <!-- No supe como limitarlo a que fuera sólo entrada de números con el formato-->
               <label
-                for="miEntrada"
-                class="bg-[#6b7280 ]block text-gray-700 text-sm font-bold mb-2"
+                for="account"
+                class="bg-[#6b7280 ]block text-gray-700 text-sm font-bold mb-7"
                 >Ingresa la cuenta a la que se enviara el dinero</label
               >
               <input
-                type="text"
-                id="miEntrada"
-                name="miEntrada"
-                placeholder="$000.00"
+                type="number"
+                id="accountReceiver"
+                name="accountReceiver"
+                placeholder="0123456789"
                 class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
               />
             </div>
@@ -133,6 +129,21 @@
       </div>
     </dialog>
 
-    <script type="module" src="/chat/script.js"></script>
+    <dialog id="payloadElement">
+      <form id="payment-form">
+        <div id="link-authentication-element">
+          <!--Stripe.js injects the Link Authentication Element-->
+        </div>
+        <div id="payment-element">
+          <!--Stripe.js injects the Payment Element-->
+        </div>
+        <button id="submit">
+          <div class="spinner hidden" id="spinner"></div>
+          <span id="button-text">Pay now</span>
+        </button>
+        <div id="payment-message" class="hidden"></div>
+      </form>
+    </dialog>
+    <script type="module" src="../chat/script.js"></script>
   </body>
 </html>

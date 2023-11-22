@@ -44,7 +44,7 @@ route.get('/createPublication', authUser, authSeller, async (req, res) => {
     const connection = await Pool.getConnection();
     const [result] = await connection.query('SELECT * FROM catalog_designs');
 
-    connection.supportrelease();
+    connection.release();
     return res.render(join('CreatePosts', 'index'), {
       result,
     });
