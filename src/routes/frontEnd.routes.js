@@ -175,6 +175,7 @@ route.get('/profile/:email', authUser, async (req, res) => {
 
 route.get('/editProfile', authUser, async (req, res) => {
   const userDataObject = {};
+  const posts = {};
   const { Seller = '' } = req.cookies;
   const user = req.session.userEmail;
   const seller = jwt.verify(Seller, SECRET);
@@ -184,6 +185,11 @@ route.get('/editProfile', authUser, async (req, res) => {
     if (seller) {
       const [sellersInfo] = await Pool.query(
         'CALL profile_seller_user_opinions(?)',
+        [user]
+      );
+
+      const [sellerPost] = await Pool.query(
+        'SELECT * FROM posts WHERE Email = ?',
         [user]
       );
 
@@ -207,7 +213,29 @@ route.get('/editProfile', authUser, async (req, res) => {
           userDataObject[sellerInfo.Names].Opinions.push(opinion.Opinion);
         });
 
+      if (sellerPost.length > 1) {
+        sellerPost.forEach((post) => {
+          if (!posts[post.ID]) {
+            posts[post.ID] = {
+              Name: post.Name_product,
+              Description: post.Description,
+              Email: post.Email,
+              Model_Route: post.Model_Route,
+              Screen_Model_Route: post.Screen_Model_Route,
+              Type: post.Type,
+              Images: [post.Route],
+            };
+          } else {
+            posts[post.ID].Images.push(post.Route);
+          }
+        });
+        const postsObject = Object.values(posts);
+        userDataObject[sellerInfo.Names].Posts = postsObject;
+      }
+
       const SellerInfo = userDataObject[sellerInfo.Names];
+
+      console.log(SellerInfo);
 
       return res.render(join('editProfileSeller', 'index'), {
         SellerInfo,
@@ -264,6 +292,13 @@ route.get('/sellers/:type', async (req, res) => {
 
 route.get('/support', (req, res) => {
   return res.render(join('support', 'index'));
+});
+
+route.get('/view/:model3d', (req, res) => {
+  const { model3d } = req.params;
+  return res.render(join('view', 'index'), {
+    model3d,
+  });
 });
 
 export default route;

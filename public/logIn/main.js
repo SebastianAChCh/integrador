@@ -18,5 +18,9 @@ form.addEventListener('submit', async (e) => {
 
   if (data.status === 'ok') {
     location.href = '/';
+  } else if (data.status === 'user does not exist') {
+    const error = document.getElementById('error');
+    error.style.display = 'flex';
+    error.innerText = `${data.message}`;
   }
 });

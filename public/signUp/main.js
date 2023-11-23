@@ -8,7 +8,7 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
-  const response = await fetch(`${location.origin}`, {
+  const response = await fetch(`${location.origin}/createAccount`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -23,8 +23,12 @@ form.addEventListener('submit', async (e) => {
   });
 
   const data = await response.json();
-
+  console.log(data);
   if (data.status === 'ok') {
     location.href = '/';
+  } else {
+    const errorSingUp = document.getElementById('errorSingUp');
+    errorSingUp.style = 'flex';
+    errorSingUp.innerText = data.message;
   }
 });

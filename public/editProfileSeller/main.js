@@ -91,8 +91,6 @@ editPhotoBtn.addEventListener('click', function () {
       // Crear un objeto de FileReader para leer la imagen seleccionada
       const reader = new FileReader();
 
-      
-
       // Definir la lógica cuando se carga la imagen
       reader.onload = async (e) => {
         // Actualizar la imagen de perfil con la nueva imagen seleccionada

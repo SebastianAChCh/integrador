@@ -14,6 +14,7 @@ form.addEventListener('submit', async (e) => {
       curp: e.target.curp.value,
       claveElector: e.target.claveelector.value,
       birth: e.target.date.value,
+      profession: e.target.profession.value,
     }),
   });
 

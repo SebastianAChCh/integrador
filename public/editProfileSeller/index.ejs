@@ -77,11 +77,6 @@
             </button>
           </div>
           <!-- Quitar las tarjetas guardadas -->
-          <section class="tarjetas">
-            <a href="">
-              <button class="Mistarjetas">Mis tarjetas</button>
-            </a>
-          </section>
           <!-- Quitar las tarjetas guardadas -->
         </section>
         <div class="descrip">
@@ -101,7 +96,13 @@
       </section>
 
       <section class="Space">
-        <p class="Opinions">Opiniones</p>
+        <%if(SellerInfo.Opinions.length > 0){%>
+          <%SellerInfo.Opinions.forEach(opinions => {%>
+            <p class="Opinions"><%= opinions%></p>
+          <%})%>
+        <%}else{%>
+          <p class="Opinions">No opinions yet</p>
+        <%}%>
         <div class="historiales">
           <a href=""><button class="historial">Historial de Ventas</button></a>
           <a href=""><button class="historial">Historial de Compras</button></a>
@@ -114,105 +115,48 @@
       </section>
 
       <section class="publicaciones">
+        <%if(SellerInfo.Posts.length > 0){%>
+          <%SellerInfo.Posts.forEach(post => {%>
         <div class="publicacion">
+          <%if(post.Screen_Model_Route !== ''){%>
+            <a href="/view/<%=post.Model_Route%>">
+              <img
+                class="imgprin"
+                src="<%= post.Screen_Model_Route%>"
+                alt=""
+              />
+            </a>
+          <%}else{%>
           <img
             class="imgprin"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIaDGrW44yiZFBaLk7b5I_G6GpTN6zZ61XxQ&usqp=CAU"
+            src="<%= post.Images[0]%>"
             alt=""
           />
+            <%}%>
           <div class="secundaries">
             <img
               class="imgsec"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsDMUEsrxYdco7F3mkwqNJn-5x-6Rv4DmjgASkeFj1BLQJANZy5XGysPLXb9C6t-L2XSU&usqp=CAU"
+              src="<%= post.Images.length > 1 ? post.Images[1].slice(7) : post.Images[0].slice(7)%>"
               alt=""
             />
             <img
               class="imgsec"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfhVuf96xnJDYn-UDeKysQFTq5lbLFkMrgvg&usqp=CAU"
+              src="<%= post.Images.length > 2 ? post.Images[2].slice(7) : post.length > 1 ? post.Images[1].slice(7) : post.Images[0].slice(7)%>"
               alt=""
             />
           </div>
           <p class="descripcion">
-            Title: Vestido
+            Title: <%= post.Name%>
             <br />
-            Descripcion: Vestido estilo contemporaneo, inspirado en ...
+            Descripcion: <%= post.Description%>
           </p>
         </div>
-
-        <div class="publicacion">
-          <img
-            class="imgprin"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6DC7eJwFSwtZcokEOsbzN0CheAFwAMuNrYnW-_fB9lhjWihN5vkg2VJsvCFrm92y8w4&usqp=CAU"
-            alt=""
-          />
-          <div class="secundaries">
-            <img
-              class="imgsec"
-              src="https://image.winudf.com/v2/image1/Y29tLmJ1Z2hhdHMuRHJhd2luZ0Zhc2hpb25DbG90aGVzRGVzaWduX3NjcmVlbl80XzE1NDIzOTM0MTJfMDk3/screen-4.jpg?fakeurl=1&type=.webp"
-              alt=""
-            />
-            <img
-              class="imgsec"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbBALp69ozg1O-YPQJFyl7W66c0AbsVpfRKhsW6sjx_7Tw7csm-ySKjQfMZJjw2IszVy8&usqp=CAU"
-              alt=""
-            />
-          </div>
-          <p class="descripcion">
-            Title: Vestido
-            <br />
-            Descripcion: Vestido estilo contemporaneo, inspirado en ...
-          </p>
-        </div>
-
-        <div class="publicacion">
-          <img
-            class="imgprin"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6DC7eJwFSwtZcokEOsbzN0CheAFwAMuNrYnW-_fB9lhjWihN5vkg2VJsvCFrm92y8w4&usqp=CAU"
-            alt=""
-          />
-          <div class="secundaries">
-            <img
-              class="imgsec"
-              src="https://image.winudf.com/v2/image1/Y29tLmJ1Z2hhdHMuRHJhd2luZ0Zhc2hpb25DbG90aGVzRGVzaWduX3NjcmVlbl80XzE1NDIzOTM0MTJfMDk3/screen-4.jpg?fakeurl=1&type=.webp"
-              alt=""
-            />
-            <img
-              class="imgsec"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbBALp69ozg1O-YPQJFyl7W66c0AbsVpfRKhsW6sjx_7Tw7csm-ySKjQfMZJjw2IszVy8&usqp=CAU"
-              alt=""
-            />
-          </div>
-          <p class="descripcion">
-            Title: Vestido
-            <br />
-            Descripcion: Vestido estilo contemporaneo, inspirado en ...
-          </p>
-        </div>
-
-        <div class="publicacion">
-          <img
-            class="imgprin"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIaDGrW44yiZFBaLk7b5I_G6GpTN6zZ61XxQ&usqp=CAU"
-            alt=""
-          />
-          <div class="secundaries">
-            <img
-              class="imgsec"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsDMUEsrxYdco7F3mkwqNJn-5x-6Rv4DmjgASkeFj1BLQJANZy5XGysPLXb9C6t-L2XSU&usqp=CAU"
-              alt=""
-            />
-            <img
-              class="imgsec"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfhVuf96xnJDYn-UDeKysQFTq5lbLFkMrgvg&usqp=CAU"
-              alt=""
-            />
-          </div>
-          <p class="descripcion">
-            Title: Vestido
-            <br />
-            Descripcion: Vestido estilo contemporaneo, inspirado en ...
-          </p>
-        </div>
+          <%})%>
+        <%}else{%>
+          <section class="Textospublic">
+            <p class="misp">There are not posts yet</p>
+          </section>
+          <%}%>
       </section>
     </main>
     <script src="../editProfile/main.js"></script>

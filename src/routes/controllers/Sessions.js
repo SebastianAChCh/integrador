@@ -27,8 +27,8 @@ export const SingUp = async (req, res) => {
     const encryptPass = await bcrypt.hash(pass, 10);
 
     const [rows] = await Pool.query(
-      'INSERT INTO users ( Names, LastNames, Email, Password, Phone, IsSeller) VALUES (?,?,?,?,?,?)',
-      [names, lastnames, email, encryptPass, phone, 0]
+      'INSERT INTO users (Names, LastNames, Description, Email, Password, Phone, IsSeller) VALUES (?,?,?,?,?,?,?)',
+      [names, lastnames, '', email, encryptPass, phone, 0]
     );
 
     if (rows.affectedRows < 1)
@@ -37,10 +37,7 @@ export const SingUp = async (req, res) => {
         message: 'There was an unexpected error creating the user',
       });
 
-    const [_user] = await Pool.query(`CALL getUserID(?, @user)`, [email]);
-    const [userID] = await Pool.query(`SELECT @user as userID`);
-
-    const tokenUser = jwt.sign({ user: userID[0].userID }, SECRET, {
+    const tokenUser = jwt.sign({ user: email }, SECRET, {
       expiresIn: JWT_EXP_COOKIE * 24 * 60 * 60 * 1000,
     });
 
@@ -49,8 +46,8 @@ export const SingUp = async (req, res) => {
       path: '/',
     };
 
-    res.cookie('normalUser', tokenUser, cookieOptions);
     req.session.userEmail = email;
+    res.cookie('normalUser', tokenUser, cookieOptions);
     res.cookie('userEmail', email, cookieOptions);
 
     res.status(200).json({ status: 'ok' });
@@ -64,7 +61,6 @@ export const logIn = async (req, res) => {
   try {
     const { email, password } = req.body;
     const { normalUser } = req.cookies;
-    console.log(email, password);
     if (normalUser)
       return res.status(400).json({
         status: 'failed',
@@ -84,7 +80,7 @@ export const logIn = async (req, res) => {
 
     if (userIS.length < 1) {
       return res.status(404).json({
-        status: 'failed',
+        status: 'user does not exist',
         message: 'Error, that user does not exist',
       });
     }
@@ -132,7 +128,8 @@ export const logIn = async (req, res) => {
 export const createAccountSeller = async (req, res) => {
   try {
     const { normalUser, Seller } = req.cookies;
-    const { NoEmision, NoIne, curp, claveElector, birth } = req.body;
+    const { NoEmision, NoIne, curp, claveElector, birth, profession } =
+      req.body;
     const UserIs = jwt.verify(normalUser, SECRET);
 
     if (Seller)
@@ -165,8 +162,8 @@ export const createAccountSeller = async (req, res) => {
       });
 
     const [seller] = await Pool.query(
-      'INSERT INTO seller (ID_USER, Birth_Date, ClaveElector, Curp, NoIne, NoEmision, Calificaciones) VALUES (?,?,?,?,?,?,?)',
-      [UserIs.user, birth, claveElector, curp, NoIne, NoEmision, 0]
+      'INSERT INTO seller (ID_USER, Birth_Date, ClaveElector, Curp, NoIne, NoEmision, Calificaciones, Profession) VALUES (?,?, HEX(AES_ENCRYPT(?, "password")),HEX(AES_ENCRYPT(?, "password")),HEX(AES_ENCRYPT(?, "password")),HEX(AES_ENCRYPT(?, "password")),?, ?)',
+      [UserIs.user, birth, claveElector, curp, NoIne, NoEmision, 0, profession]
     );
 
     if (seller.affectedRows < 1)

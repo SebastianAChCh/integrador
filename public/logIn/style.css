@@ -112,3 +112,13 @@ body {
 .link:hover {
   color: #1d4ed8;
 }
+
+.errorLogIn{
+  background: rgb(255, 51, 51);
+color: #ffffff;
+border-radius: 15px;
+height: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
