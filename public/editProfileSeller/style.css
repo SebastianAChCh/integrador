@@ -4,7 +4,7 @@
 }
 
 body {
-  background-image: url(/FOTOSINTEGRADOR/FONDO.png);
+  background-image: url(../pictures/FONDO.png);
   background-size: contain;
   background-repeat: repeat;
   margin: 0;

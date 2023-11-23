@@ -95,29 +95,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const fotoPerfil = document.querySelector('.Foto');
   const perfilOptions = document.querySelector('.perfil-options');
+  if (perfilOptions) {
+    perfilOptions.style.display = 'none';
 
-  perfilOptions.style.display = 'none';
+    fotoPerfil.addEventListener('click', function () {
+      perfilOptions.style.display =
+        perfilOptions.style.display === 'none' ? 'flex' : 'none';
 
-  fotoPerfil.addEventListener('click', function () {
-    perfilOptions.style.display =
-      perfilOptions.style.display === 'none' ? 'flex' : 'none';
+      // Ajustar para centrar horizontalmente
+      const rect = fotoPerfil.getBoundingClientRect();
+      const optionsRect = perfilOptions.getBoundingClientRect();
+      const leftOffset = rect.left + rect.width / 2 - optionsRect.width / 2;
 
-    // Ajustar para centrar horizontalmente
-    const rect = fotoPerfil.getBoundingClientRect();
-    const optionsRect = perfilOptions.getBoundingClientRect();
-    const leftOffset = rect.left + rect.width / 2 - optionsRect.width / 2;
+      perfilOptions.style.position = 'fixed';
+      perfilOptions.style.top = `${rect.bottom}px`;
+      perfilOptions.style.left = `${leftOffset}px`;
+    });
 
-    perfilOptions.style.position = 'fixed';
-    perfilOptions.style.top = `${rect.bottom}px`;
-    perfilOptions.style.left = `${leftOffset}px`;
-  });
-
-  document.addEventListener('click', function (event) {
-    const target = event.target;
-    if (!target.closest('.FotoPerfil') && target !== fotoPerfil) {
-      perfilOptions.style.display = 'none';
-    }
-  });
+    document.addEventListener('click', function (event) {
+      const target = event.target;
+      if (!target.closest('.FotoPerfil') && target !== fotoPerfil) {
+        perfilOptions.style.display = 'none';
+      }
+    });
+  }
 
   const createCard = ({ img1, img2, img3, title, description }) => {
     const content = document.getElementById('publicaciones');

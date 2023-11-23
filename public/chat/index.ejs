@@ -35,7 +35,9 @@
         </div>
         <ul id="chat-list" class="chat-list">
           <%if(email){%>
-          <li id="user" isNew="true" class="user newUser"><%=email%></li>
+          <li id="user" isNew="true" class="user newUser" email="<%=email%>">
+            <%=email%>
+          </li>
           <%}%>
         </ul>
       </div>

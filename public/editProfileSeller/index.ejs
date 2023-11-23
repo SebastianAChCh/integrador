@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../editProfile/style.css" />
+    <link rel="stylesheet" href="../editProfileSeller/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
 
-    <title>Perfil Privado Vend</title>
+    <title>Editar perfil</title>
   </head>
   <body>
     <header>
@@ -37,7 +37,9 @@
     <main>
       <section class="informationcomplet">
         <div class="profile">
-          <img class="photo" src="/FOTOSINTEGRADOR/Profile.png" alt="" />
+          <%if(SellerInfo.Avatar){%>
+          <img class="photo" src="../<%= SellerInfo.Avatar%>" alt="" />
+          <%}%>
           <button class="edit" id="editphoto">
             <svg viewBox="0 0 512 512">
               <path
@@ -47,14 +49,12 @@
           </button>
         </div>
 
-        <img
-          class="calificación"
-          src="/FOTOSINTEGRADOR/CALIFIPERFIL5.png"
-          alt=""
-        />
+        <img class="calificación" src="../pictures/CALIFIPERFIL5.png" alt="" />
         <section class="information">
           <div class="nombre">
-            <p class="name">Max Morales</p>
+            <%if(SellerInfo.Names){%>
+            <p class="name"><%= SellerInfo.Names%></p>
+            <%}%>
             <button class="edit" id="editname">
               <svg viewBox="0 0 512 512">
                 <path
@@ -64,7 +64,10 @@
             </button>
           </div>
           <div class="profesion" id="editproffesion">
-            <p class="proffession">Diseñador</p>
+            <%if(SellerInfo.Profession){%>
+            <p class="proffession"><%= SellerInfo.Profession%></p>
+            <%}%>
+
             <button class="edit">
               <svg viewBox="0 0 512 512">
                 <path
@@ -73,14 +76,20 @@
               </svg>
             </button>
           </div>
+          <!-- Quitar las tarjetas guardadas -->
           <section class="tarjetas">
             <a href="">
               <button class="Mistarjetas">Mis tarjetas</button>
             </a>
           </section>
+          <!-- Quitar las tarjetas guardadas -->
         </section>
         <div class="descrip">
-          <p class="description">Descripción</p>
+          <%if(SellerInfo.Description){%>
+          <p class="description"><%= SellerInfo.Description%></p>
+          <%}else{%>
+          <p class="description">No description yet</p>
+          <%}%>
           <button class="edit" id="editdescripción">
             <svg viewBox="0 0 512 512">
               <path

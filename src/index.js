@@ -72,6 +72,7 @@ const deleteUsers = (socketId) => {
 io.on('connection', (socket) => {
   socket.on('connected', (email) => {
     addUser(email, socket.id);
+    console.log(users);
   });
 
   socket.on('disconnect', () => {
@@ -79,6 +80,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('message', ({ receiver, sender, message, type, fileName = '' }) => {
+    console.log(receiver, sender);
     users.forEach((user) => {
       if (user.user === receiver) {
         io.to(user.socketId).emit('messageTo', {

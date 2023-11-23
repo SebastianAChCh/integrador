@@ -398,13 +398,6 @@ socket.on(
       (users) => users.Email === sender || users.Email === receiver
     ) && loadUserData(sender);
 
-    console.log(
-      !Contacts.some(
-        (users) => users.Email === sender || users.Email === receiver
-      ),
-      Contacts
-    );
-
     let container = 'received-container',
       child = 'received-message';
 
@@ -456,7 +449,6 @@ usersList.forEach(async (user) => {
     const userExist = await userExistResponse.json();
 
     if (userExist.messages !== '') {
-      console.log(userExist);
       const userDelete = document.querySelector('.newUser');
       userDelete.remove();
       return;
@@ -469,7 +461,6 @@ usersList.forEach(async (user) => {
     const data = await response.json();
 
     Contacts.push({ Email: data.userInfo[0].Email });
-    console.log(currentUser);
     user.innerHTML = `<img src="../avatar/userDefault.png" class="imagen" alt="Imagen de Usuario 1"/>${data.userInfo[0].Names}`;
     newUser = true;
     loadForm();

@@ -77,18 +77,22 @@ route.get('/Sell', sellerExist, (req, res) => {
 
 route.get('/Chats/:email', authUser, (req, res) => {
   const { email } = req.params;
+  const userEmail = req.session.userEmail;
   return res.render(join('chat', 'index'), {
     email,
     separacion: true,
+    userEmail,
   });
 });
 
 route.get('/Chats', authUser, (req, res) => {
   let email = null;
+  const userEmail = req.session.userEmail;
 
   return res.render(join('chat', 'index'), {
     email,
     separacion: false,
+    userEmail,
   });
 });
 
@@ -96,38 +100,42 @@ route.get('/profile/:email', authUser, async (req, res) => {
   const { email } = req.params;
   const userDataObject = {};
   const posts = {};
+  let sellerInfoOpinions = null;
 
   try {
     const [isNormalUser] = await Pool.query('CALL profile_user(?)', [email]);
 
     if (isNormalUser[0][0] && 'IsSeller' in isNormalUser[0][0]) {
       if (isNormalUser[0][0].IsSeller === 1) {
-        const [sellerInfoOpinions] = await Pool.query(
+        const [sellerInfo] = await Pool.query(
           'CALL Profile_Seller_User_Opinions(?)',
           [email]
         );
 
+        if (sellerInfo[0][0]) sellerInfoOpinions = sellerInfo[0][0];
+        else sellerInfoOpinions = sellerInfo[1][0];
+
         const [sellerPost] = await Pool.query(
           'SELECT * FROM posts WHERE Email = ?',
-          [sellerInfoOpinions[0][0].Email]
+          [sellerInfoOpinions.Email]
         );
 
-        if (!userDataObject[sellerInfoOpinions[0][0].Names]) {
-          userDataObject[sellerInfoOpinions[0][0].Names] = {
-            Names: sellerInfoOpinions[0][0].Names,
-            Email: sellerInfoOpinions[0][0].Email,
-            Description: sellerInfoOpinions[0][0].Description,
-            Profession: sellerInfoOpinions[0][0].Profession,
+        if (!userDataObject[sellerInfoOpinions.Names]) {
+          userDataObject[sellerInfoOpinions.Names] = {
+            Names: sellerInfoOpinions.Names,
+            Email: sellerInfoOpinions.Email,
+            Description: sellerInfoOpinions.Description,
+            Profession: sellerInfoOpinions.Profession,
             Opinions: [],
             Posts: [],
-            Raiting: sellerInfoOpinions[0][0].Calificaciones,
-            Avatar: sellerInfoOpinions[0][0].AVATAR,
+            Raiting: sellerInfoOpinions.Calificaciones,
+            Avatar: sellerInfoOpinions.AVATAR,
           };
         }
 
-        if (!sellerInfoOpinions[0].Opinion)
-          sellerInfoOpinions[0].forEach((opinion) => {
-            userDataObject[sellerInfoOpinions[0][0].Names].Opinions.push(
+        if (sellerInfoOpinions.Opinion !== undefined)
+          sellerInfo[0].forEach((opinion) => {
+            userDataObject[sellerInfoOpinions.Names].Opinions.push(
               opinion.Opinion
             );
           });
@@ -149,10 +157,10 @@ route.get('/profile/:email', authUser, async (req, res) => {
             }
           });
           const postsObject = Object.values(posts);
-          userDataObject[sellerInfoOpinions[0][0].Names].Posts = postsObject;
+          userDataObject[sellerInfoOpinions.Names].Posts = postsObject;
         }
         return res.render(join('profile', 'index'), {
-          data: userDataObject[sellerInfoOpinions[0][0].Names],
+          data: userDataObject[sellerInfoOpinions.Names],
         });
       }
     }
@@ -165,13 +173,52 @@ route.get('/profile/:email', authUser, async (req, res) => {
   }
 });
 
-route.get('/editProfile/:email', authUser, async (req, res) => {
+route.get('/editProfile', authUser, async (req, res) => {
   const userDataObject = {};
+  const { Seller = '' } = req.cookies;
+  const user = req.session.userEmail;
+  const seller = jwt.verify(Seller, SECRET);
+  let sellerInfo = null;
 
   try {
-    // const [isNormalUser] = await Pool.query('CALL profile_user(?)', [email]);
+    if (seller) {
+      const [sellersInfo] = await Pool.query(
+        'CALL profile_seller_user_opinions(?)',
+        [user]
+      );
 
-    return res.send('Hello world');
+      if (!sellersInfo[0][0]) sellerInfo = sellersInfo[1][0];
+      else sellerInfo = sellersInfo[0][0];
+
+      if (!userDataObject[sellerInfo.Names]) {
+        userDataObject[sellerInfo.Names] = {
+          Names: sellerInfo.Names,
+          Email: sellerInfo.Email,
+          Description: sellerInfo.Description,
+          Profession: sellerInfo.Profession,
+          Opinions: [],
+          Raiting: sellerInfo.Calificaciones,
+          Avatar: sellerInfo.AVATAR,
+        };
+      }
+
+      if (!sellersInfo[0].Opinion)
+        sellersInfo[0].forEach((opinion) => {
+          userDataObject[sellerInfo.Names].Opinions.push(opinion.Opinion);
+        });
+
+      const SellerInfo = userDataObject[sellerInfo.Names];
+
+      return res.render(join('editProfileSeller', 'index'), {
+        SellerInfo,
+      });
+    } else {
+      const [userInfo] = await Pool.query('CALL profile_user(?)', [user]);
+
+      return res.render(join('editProfile', 'index'), {
+        UserInfo: userInfo[0][0],
+      });
+    }
   } catch (error) {
     console.log(error);
   }
