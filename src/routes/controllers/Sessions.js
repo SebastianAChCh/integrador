@@ -130,9 +130,19 @@ export const createAccountSeller = async (req, res) => {
     const { normalUser, Seller } = req.cookies;
     const { NoEmision, NoIne, curp, claveElector, birth, profession } =
       req.body;
-    const UserIs = jwt.verify(normalUser, SECRET);
+    let UserIs = null;
+    let sellerIs = null;
+    const account = req.session.userEmail;
 
-    if (Seller)
+    if (normalUser) {
+      UserIs = jwt.verify(normalUser, SECRET);
+    }
+
+    if (Seller) {
+      sellerIs = jwt.verify(Seller, SECRET);
+    }
+
+    if (sellerIs)
       return res.status(409).json({
         status: 'failed',
         message: 'You already an account of seller',
@@ -141,7 +151,7 @@ export const createAccountSeller = async (req, res) => {
     if (!UserIs)
       return res.status(404).json({
         status: 'failed',
-        message: 'you do not have an account of seller',
+        message: 'you do not have an account',
       });
 
     if (!NoEmision || !NoIne || !curp || !claveElector || !birth)
@@ -151,19 +161,28 @@ export const createAccountSeller = async (req, res) => {
       });
 
     const [SellerExist] = await Pool.query(
-      'SELECT IsSeller FROM users WHERE id = ?',
-      [UserIs.user]
+      'SELECT IsSeller,ID FROM users WHERE Email = ?',
+      [account]
     );
 
-    if (SellerExist[0].IsSeller == 1)
+    if (SellerExist[0].IsSeller === 1)
       return res.status(409).json({
         status: 'failed',
         message: 'You already have an account as seller',
       });
 
     const [seller] = await Pool.query(
-      'INSERT INTO seller (ID_USER, Birth_Date, ClaveElector, Curp, NoIne, NoEmision, Calificaciones, Profession) VALUES (?,?, HEX(AES_ENCRYPT(?, "password")),HEX(AES_ENCRYPT(?, "password")),HEX(AES_ENCRYPT(?, "password")),HEX(AES_ENCRYPT(?, "password")),?, ?)',
-      [UserIs.user, birth, claveElector, curp, NoIne, NoEmision, 0, profession]
+      `INSERT INTO seller (ID_USER, Birth_Date, ClaveElector, Curp, NoIne, NoEmision, Calificaciones, Profession) VALUES (?,?, HEX(AES_ENCRYPT(?, "password")), HEX(AES_ENCRYPT(?, "password")), HEX(AES_ENCRYPT(?, "password")), HEX(AES_ENCRYPT(?, "password")), ?, ?)`,
+      [
+        SellerExist[0].ID,
+        birth,
+        claveElector,
+        curp,
+        NoIne,
+        NoEmision,
+        0,
+        profession,
+      ]
     );
 
     if (seller.affectedRows < 1)
@@ -173,7 +192,7 @@ export const createAccountSeller = async (req, res) => {
       });
 
     const [id] = await Pool.query('SELECT ID FROM seller WHERE ID_USER = ?', [
-      UserIs.user,
+      SellerExist[0].ID,
     ]);
 
     const SellerIs = jwt.sign({ seller: id[0].ID }, SECRET, {
