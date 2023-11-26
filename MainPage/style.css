@@ -427,7 +427,7 @@ height: auto;
 footer{
     background: #000c12;
     margin-top: auto;
-    height: 60px;
+    height: auto;
     width: 100%;
     bottom: 0;
     position: relative;
@@ -454,7 +454,6 @@ footer{
 
 .patas button{
     font-family: 'Poppins', sans-serif;
-    font-size: 15px;
     background-color: transparent;
     border: none;
     cursor: pointer; 
@@ -462,6 +461,7 @@ footer{
     text-decoration: none;
     color: #A7A7A7;
     transition: color 0.0s ease;
+    text-align: center;
 }
 
 .patas button:hover{
@@ -557,7 +557,17 @@ footer{
     }
 
     .Login button{
-        font-size: 16px;
+        font-size: 12px;
+    }
+
+    .patas li{
+        margin: 0px;
+        margin-left: 5px;
+        margin-right: 40px;
+    }
+    
+    .patas button{
+        font-size: 15px;
     }
 }
 
@@ -601,14 +611,24 @@ footer{
     }
 
     .searchBox {
-        width: 300px;
+        width: 270px;
     }
     
     .searchInput {
-        width: 220px;
+        width: 190px;
     }
 
     .clearfix {
-        height: 190px;
+        height: 230px;
+    }
+
+    .patas li{
+        margin: 0px;
+        margin-left: -10px;
+        margin-right: 20px;
+    }
+    
+    .patas button{
+        font-size: 12px;
     }
 }   
