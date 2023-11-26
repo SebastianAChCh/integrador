@@ -595,6 +595,16 @@ footer{
         width: 70%;
         height: 70%;
     }
+
+    .patas li{
+        margin: 0px;
+        margin-left: 5px;
+        margin-right: 40px;
+    }
+    
+    .patas button{
+        font-size: 15px;
+    }
 }
 
 /*Para pantallas XS*/
@@ -641,14 +651,24 @@ footer{
     }
 
     .searchBox {
-        width: 300px;
+        width: 270px;
     }
     
     .searchInput {
-        width: 220px;
+        width: 190px;
     }
 
     .clearfix {
         height: 190px;
+    }
+
+    .patas li{
+        margin: 0px;
+        margin-left: -10px;
+        margin-right: 20px;
+    }
+    
+    .patas button{
+        font-size: 12px;
     }
 }   
