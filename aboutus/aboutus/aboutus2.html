@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, inicial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:ital,wght@0,100;1,900&family=Sulphur+Point:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Mi Empresa - Términos y Condiciones / Acerca de Nosotros</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("/aboutus/aboutus/img/fondo.png");
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        font-size: 10px;
+        display: flex;
+        background-image: url("/aboutus/img/fondo.png");
+        color: #fff;
+        text-align: center;
+      }
+
+      .imgleft {
+        width: 80px;
+      }
+
+      .left-header {
+        background-image: url("/aboutus/img/fondo.png");
+        flex: 1;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+
+      .right-header {
+        background-image: url("/aboutus/img/fondo.png");
+        flex: 2;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        max-height: 50%;
+        flex: 1;
+        display: flex;
+      }
+
+      .acercadenosotros {
+        display: none;
+      }
+
+      .left-column {
+        height: 650px;
+        overflow-y: scroll;
+        text-align: justify;
+        flex: 1;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .right-column {
+        height: 650px;
+        overflow-y: scroll;
+        text-align: justify;
+        flex: 2;
+
+        padding-left: 20px;
+        padding-right: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #fff;
+      }
+
+      p {
+        font-size: 16px;
+        color: #666;
+      }
+      @media only screen and (max-width: 1000px) {
+        body {
+          font-family: "Poppins", sans-serif;
+          margin: 0;
+          padding: 0;
+          background-image: url("/aboutus/aboutus/img/fondo.png");
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
+
+        header {
+          font-size: 10px;
+          display: flex;
+          background-image: url("/aboutus/img/fondo.png");
+          color: #fff;
+          text-align: center;
+        }
+
+        .imgleft {
+          width: 50px;
+        }
+
+        .left-header {
+          background-image: url("/aboutus/img/fondo.png");
+          flex: 1;
+          padding: 10px;
+          padding-left: 20px;
+          padding-right: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          display: flex;
+          align-items: center;
+          gap: 3rem;
+        }
+
+        .right-header {
+          background-image: url("/aboutus/img/fondo.png");
+          flex: 2;
+          padding: 10px;
+          padding-left: 20px;
+          padding-right: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          display: none;
+        }
+
+        .container {
+          max-height: 50%;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .acercadenosotros {
+          display: block;
+          font: "Poppins";
+          font-size: 2em;
+        }
+
+        .left-column {
+          height: 650px;
+          overflow-y: scroll;
+          text-align: justify;
+          flex: 1;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .right-column {
+          height: 650px;
+          overflow-y: scroll;
+          text-align: justify;
+          flex: 2;
+
+          padding-left: 20px;
+          padding-right: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+          color: #fff;
+        }
+
+        p {
+          font-size: 16px;
+          color: #666;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="left-header">
+        <a href="/">
+          <img class="imgleft" src="/aboutus/aboutus/img/logo.png" alt="" />
+        </a>
+        <h1>Términos y Condiciones</h1>
+      </div>
+      <div class="right-header">
+        <h1>Acerca de Nosotros</h1>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="left-column">
+        <p></p>
+        <p>
+          <strong>1. Aceptación de Términos</strong>
+          <br />1.1 Al utilizar el sitio web de MJS Enterprises para la compra y
+          venta de diseños y al participar en la funcionalidad de chat, aceptas
+          cumplir y estar sujeto a estos Términos y Condiciones de Compra y
+          Venta.
+        </p>
+        <p>
+          <strong>2. Registro y Seguridad de la Cuenta</strong>
+          <br />2.1 Para realizar compras o utilizar servicios de chat, los
+          usuarios deben crear una cuenta. Eres responsable de mantener la
+          seguridad de tu cuenta y aceptas proporcionar información precisa y
+          actualizada.
+        </p>
+        <p>
+          <strong>3. Listados de Productos y Compras</strong>
+          <br />3.1 MJS Enterprises facilita la venta de diseños al proporcionar
+          una plataforma para que los profesionales muestren su trabajo.
+          <br />3.2 Los compradores aceptan que al realizar una compra, están
+          celebrando un contrato vinculante con el vendedor. <br />3.3 MJS
+          Enterprises no es responsable de la calidad, precisión o legalidad de
+          los diseños listados en la plataforma. Se alienta a los compradores a
+          revisar los perfiles y calificaciones de los vendedores antes de
+          realizar una compra.
+        </p>
+        <p>
+          <strong>4. Precios y Pagos</strong>
+          <br />4.1 Los precios de los diseños son establecidos por los
+          vendedores. Los compradores aceptan pagar el precio indicado para el
+          diseño elegido. <br />4.2 El pago se procesa a través de pasarelas de
+          pago seguras. MJS Enterprises no almacena ni tiene acceso a la
+          información de pago de los usuarios.
+        </p>
+        <p>
+          <strong>5. Funcionalidad de Chat</strong>
+          <br />5.1 MJS Enterprises proporciona funcionalidad de chat para que
+          los usuarios se comuniquen entre ellos. <br />5.2 Los usuarios aceptan
+          participar en una comunicación respetuosa y profesional. <br />5.3 MJS
+          Enterprises no es responsable del contenido de los mensajes de chat,
+          pero se reserva el derecho de supervisar y tomar medidas si se informa
+          de un comportamiento inapropiado.
+        </p>
+        <p>
+          <strong>6. Responsabilidades del Usuario</strong>
+          <br />6.1 Los usuarios aceptan no participar en actividades que violen
+          estos términos, incluyendo, pero no limitado a, comportamiento
+          fraudulento, acoso o distribución de software malicioso. <br />6.2 MJS
+          Enterprises se reserva el derecho de suspender o terminar cuentas que
+          violen estos términos.
+        </p>
+        <p>
+          <strong>7. Resolución de Disputas</strong>
+          <br />7.1 En caso de disputa entre compradores y vendedores, MJS
+          Enterprises alienta a los usuarios a resolver el asunto de manera
+          amistosa mediante la comunicación. <br />7.2 Si no se puede llegar a
+          una resolución, MJS Enterprises puede, a su discreción, proporcionar
+          asistencia de mediación.
+        </p>
+        <p>
+          <strong>8. Limitación de Responsabilidad</strong>
+          <br />8.1 MJS Enterprises no es responsable de daños directos,
+          indirectos, incidentales, especiales o consecuentes derivados del uso
+          de su plataforma.
+        </p>
+        <p>
+          <strong>9. Modificaciones a los Términos</strong>
+          <br />9.1 MJS Enterprises se reserva el derecho de actualizar o
+          modificar estos términos en cualquier momento. Los usuarios serán
+          notificados de cambios significativos.
+        </p>
+        <p>
+          <strong>10. Información de Contacto</strong>
+          <br />10.1 Para preguntas o inquietudes sobre estos términos,
+          contáctanos en [contact@email.com].
+        </p>
+        <p>
+          <em>Última Actualización: [Fecha]</em>
+        </p>
+      </div>
+      <div class="right-column">
+        <div>
+          <h1 class="acercadenosotros">Acerca de nosotros</h1>
+        </div>
+        <p>
+          Somos una empresa de diseño web que aprovecha el poder de la
+          tecnología digital para transformar visiones creativas en
+          impresionantes realidades en línea. Proporcionamos soluciones de
+          diseño web de vanguardia que cautivan, involucran e inspiran a
+          empresas, artistas e individuos. Entregamos sitios web centrados en el
+          usuario, receptivos y visualmente atractivos que impulsan el éxito, el
+          crecimiento y la excelencia digital. También garantizamos una
+          experiencia en línea accesible y sin problemas para todos.
+        </p>
+        <p>
+          Nuestra visión es convertirnos en un líder reconocido en diseño web,
+          celebrado por nuestra capacidad para traducir de manera fluida
+          visiones creativas en cautivadoras realidades en línea. Estamos
+          comprometidos a proporcionar soluciones de diseño web de vanguardia
+          que cautiven, involucren e inspiren a empresas, artistas e individuos.
+          Impulsamos el éxito, el crecimiento y la excelencia digital entregando
+          sitios web centrados en el usuario, receptivos y visualmente
+          atractivos. También nos enfocamos en garantizar una experiencia en
+          línea accesible y sin problemas para todos.
+        </p>
+        <p>
+          Nuestras políticas reflejan nuestra dedicación a mantener altos
+          estándares de calidad, confidencialidad del cliente, accesibilidad y
+          prácticas éticas de diseño. Priorizamos la sostenibilidad y la entrega
+          oportuna de proyectos. Valoramos la comunicación transparente y segura
+          con el cliente, el aprendizaje continuo y el bienestar del equipo.
+          Buscamos activamente involucrarnos con la comunidad, cumplir con las
+          regulaciones de protección de datos y aceptar comentarios para una
+          mejora constante. Nos aseguramos de que nuestro trabajo no solo cumpla
+          con los más altos estándares de diseño, sino que también cumpla con
+          responsabilidades éticas, sociales y ambientales.
+        </p>
+
+        <h1>Información de la Empresa</h1>
+        <p>
+          El nombre de la empresa es MJS Enterprises y se dedica a la
+          programación de aplicaciones y desarrollo web. La empresa es una
+          microempresa en tamaño porque actualmente cuenta con 4 personas.
+          Ubicada en Chihuahua, Chihuahua.
+        </p>
+        <p>
+          Para garantizar el desarrollo y la funcionalidad sin problemas de los
+          proyectos, la empresa ha establecido un marco departamental bien
+          estructurado. Actualmente, los departamentos se categorizan en tres
+          áreas clave: desarrollo backend, desarrollo frontend y gestión de
+          bases de datos. Estas divisiones ayudan a la empresa a gestionar
+          eficientemente sus responsabilidades y enfocarse en aspectos
+          específicos de los proyectos.
+        </p>
+
+        <h1>Historia</h1>
+        <p>
+          Su creación comenzó con un grupo de estudiantes talentosos de la
+          Universidad Tecnológica de Chihuahua, Unidad Académica BIS, que
+          enfrentaron un emocionante desafío. Como parte de su educación, se les
+          presentó la oportunidad de abordar un problema real y encontrar una
+          solución tecnológica. El problema que capturó su atención fue la falta
+          de una plataforma que permitiera a diseñadores, arquitectos,
+          programadores y carpinteros mostrar sus diseños y trabajos de manera
+          organizada y efectiva, al tiempo que facilitaba a las personas
+          encontrar expertos en estas disciplinas.
+        </p>
+        <p>
+          Este grupo de emprendedores, combinando sus habilidades y
+          conocimientos en tecnología, diseño y desarrollo web, emprendió una
+          ambiciosa misión: crear una plataforma en línea que conectara a
+          profesionales creativos con aquellos que buscan sus servicios. Se han
+          dedicado muchas horas a la creación de una plataforma intuitiva que
+          permite a los profesionales cargar sus diseños y proyectos, mostrar
+          sus perfiles profesionales y establecer conexiones sólidas con
+          aquellos interesados en sus servicios. Los usuarios pueden explorar
+          una amplia variedad de diseños y proyectos, revisar perfiles
+          profesionales, chatear con ellos para discutir proyectos y, igualmente
+          importante, calificarlos como profesionales en sus campos y vendedores
+          en la plataforma.
+        </p>
+        <p>
+          Hoy, la empresa se enorgullece de haber alcanzado su objetivo original
+          de simplificar la búsqueda y contratación de servicios de diseño y
+          construcción. Se ha convertido en un espacio donde la creatividad y la
+          habilidad convergen, y donde los proyectos toman forma gracias a la
+          colaboración y el talento de profesionales de diversos campos. Con un
+          enfoque continuo en calidad e innovación, la empresa espera seguir
+          creciendo y expandiendo su influencia en el mundo del diseño y la
+          construcción.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
