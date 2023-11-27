@@ -14,17 +14,17 @@ body{
 }
 
 header {
-    margin-top: 5px;
     width: 100%;
-    height: 50px;
+    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: transparent;
     z-index: 2;
 }
 
 .BtnLogo{
-    margin-top: 13px;
+    margin-top: 1%;
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
     font-weight: 900;
@@ -35,16 +35,20 @@ header {
     text-decoration: none;
     color: #A7A7A7;
     transition: color 0.0s ease;
+} 
+
+.UDESEV{
+    width: 16%;
 }
 
 #logo {
-    left: 2%;
-    width: 180px;
+    display: flex;
     float: left;
+    left: 2%;
 }
 
 .menú {
-    top: -8px;
+    top: -2%;
     flex-grow: 1;
     justify-content: center;
 }
@@ -59,13 +63,11 @@ header {
 
 .menú li {
     justify-content: center;
-    margin: 0px 60px;
     position: relative;
 }
 
 .menú button {
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
     font-weight: 900;
     background-color: transparent;
     border: none;
@@ -77,8 +79,8 @@ header {
 }
 
 .menú button:hover {
-    color: white;
     transform: translateY(-2px);
+    color: white;
 }
 
 #submenu {
@@ -87,7 +89,7 @@ header {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    margin-left: -22px;
+    margin-left: -1.09%;
 }
 
 .submenu ul {
@@ -114,12 +116,12 @@ header {
     text-decoration: none;
     color: #A7A7A7;
     transition: color 0.0s ease;
-    margin-right: 5px;
+    margin-right: 0.31%;
 }
 
 .submenu button:hover {
-    color: white;
     transform: translateY(-2px);
+    color: white;
 }
 
 .categorias-lista {
@@ -137,7 +139,7 @@ header {
 }
 
 .categorias-lista li {
-    margin: 5px 10px;
+    margin: 0.31% 0.62%;
 }
 
 .categorias-lista button {
@@ -155,12 +157,12 @@ header {
 
 .categorias-lista button:hover {
     text-decoration: underline;
-    color: white;
     transform: translateY(-2px);
+    color: white;
 }
 
 .Login {
-    width: 200px;
+    width: 16%;
 }
 
 .Login ul {
@@ -172,12 +174,11 @@ header {
 
 .Login li {
     justify-content: center;
-    margin: 10px;
+    margin: 1%;
 }
 
 .Login button {
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
     font-weight: 900;
     background-color: transparent;
     border: none;
@@ -194,15 +195,17 @@ header {
 }
 
 #searchBox {
-    top: 20px;
+    margin-top: 20px;
     display: block;
     position: relative;
+    z-index: 20;
 }
+
 
 .searchBox {
     display: flex;
     width: 400px;
-    height: 35px;
+    height: 3.5%;
     align-items: center;
     justify-content: left;
     gap: 8px;
@@ -251,20 +254,23 @@ header {
 }
 
 main{
+    display: flex;
     position: relative;
+    margin-top: 1%;
+    flex-direction: column;
 }
 
 #temp{
     display: none;
-    height: 37px;
+    height: 58px;
 }
 
 h2{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 4%;
+    margin-bottom: 2%;
     color: #F4F4F4;
 }
 
@@ -276,9 +282,9 @@ h2{
 }
 
 .vendedor {
-    margin: 10px;
-    width: 550px;
-    height: 262px;
+    margin: 1%;
+    width: 45%;
+    height: auto;
     position: relative;
     border-radius: 5px;
     border: 2px solid black;
@@ -293,19 +299,19 @@ box-shadow: 0 0 10px rgba(144, 162, 177, 0.9);
   .photos {
     position: relative;
     flex-direction: column;
-    width: 290px;
-    height: 262px;
+    width: 50%;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .profile {
-    margin: 10px;
-    margin-bottom: 5px;
+    margin: 1%;
+    margin-bottom: 1%;
     border-radius: 50%;
-    width: 170px;
-    height: 170px;
+    width: 50%;
+    height: 50%;
     object-fit: cover;
     background: #0a1319;
     border: 2px solid #0A1319;
@@ -313,11 +319,11 @@ box-shadow: 0 0 10px rgba(144, 162, 177, 0.9);
   }
 
   .calificacion {
-      margin-left: 5px;
-      margin-right: 5px;
-    margin-bottom: 5px;
-    width: 250px;
-    height: 90px;
+      margin-left: 0.5%;
+      margin-right: 0.5%;
+    margin-bottom: 0.5%;
+    width: 75%;
+    height: 30%;
     object-fit: cover;
   }
 
@@ -329,33 +335,30 @@ box-shadow: 0 0 10px rgba(144, 162, 177, 0.9);
   }
 
   .name {
-      width: 230px;
-      height: 60px;
-    margin: 5px;
-    margin-top: 10px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
-    border-radius: 5px;
-    background: #010B14;
-  }
+  margin: 5%;
+  margin-right: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
+  border-radius: 5px;
+  background: #010B14;
+}
 
-  .description {
-    margin: 5px;
-    margin-right: 10px;
-    width: 250px;
-    height: 170px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
-    border-radius: 5px;
-    background: #010B14;
-  }
+.description {
+  margin: 5%;
+  margin-top: 0;
+  margin-right: 20%;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
+  border-radius: 5px;
+  background: #010B14;
+}
 
 footer{
     background: #000c12;
@@ -401,3 +404,229 @@ footer{
     color:white;
     transform: translateY(-1px);
 }
+
+
+
+
+/*Para pantallas XL*/
+@media only screen and (min-width: 900px) {
+    #logo{
+        width: 100%;
+    }
+
+    .menú button {
+        font-size: 20px;
+    }
+
+    .menú li {
+        margin: 0 8%;
+    } 
+
+    .Login button{
+        font-size: 20px;
+    }
+
+    .name {
+        width: 230px;
+        height: 60px;
+        font-size: 18px;
+    }
+    
+    .description {
+      width: 250px;
+      height: 170px;
+      font-size: 18px;
+    }
+}
+
+/*Para pantallas L*/
+@media only screen and (max-width: 899px) {
+    #logo{
+        width: 100%;
+    }
+
+    .menú button {
+        font-size: 20px;
+    }
+
+    .menú li {
+        margin: 0 6%;
+    }
+
+    .Login button{
+        font-size: 20px;
+    }
+
+    .name {
+        width: 190px;
+        height: 60px;
+        font-size: 16px;
+    }
+    
+    .description {
+      width: 210px;
+      height: 170px;
+      font-size: 16px;
+    }
+}
+
+/*Para pantallas M*/
+@media only screen and (max-width: 700px) {
+    #logo{
+        width: 120%;
+    }
+
+    .menú button {
+        font-size: 18px;
+    }
+
+    .menú li {
+        margin: 0 5%;
+    }
+
+    .Login{
+        width: 20%;
+    }
+
+    .Login button{
+        font-size: 18px;
+    }
+
+    .name {
+        width: 160px;
+        height: 60px;
+        font-size: 15px;
+    }
+    
+    .description {
+      width: 180px;
+      height: 170px;
+      font-size: 15px;
+    }
+}
+
+/*Para pantallas S*/
+@media only screen and (max-width: 600px) {
+    #logo{
+        width: 120%;
+    }
+
+    .menú button {
+        font-size: 16px;
+    }
+
+    .menú li {
+        margin: 0 4%;
+    }
+
+    .Login{
+        width: 20%;
+    }
+
+    .Login button{
+        font-size: 12px;
+    }
+
+    .name {
+        width: 120px;
+        height: 60px;
+        font-size: 14px;
+    }
+    
+    .description {
+      width: 140px;
+      height: 190px;
+      font-size: 14px;
+    }
+
+    .patas li{
+        margin: 0px;
+        margin-left: 5px;
+        margin-right: 40px;
+    }
+    
+    .patas button{
+        font-size: 15px;
+    }
+}
+
+/*Para pantallas XS*/
+@media only screen and (max-width: 500px) {
+    header{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .UDESEV{
+       width: 30%;
+       margin-left: -3%;
+       order: 1;
+    }
+
+    .menú{
+        margin-top: -5%;
+        margin-left: -13%;
+        order: 3;
+    }
+
+    .categorias-lista ul{
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .Login{
+        margin-top: -2%;
+        margin-bottom: 2%;
+        width: 20%;
+        order: 2;
+    }
+
+    .Login button{
+        margin-left: -50%;
+        font-size: 20px;
+    }
+
+    #searchBox{
+        margin-top: -1%;
+    }
+
+    .searchBox {
+        width: 270px;
+    }
+    
+    .searchInput {
+        width: 190px;
+    }
+
+    .vendedor{
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .name {
+        width: 200px;
+        height: 60px;
+        font-size: 16px;
+        margin: 0;
+    }
+    
+    .description {
+        margin: 0%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+      width: 230px;
+      height: 170px;
+      font-size: 16px;
+    }
+
+    .patas li{
+        margin: 0px;
+        margin-left: -10px;
+        margin-right: 20px;
+    }
+    
+    .patas button{
+        font-size: 12px;
+    }
+}   
