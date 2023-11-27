@@ -276,7 +276,7 @@ body{
         list-style: none;
         justify-content: center;
         width: 100%;
-        margin-left: 55%;
+        margin-left: -35%;
     }
     
     .FotoPerfil .perfil-options button {
@@ -551,6 +551,11 @@ footer{
         width: 50%;
         height: 50%;
     }
+
+    .FotoPerfil .perfil-options button {
+        margin-left: -18%;
+        font-size: 12px;
+    } 
 }
 
 /*Para pantallas M*/
@@ -570,6 +575,11 @@ footer{
     .Foto {
         width: 60%;
         height: 60%;
+    }
+
+    .FotoPerfil .perfil-options button {
+        margin-left: -30%;
+        font-size: 12px;
     }
 
     .publicacion{
@@ -640,10 +650,21 @@ footer{
 
     .FotoPerfil{
         width: 25%;
-        margin-top: -3%;
+        margin-top: -5%;
+        margin-bottom: 2%;
         order: 2;
         align-items: center;
         justify-content: center;
+    }
+
+    .FotoPerfil .perfil-options ul {
+        flex-direction: row;
+    }
+
+    .FotoPerfil .perfil-options button {
+        margin-left: 0;
+        margin-right: -15%;
+        font-size: 12px;
     }
 
     #searchBox{
