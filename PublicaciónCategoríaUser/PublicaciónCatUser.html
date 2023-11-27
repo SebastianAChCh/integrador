@@ -4,78 +4,82 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="PublicaciónCatUserMDT.js"></script>
+    <script src="PublicaciónCatUserM.js"></script>
+    <script src="PublicaciónCatUserL.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="PublicaciónCatUser.css">
-    <script src="PublicaciónCatUser.html"></script>
     <title>Publicación Categoría User</title>
   </head>
   <body>
 
     <header>
-      <a href="/MainPageUser/MainUser.html">
+      <a class="UDESEV" href="/MainPageVendedor/MainVend.html">
         <button class="BtnLogo"><img id="logo" src="/FOTOSINTEGRADOR/logo-name.png" /></button>
       </a>
-    
-        <nav class="menú">
-            <ul>
-              <li id="categorias-link" class="categorias-item">
-                <button>Categorías</button>
-                <ul class="submenu" id="submenu">
-                    <li class="categorias-subitem" id="publicacionesLink">
-                        <button>Publicaciones</button>
-                        <div class="categorias-lista" id="publicacionesLista">
-                            <ul>
-                                <li><button>Arquitectura</button></li>
-                                <li><button>Carpintería</button></li>
-                                <li><button>Interiores</button></li>
-                                <li><button>Moda</button></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="categorias-subitem" id="vendedoresLink">
-                        <button>Vendedores</button>
-                        <div class="categorias-lista" id="vendedoresLista">
-                            <ul>
-                                <li><button>Arquitectura</button></li>
-                                <li><button>Carpintería</button></li>
-                                <li><button>Interiores</button></li>
-                                <li><button>Moda</button></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            
-                <li>
-                    <a href="">
-                        <button>Chats</button>
-                    </a>
+      
+      <nav class="menú">
+        <ul>
+          <li id="categorias-link" class="categorias-item">
+            <button>Categorías</button>
+            <ul class="submenu" id="submenu">
+                <li class="categorias-subitem" id="publicacionesLink">
+                    <button>Publicaciones</button>
+                    <div class="categorias-lista" id="publicacionesLista">
+                        <ul>
+                            <li><button>Arquitectura</button></li>
+                            <li><button>Carpintería</button></li>
+                            <li><button>Interiores</button></li>
+                            <li><button>Moda</button></li>
+                        </ul>
+                    </div>
                 </li>
-                <li>
-                    <a href="">
-                        <button>Vender</button>
-                    </a>
+                <li class="categorias-subitem" id="vendedoresLink">
+                    <button>Vendedores</button>
+                    <div class="categorias-lista" id="vendedoresLista">
+                        <ul>
+                            <li><button>Arquitectura</button></li>
+                            <li><button>Carpintería</button></li>
+                            <li><button>Interiores</button></li>
+                            <li><button>Moda</button></li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
-        </nav>
-    
-        <nav class="FotoPerfil">
-            <ul>
-                <li>
-                    <a href="">
-            <button>
-                <img class="Foto"
-                    src="/FOTOSINTEGRADOR/Profile.png"
-                    alt="">
-            </button>
-        </a>
-    </li>
-    </ul>
+        </li>
+        
+            <li>
+                <a href="">
+                    <button>Chats</button>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <button>Publicar</button>
+                </a>
+            </li>
+        </ul>
     </nav>
-    </header>
+  
+      <div class="FotoPerfil">
+        <ul>
+            <li>
+                <button>
+                    <img class="Foto" src="/FOTOSINTEGRADOR/Profile.png" alt="">
+                </button>
+            </li>
+            <li class="perfil-options">
+                <ul class="opciones-lista">
+                    <li><button>Configuración</button></li>
+                    <li><button>Cerrar Sesión</button></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+  </header>
 
     <main>   
-    <div id="temp" style="display: none; height: 37px;"></div>
+    <div id="temp" style="display: none; height: 58px;"></div>
     <div class="searchBox" id="searchBox">
       <input class="searchInput" 
       type="text" name="" placeholder="Buscar">
@@ -123,12 +127,15 @@
           alt=""
         />
       </div>
-        <p class="descripcion">
-          Title: Vestido
-          <br />
-          Descripcion: Vestido estilo contemporaneo, inspirado en ...
+      <div class="infopubli">
+        <p class="titulop">
+          Title: Vestido jhgduhwefjehfiuhe iuehfiuehf eifiuehf iuehfuevf iuehfiuehgf jkehfuhefoiughuhf iuehfihef iuehfuih ehfihf iehfiuhf kjehfhefu
         </p>
-    </div>
+        <p class="descripcionp">
+          Descripcion: Vestido estilo contemporaneo, inspirado en
+        </p>
+      </div>
+    </div> 
 
     <div class="publicacion">
       <img class="imgprin"
@@ -145,11 +152,14 @@
         alt=""
       />
     </div>
-      <p class="descripcion">
-        Title: Vestido
-        <br />
-        Descripcion: Vestido estilo contemporaneo, inspirado en ...
+    <div class="infopubli">
+      <p class="titulop">
+        Title: Vestido jhgduhwefjehfiuhe iuehfiuehf eifiuehf iuehfuevf iuehfiuehgf jkehfuhefoiughuhf iuehfihef iuehfuih ehfihf iehfiuhf kjehfhefu
       </p>
+      <p class="descripcionp">
+        Descripcion: Vestido estilo contemporaneo, inspirado en
+      </p>
+    </div>
   </div>
 
     <div class="publicacion">
@@ -167,11 +177,14 @@
         alt=""
       />
     </div>
-      <p class="descripcion">
-        Title: Vestido
-        <br />
-        Descripcion: Vestido estilo contemporaneo, inspirado en ...
+    <div class="infopubli">
+      <p class="titulop">
+        Title: Vestido jhgduhwefjehfiuhe iuehfiuehf eifiuehf iuehfuevf iuehfiuehgf jkehfuhefoiughuhf iuehfihef iuehfuih ehfihf iehfiuhf kjehfhefu
       </p>
+      <p class="descripcionp">
+        Descripcion: Vestido estilo contemporaneo, inspirado en
+      </p>
+    </div>
   </div>
 
   <div class="publicacion">
@@ -189,11 +202,14 @@
       alt=""
     />
   </div>
-    <p class="descripcion">
-      Title: Vestido
-      <br />
-      Descripcion: Vestido estilo contemporaneo, inspirado en ...
+  <div class="infopubli">
+    <p class="titulop">
+      Title: Vestido jhgduhwefjehfiuhe iuehfiuehf eifiuehf iuehfuevf iuehfiuehgf jkehfuhefoiughuhf iuehfihef iuehfuih ehfihf iehfiuhf kjehfhefu
     </p>
+    <p class="descripcionp">
+      Descripcion: Vestido estilo contemporaneo, inspirado en
+    </p>
+  </div>
 </div>
   </section>
     </main>
