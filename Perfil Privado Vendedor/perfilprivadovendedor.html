@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="perfilprivadovendedor.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="perfilprivadovendedorMDT.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
 <script src="perfilprivadovendedor.js"></script>
@@ -47,9 +48,9 @@
           </svg>
         </button>
       </div>
-      <div class="profesion" id="editproffesion">
+      <div class="profesion">
         <p class="proffession">Diseñador</p>
-        <button class="edit">
+        <button class="edit" id="editproffesion">
           <svg viewBox="0 0 512 512">
             <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path>
           </svg>
@@ -84,95 +85,107 @@
   <a href=""><button class="crearp">Crear nueva publicación</button></a>
 </section>
 
-     <section class="publicaciones">
-        <div class="publicacion">
-          <img class="imgprin"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIaDGrW44yiZFBaLk7b5I_G6GpTN6zZ61XxQ&usqp=CAU"
-            alt=""
-          >
-          <div class="secundaries">
-          <img class="imgsec"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsDMUEsrxYdco7F3mkwqNJn-5x-6Rv4DmjgASkeFj1BLQJANZy5XGysPLXb9C6t-L2XSU&usqp=CAU"
-            alt=""
-          />
-          <img class="imgsec"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfhVuf96xnJDYn-UDeKysQFTq5lbLFkMrgvg&usqp=CAU"
-            alt=""
-          />
-        </div>
-          <p class="descripcion">
-            Title: Vestido
-            <br />
-            Descripcion: Vestido estilo contemporaneo, inspirado en ...
-          </p>
-      </div>
-
-      <div class="publicacion">
-        <img class="imgprin"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6DC7eJwFSwtZcokEOsbzN0CheAFwAMuNrYnW-_fB9lhjWihN5vkg2VJsvCFrm92y8w4&usqp=CAU"
-          alt=""
-        >
-        <div class="secundaries">
-        <img class="imgsec"
-          src="https://image.winudf.com/v2/image1/Y29tLmJ1Z2hhdHMuRHJhd2luZ0Zhc2hpb25DbG90aGVzRGVzaWduX3NjcmVlbl80XzE1NDIzOTM0MTJfMDk3/screen-4.jpg?fakeurl=1&type=.webp"
-          alt=""
-        />
-        <img class="imgsec"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbBALp69ozg1O-YPQJFyl7W66c0AbsVpfRKhsW6sjx_7Tw7csm-ySKjQfMZJjw2IszVy8&usqp=CAU"
-          alt=""
-        />
-      </div>
-        <p class="descripcion">
-          Title: Vestido
-          <br />
-          Descripcion: Vestido estilo contemporaneo, inspirado en ...
-        </p>
-    </div>
-
-      <div class="publicacion">
-        <img class="imgprin"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6DC7eJwFSwtZcokEOsbzN0CheAFwAMuNrYnW-_fB9lhjWihN5vkg2VJsvCFrm92y8w4&usqp=CAU"
-          alt=""
-        >
-        <div class="secundaries">
-        <img class="imgsec"
-          src="https://image.winudf.com/v2/image1/Y29tLmJ1Z2hhdHMuRHJhd2luZ0Zhc2hpb25DbG90aGVzRGVzaWduX3NjcmVlbl80XzE1NDIzOTM0MTJfMDk3/screen-4.jpg?fakeurl=1&type=.webp"
-          alt=""
-        />
-        <img class="imgsec"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbBALp69ozg1O-YPQJFyl7W66c0AbsVpfRKhsW6sjx_7Tw7csm-ySKjQfMZJjw2IszVy8&usqp=CAU"
-          alt=""
-        />
-      </div>
-        <p class="descripcion">
-          Title: Vestido
-          <br />
-          Descripcion: Vestido estilo contemporaneo, inspirado en ...
-        </p>
-    </div>
-
-    <div class="publicacion">
-      <img class="imgprin"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIaDGrW44yiZFBaLk7b5I_G6GpTN6zZ61XxQ&usqp=CAU"
-        alt=""
-      >
-      <div class="secundaries">
-      <img class="imgsec"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsDMUEsrxYdco7F3mkwqNJn-5x-6Rv4DmjgASkeFj1BLQJANZy5XGysPLXb9C6t-L2XSU&usqp=CAU"
-        alt=""
-      />
-      <img class="imgsec"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfhVuf96xnJDYn-UDeKysQFTq5lbLFkMrgvg&usqp=CAU"
-        alt=""
-      />
-    </div>
-      <p class="descripcion">
-        Title: Vestido
-        <br />
-        Descripcion: Vestido estilo contemporaneo, inspirado en ...
-      </p>
+<section class="publicaciones">
+  <div class="publicacion">
+    <img class="imgprin"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIaDGrW44yiZFBaLk7b5I_G6GpTN6zZ61XxQ&usqp=CAU"
+      alt=""
+    >
+    <div class="secundaries">
+    <img class="imgsec"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsDMUEsrxYdco7F3mkwqNJn-5x-6Rv4DmjgASkeFj1BLQJANZy5XGysPLXb9C6t-L2XSU&usqp=CAU"
+      alt=""
+    />
+    <img class="imgsec"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfhVuf96xnJDYn-UDeKysQFTq5lbLFkMrgvg&usqp=CAU"
+      alt=""
+    />
   </div>
-    </section>
+  <div class="infopubli">
+    <p class="titulop">
+      Title: Vestido jhgduhwefjehfiuhe iuehfiuehf eifiuehf iuehfuevf iuehfiuehgf jkehfuhefoiughuhf iuehfihef iuehfuih ehfihf iehfiuhf kjehfhefu
+    </p>
+    <p class="descripcionp">
+      Descripcion: Vestido estilo contemporaneo, inspirado en
+    </p>
+  </div>
+</div> 
+
+<div class="publicacion">
+  <img class="imgprin"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6DC7eJwFSwtZcokEOsbzN0CheAFwAMuNrYnW-_fB9lhjWihN5vkg2VJsvCFrm92y8w4&usqp=CAU"
+    alt=""
+  >
+  <div class="secundaries">
+  <img class="imgsec"
+    src="https://image.winudf.com/v2/image1/Y29tLmJ1Z2hhdHMuRHJhd2luZ0Zhc2hpb25DbG90aGVzRGVzaWduX3NjcmVlbl80XzE1NDIzOTM0MTJfMDk3/screen-4.jpg?fakeurl=1&type=.webp"
+    alt=""
+  />
+  <img class="imgsec"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbBALp69ozg1O-YPQJFyl7W66c0AbsVpfRKhsW6sjx_7Tw7csm-ySKjQfMZJjw2IszVy8&usqp=CAU"
+    alt=""
+  />
+</div>
+<div class="infopubli">
+  <p class="titulop">
+    Title: Vestido jhgduhwefjehfiuhe iuehfiuehf eifiuehf iuehfuevf iuehfiuehgf jkehfuhefoiughuhf iuehfihef iuehfuih ehfihf iehfiuhf kjehfhefu
+  </p>
+  <p class="descripcionp">
+    Descripcion: Vestido estilo contemporaneo, inspirado en
+  </p>
+</div>
+</div>
+
+<div class="publicacion">
+  <img class="imgprin"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6DC7eJwFSwtZcokEOsbzN0CheAFwAMuNrYnW-_fB9lhjWihN5vkg2VJsvCFrm92y8w4&usqp=CAU"
+    alt=""
+  >
+  <div class="secundaries">
+  <img class="imgsec"
+    src="https://image.winudf.com/v2/image1/Y29tLmJ1Z2hhdHMuRHJhd2luZ0Zhc2hpb25DbG90aGVzRGVzaWduX3NjcmVlbl80XzE1NDIzOTM0MTJfMDk3/screen-4.jpg?fakeurl=1&type=.webp"
+    alt=""
+  />
+  <img class="imgsec"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbBALp69ozg1O-YPQJFyl7W66c0AbsVpfRKhsW6sjx_7Tw7csm-ySKjQfMZJjw2IszVy8&usqp=CAU"
+    alt=""
+  />
+</div>
+<div class="infopubli">
+  <p class="titulop">
+    Title: Vestido jhgduhwefjehfiuhe iuehfiuehf eifiuehf iuehfuevf iuehfiuehgf jkehfuhefoiughuhf iuehfihef iuehfuih ehfihf iehfiuhf kjehfhefu
+  </p>
+  <p class="descripcionp">
+    Descripcion: Vestido estilo contemporaneo, inspirado en
+  </p>
+</div>
+</div>
+
+<div class="publicacion">
+<img class="imgprin"
+  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIaDGrW44yiZFBaLk7b5I_G6GpTN6zZ61XxQ&usqp=CAU"
+  alt=""
+>
+<div class="secundaries">
+<img class="imgsec"
+  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsDMUEsrxYdco7F3mkwqNJn-5x-6Rv4DmjgASkeFj1BLQJANZy5XGysPLXb9C6t-L2XSU&usqp=CAU"
+  alt=""
+/>
+<img class="imgsec"
+  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfhVuf96xnJDYn-UDeKysQFTq5lbLFkMrgvg&usqp=CAU"
+  alt=""
+/>
+</div>
+<div class="infopubli">
+<p class="titulop">
+  Title: Vestido jhgduhwefjehfiuhe iuehfiuehf eifiuehf iuehfuevf iuehfiuehgf jkehfuhefoiughuhf iuehfihef iuehfuih ehfihf iehfiuhf kjehfhefu
+</p>
+<p class="descripcionp">
+  Descripcion: Vestido estilo contemporaneo, inspirado en
+</p>
+</div>
+</div>
+</section>
     </main>
   </body>
 </html>
