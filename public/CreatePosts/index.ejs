@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,3 +62,99 @@
 </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:ital,wght@0,100;1,900&family=Sulphur+Point:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CreatePosts/style.css" />
+    <title>U'DesEv</title>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="../pictures/logo.png" alt="Your Company" />
+    </header>
+    <main>
+      <div class="flex-container">
+        <div class="logo-container">
+          <h2 class="title">Crea tu publicación</h2>
+        </div>
+        <div class="flex-container">
+          <form
+            enctype="multipart/form-data"
+            id="CreatePost"
+            class="form-container"
+          >
+            <div class="form-group">
+              <label for="titulo" class="label">Title of the post</label>
+              <div class="input-container">
+                <input
+                  id="title"
+                  name="title"
+                  type="text"
+                  required
+                  class="input"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="descripcion" class="label"
+                >Description of the post</label
+              >
+              <div class="input-container">
+                <input
+                  id="description"
+                  name="description"
+                  type="text"
+                  required
+                  class="input"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="imagenes" class="label">Type of post</label>
+              <div class="input-container">
+                <select name="type" class="input" style="width: 100%">
+                  <%result.forEach(type => {%>
+                  <option value="<%= type.ID%>"><%= type.Type%></option>
+                  <%});%>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="imagenes" class="label">Images</label>
+              <div class="input-container">
+                <input
+                  id="files"
+                  name="files"
+                  type="file"
+                  multiple="true"
+                  required
+                  class="input"
+                />
+              </div>
+            </div>
+
+            <p style="display: none" id="error">Error</p>
+
+            <div class="form-group">
+              <input type="submit" class="button" value="Crear publicación" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="../CreatePosts/main.js"></script>
+  </body>
+</html>
+>>>>>>> Stashed changes

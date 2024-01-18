@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:ital,wght@0,100;1,900&family=Sulphur+Point:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../accountSeller/style.css" />
+  </head>
+  <body>
+    <div class="main-container"></div>
+    <div class="flex-container">
+      <div class="logo-container">
+        <a href="/">
+          <img class="logo" src="../pictures/logo.png" alt="Your Company" />
+        </a>
+        <h2 class="title">Registra tus datos</h2>
+      </div>
+
+      <div class="form-container">
+        <form id="seller" class="form">
+          <div class="form-group">
+            <label for="fechanac" class="label">Fecha de nacimiento</label>
+            <div class="input-container">
+              <input
+                id="fechanac"
+                name="date"
+                type="date"
+                class="input"
+                required
+              />
+              <!-- Cambiado de 'tel' a 'date' -->
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="label">Clave de elector</label>
+            <div class="input-container">
+              <input
+                id="claveelector"
+                name="claveelector"
+                type="text"
+                required
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="label">CURP</label>
+            <div class="input-container">
+              <input id="curp" name="curp" type="text" required class="input" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password" class="label">No. de INE</label>
+            <div class="input-container">
+              <input
+                id="noine"
+                name="noine"
+                type="text"
+                required
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password" class="label">No. de emisión</label>
+            <div class="input-container">
+              <input
+                id="noemision"
+                name="noemision"
+                type="text"
+                required
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div id="form-group" class="form-group"></div>
+
+          <div class="form-group">
+            <button type="submit" class="button">Become seller</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../accountSeller/main.js"></script>
+  </body>
+</html>

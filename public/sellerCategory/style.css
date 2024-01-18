@@ -1,0 +1,494 @@
+* {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+body {
+  background-image: url(../pictures/FONDO.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+#searchBox {
+  top: 20px;
+  display: block;
+  position: relative;
+}
+
+.searchBox {
+  display: flex;
+  width: 400px;
+  height: 35px;
+  align-items: center;
+  justify-content: left;
+  gap: 8px;
+  background-color: rgba(18, 30, 37, 0.6);
+  border-radius: 50px;
+  position: relative;
+  margin: 0 auto 0 auto;
+  border: 1px solid #a7a7a7;
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 13px;
+  width: 320px;
+  padding: 8px 16px;
+}
+
+.searchButton {
+  z-index: 30;
+  color: white;
+  position: absolute;
+  right: 8px;
+  width: 35px;
+  height: 35px;
+  top: 0;
+  border-radius: 50%;
+  background: transparent;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  transform: translateY(-1px);
+}
+
+.searchButton svg {
+  width: 25px;
+  height: 25px;
+}
+
+main {
+  position: relative;
+}
+
+#temp {
+  display: none;
+  height: 37px;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: #f4f4f4;
+}
+
+.vendedores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.vendedor {
+  margin: 10px;
+  width: 550px;
+  height: 262px;
+  position: relative;
+  border-radius: 5px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #121e25;
+  border: 1px solid #031828;
+  box-shadow: 0 0 10px rgba(144, 162, 177, 0.9);
+}
+
+.photos {
+  position: relative;
+  flex-direction: column;
+  width: 290px;
+  height: 262px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile {
+  margin: 10px;
+  margin-bottom: 5px;
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  background: #0a1319;
+  border: 2px solid #0a1319;
+  object-fit: cover;
+}
+
+.calificacion {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  width: 250px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  width: 230px;
+  height: 60px;
+  margin: 5px;
+  margin-top: 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
+  border-radius: 5px;
+  background: #010b14;
+}
+
+.description {
+  margin: 5px;
+  margin-right: 10px;
+  width: 250px;
+  height: 170px;
+  border-radius: 5px;
+  padding-left: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(144, 162, 177, 0.3);
+  border-radius: 5px;
+  background: #010b14;
+}
+
+footer {
+  background: #000c12;
+  margin-top: auto;
+  height: 60px;
+  width: 100%;
+  bottom: 0;
+  position: relative;
+}
+
+.patas {
+  flex-grow: 1;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+.patas ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.patas li {
+  margin: 0px;
+  margin-left: 5px;
+  margin-right: 80px;
+}
+
+.patas button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  color: #a7a7a7;
+  transition: color 0s ease;
+}
+
+.patas button:hover {
+  color: white;
+  transform: translateY(-1px);
+}
+
+header {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  z-index: 2;
+}
+
+#logop {
+  top: -10px;
+  left: 2%;
+  width: 200px;
+  float: left;
+  z-index: 100;
+}
+
+#logop:hover {
+  cursor: pointer;
+}
+
+.menú {
+  top: -8px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.menú ul {
+  z-index: 1000;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.menú li {
+  justify-content: center;
+  margin: 0px 60px;
+  position: relative;
+}
+
+.menú button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0s ease;
+}
+
+.menú button:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+#submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: -22px;
+}
+
+.submenu ul {
+  z-index: 1000;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.submenu li {
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.submenu button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  color: #a7a7a7;
+  transition: color 0s ease;
+  margin-right: 5px;
+}
+
+.submenu button:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.categorias-lista {
+  display: none;
+}
+
+.categorias-lista ul {
+  z-index: 1000;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.categorias-lista li {
+  margin: 5px 10px;
+}
+
+.categorias-lista button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  color: #a7a7a7;
+  transition: color 0s ease;
+}
+
+.categorias-lista button:hover {
+  text-decoration: underline;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.Login {
+  margin-top: -15px;
+  width: 200px;
+  z-index: 100;
+}
+
+.Login ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.Login li {
+  justify-content: center;
+  margin: 10px;
+}
+
+.Login button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  color: #a7a7a7;
+  transition: color 0s ease;
+}
+
+.Login button:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.FotoPerfil {
+  margin-top: -15px;
+  width: 200px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.FotoPerfil ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Foto {
+  background: #0a1319;
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  margin: 0;
+  border: 2px solid #0a1319;
+  object-fit: cover;
+}
+
+.FotoPerfil li {
+  list-style: none;
+  justify-content: center;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.FotoPerfil button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  transition: color 0s ease;
+}
+
+.FotoPerfil button:hover {
+  transform: translateY(-2px);
+}
+
+.FotoPerfil .perfil-options {
+  margin-top: -2px;
+  text-align: center;
+  list-style: none;
+  justify-content: center;
+  display: flex;
+  width: 120px;
+}
+
+.FotoPerfil .perfil-options ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 120px;
+}
+
+.FotoPerfil .perfil-options li {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  margin-top: 5px;
+  margin-right: 43px;
+  width: 150px;
+}
+
+.FotoPerfil .perfil-options button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  color: white;
+  transition: color 0s ease;
+}
+
+.FotoPerfil .perfil-options button:hover {
+  transform: translateY(-2px);
+}

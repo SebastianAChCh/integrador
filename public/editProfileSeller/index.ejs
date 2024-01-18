@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../editProfileSeller/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.2.2/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Editar perfil</title>
+  </head>
+  <body>
+    <header>
+        <button class="return">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+            />
+          </svg>
+        </button>
+    </header>
+
+    <main>
+      <section class="informationcomplet">
+        <div class="profile">
+          <%if(SellerInfo.Avatar){%>
+          <img class="photo" src="../<%= SellerInfo.Avatar%>" alt="" />
+          <%}%>
+          <button class="edit" id="editphoto">
+            <svg viewBox="0 0 512 512">
+              <path
+                d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <img class="calificación" src="../pictures/CALIFIPERFIL5.png" alt="" />
+        <section class="information">
+          <div class="nombre">
+            <%if(SellerInfo.Names){%>
+            <p class="name"><%= SellerInfo.Names%></p>
+            <%}%>
+            <button class="edit" id="editname">
+              <svg viewBox="0 0 512 512">
+                <path
+                  d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="profesion" id="editproffesion">
+            <%if(SellerInfo.Profession){%>
+            <p class="proffession"><%= SellerInfo.Profession%></p>
+            <%}%>
+
+            <button class="edit">
+              <svg viewBox="0 0 512 512">
+                <path
+                  d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <!-- Quitar las tarjetas guardadas -->
+          <section class="tarjetas">
+            <button id="deleteAccount" class="Mistarjetas">
+              Delete Account
+            </button>
+          </section>
+          <!-- Quitar las tarjetas guardadas -->
+        </section>
+        <div class="descrip">
+          <%if(SellerInfo.Description){%>
+          <p class="description"><%= SellerInfo.Description%></p>
+          <%}else{%>
+          <p class="description">No description yet</p>
+          <%}%>
+          <button class="edit" id="editdescripción">
+            <svg viewBox="0 0 512 512">
+              <path
+                d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="Space">
+        <%if(SellerInfo.Opinions.length > 0){%>
+        <%SellerInfo.Opinions.forEach(opinions => {%>
+        <p class="Opinions"><%= opinions%></p>
+        <%})%> <%}else{%>
+        <p class="Opinions">No opinions yet</p>
+        <%}%>
+        <div class="historiales">
+          <a href="/purchaseHistory"><button class="historial">Historial de Ventas</button></a>
+          <a href="/salesHistory"><button class="historial">Historial de Compras</button></a>
+        </div>
+      </section>
+
+      <section class="Textospublic">
+        <p class="misp">Mis publicaciones</p>
+        <a href="/createPublication"
+          ><button class="crearp">Crear nueva publicación</button></a
+        >
+      </section>
+
+      <section class="publicaciones">
+        <%if(SellerInfo.Posts.length > 0){%> <%SellerInfo.Posts.forEach(post =>
+        {%>
+        <div class="publicacion">
+          <%if(post.Screen_Model_Route !== ''){%>
+          <img class="imgprin" src="../<%= post.Screen_Model_Route%>" alt="" />
+          <%}else{%>
+          <img class="imgprin" src="../<%= post.Images[0]%>" alt="" />
+          <%}%>
+          <div class="secundaries">
+            <img
+              class="imgsec"
+              src="../<%= post.Images.length > 1 ? post.Images[1].slice(7) : post.Images[0].slice(7)%>"
+              alt=""
+            />
+            <img
+              class="imgsec"
+              src="../<%= post.Images.length > 2 ? post.Images[2].slice(7) : post.length > 1 ? post.Images[1].slice(7) : post.Images[0].slice(7)%>"
+              alt=""
+            />
+          </div>
+          <p class="descripcion">
+            Title: <%= post.Name%>
+            <br />
+            Descripcion: <%= post.Description%>
+          </p>
+        </div>
+        <%})%> <%}else{%>
+        <section class="Textospublic">
+          <p class="misp">There are not posts yet</p>
+        </section>
+        <%}%>
+      </section>
+    </main>
+
+    <dialog id="dialogDeleteAccount">
+      <div style="background-image: url(../pictures/FONDO.png)">
+        <div class="flex justify-center">
+          <a href="#"
+            ><img
+              src="../pictures/logo-name.png"
+              class="h-20 self-center"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="bg-gray-200 p-8" style="background-image: url(../pictures/FONDO.png)">
+          <div class="max-w-md mx-auto bg-[#10283d] p-6 rounded-md shadow-md">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              Are you sure about delete your account?
+            </h2>
+
+            <form id="confirmDeleteAccount" enctype="multipart/form-data">
+              <div class="mb-4">
+              <button
+                type="submit"
+                class="bg-[#0b1620] text-white py-2 px-4 rounded-md shadow-md shadow-[#121e25] transition-all hover:shadow-lg hover:bg-[#010e17] hover:shadow-[#13253d] hover:text-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none mx-3"
+              >
+                Accept
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <script src="../editProfileSeller/main.js"></script>
+  </body>
+</html>

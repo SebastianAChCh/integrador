@@ -1,0 +1,59 @@
+.edit {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 20%;
+  padding: 8px;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  fill: #a7a7a7;
+  transition: color 0s ease;
+  background: #010b14;
+  border: 1px solid #031828;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(3, 24, 40, 0.9);
+}
+
+.edit {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  fill: #a7a7a7;
+  transition: color 0s ease;
+  background: #010b14;
+  border: 1px solid #031828;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(3, 24, 40, 0.9);
+}
+
+.return svg {
+  width: 30px;
+  height: 30px;
+}
+
+.return {
+  width: 34px;
+  height: 34px;
+  padding: 2px;
+  margin-left: 10px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 100;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: #a7a7a7;
+  transition: color 0s ease;
+}
+
+button:hover {
+  background: #031828;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}

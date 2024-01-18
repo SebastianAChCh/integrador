@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../profile/style.css" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <header>
+      <button class="return">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-chevron-left"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+          />
+        </svg>
+      </button>
+    </header>
+
+    <main>
+      <section id="informationcomplet" class="informationcomplet">
+        <%if(data.Avatar){%>
+        <img class="profile" src="../<%=data.Avatar%>" alt="" />
+        <%}%>
+        <img
+          class="calificación"
+          style="opacity: <%= data.Raiting === 0 ? 0.5 : '1'%>"
+          src="../pictures/CALIFIPERFIL<%=data.Raiting === 0 ? '5' : data.Raiting %>.png"
+          alt=""
+        />
+        <section class="information">
+          <%if(data.Names){%>
+          <p class="name"><%= data.Names %></p>
+          <%}%> <%if(data.Profession){%>
+          <p class="proffession"><%= data.Profession %></p>
+          <%}%>
+
+          <section class="chatyreport">
+            <a href="/chats/<%= data.Email%>">
+              <button class="chat">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path
+                    d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"
+                  />
+                </svg>
+                <path
+                  xmlns="http://www.w3.org/2000/svg"
+                  d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"
+                />
+              </button>
+            </a>
+
+            <a href="/report/">
+              <button class="report">Reportar</button>
+            </a>
+          </section>
+        </section>
+        <%if(data.Description !== ''){%>
+        <p class="description"><%= data.Description %></p>
+        <%}else{%>
+        <p class="description">No description available</p>
+        <%}%>
+      </section>
+      <section class="OpinionsSpace">
+        <!-- Verificamos si el arreglo contiene algun dato -->
+        <% if (data.Opinions && data.Opinions.length > 0) { %>
+        <p class="Opinions">
+          <% data.Opinions.forEach((opinion) => { %>
+          <br />
+          <%= opinion %> <% }); %>
+        </p>
+        <% } else { %>
+        <p>No opinions available</p>
+        <% } %>
+      </section>
+      <section class="publicaciones">
+        <%data.Posts.forEach((post) => {%> <%if(post.Screen_Model_Route){%>
+        <div class="publicacion">
+          <a href="/post/<%=post.Name%>">
+            <img
+              class="imgprin"
+              src="../<%= post.Screen_Model_Route%>"
+              alt=""
+            />
+            <%}else{%>
+            <img class="imgprin" src="../<%= post.Images[0]%>" alt="" />
+            <%}%>
+            <div class="secundaries">
+              <img
+                class="imgsec"
+                src="../<%= post.Images.length < 2 ? post.Images[0].slice(7) : post.Images[1].slice(7)%>"
+                alt=""
+              />
+              <img
+                class="imgsec"
+                src="../<%= post.Images.length < 3 ? post.Images[1].slice(7) : post.Images.length < 2 ? post.Images[0].slice(7) : post.Images[2].slice(7)%>"
+                alt=""
+              />
+            </div>
+            <p class="descripcion">
+              Title: <%= post.Name%>
+              <br />
+              Descripcion: <%= post.Description%>
+            </p>
+          </a>
+        </div>
+        <%});%>
+      </section>
+    </main>
+    <script src="../profile/main.js"></script>
+  </body>
+</html>

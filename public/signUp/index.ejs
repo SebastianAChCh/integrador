@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,3 +55,126 @@
 </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:ital,wght@0,100;1,900&family=Sulphur+Point:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../signUp/style.css" />
+  </head>
+  <body>
+    <div class="main-container"></div>
+    <div class="flex-container">
+      <div class="logo-container">
+        <img class="logo" src="../pictures/logo.png" alt="Your Company" />
+        <h2 class="title">Create your account</h2>
+      </div>
+
+      <div class="form-container">
+        <form id="createAnAccount" class="form">
+          <div class="form-group">
+            <label for="nombre" class="label">Nombre</label>
+            <div class="input-container">
+              <input
+                id="nombre"
+                name="names"
+                type="text"
+                required
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="apellidos" class="label">Apellidos</label>
+            <div class="input-container">
+              <input
+                id="apellidos"
+                name="lastnames"
+                type="text"
+                required
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono" class="label">Teléfono</label>
+            <div class="input-container">
+              <input
+                id="telefono"
+                name="phone"
+                type="number"
+                required
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="label">Email address</label>
+            <div class="input-container">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                maxlength="80"
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="label">Password</label>
+            <div class="input-container">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                maxlength="25"
+                class="input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password" class="label">Confirm password</label>
+            <div class="input-container">
+              <input
+                id="confirm-password"
+                name="confirmPassword"
+                type="password"
+                autocomplete="current-password"
+                required
+                maxlength="25"
+                class="input"
+              />
+            </div>
+            <p id="error" class="error"></p>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="button">Sign up</button>
+          </div>
+        </form>
+        <p id="error" class="errorSingUp" style="display: none"></p>
+
+        <p class="message">
+          Already a member?
+          <a href="#" class="link">Sign in.</a>
+        </p>
+      </div>
+    </div>
+    <script src="../signUp/main.js"></script>
+  </body>
+</html>
+>>>>>>> Stashed changes

@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon ./src/index.js"
+    "dev": "nodemon ./src/index.js",
+    "build": "tailwindcss -i ./src/styles.css -o ./public/build/styles.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -24,10 +25,23 @@
     "express-handlebars": "^7.1.2",
     "handlebars": "^4.7.8",
     "jsonwebtoken": "^9.0.2",
+    "mercadopago": "^2.0.4",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.6.1",
     "socket.io": "^4.7.2",
+<<<<<<< Updated upstream
     "stripe": "^13.10.0",
     "uuid": "^9.0.1"
+=======
+    "stripe": "^14.5.0",
+    "uuid": "^9.0.1",
+    "watch": "^1.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "nodemon": "^3.0.2",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.3.5"
+>>>>>>> Stashed changes
   }
 }

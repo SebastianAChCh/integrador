@@ -1,0 +1,133 @@
+body {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-image: url('../pictures/FONDO.png');
+}
+
+main {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  justify-items: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  width: 55%;
+  min-height: 50vh; /* Hace que el contenedor tenga al menos la altura de la ventana */
+}
+
+.logo-container {
+  margin-top: -2rem;
+  margin-bottom: -2rem;
+  text-align: left;
+  width: 100%;
+}
+
+.logo {
+  padding-top: 10px;
+  padding-left: 10px;
+  margin: 0 auto;
+  width: 3%;
+  height: auto;
+}
+
+.title {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 2.25rem;
+  color: #a7a7a7;
+}
+
+.form-container {
+  width: 100%;
+  margin-top: 0rem;
+  text-align: left;
+}
+
+.form {
+  width: 100%;
+  display: block;
+  text-align: left;
+}
+
+.form-group {
+  margin-top: 1rem;
+}
+
+.form-group input[type='submit'] {
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #a7a7a7;
+}
+
+.input-container {
+  margin-top: 0.5rem;
+}
+
+.input-container input {
+  width: 96%;
+}
+
+.input {
+  display: block;
+  border: none;
+  padding: 0.375rem 0;
+  color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0.375rem;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgba(188, 197, 255, 0.291);
+}
+
+.button {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 0.375rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.button:hover {
+  background-color: #1d4ed8;
+}
+
+.message {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.link {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.link:hover {
+  color: #1d4ed8;
+}

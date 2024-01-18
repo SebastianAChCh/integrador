@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../purchase_sales_history/style.css" />
+    <title>Historial</title>
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <button class="BtnLogo">
+          <img id="logo" src="../pictures/logo-name.png" />
+        </button>
+      </a>
+    </header>
+
+    <main>
+      <section style="height: 150px">
+        <h1>Historial de Ventas/Compras</h1>
+      </section>
+
+      <section class="publicaciones">
+        <%if(result.length > 0){%> <%result.forEach(post => {%>
+        <div class="publicacion">
+          <div class="infopubli">
+            <h3 class="titulop">Title: <%= post.Title%></h3>
+            <h3 class="descripcionp">Purchaser: <%= post.EMAIL_USER%></h3>
+            <h3 class="descripcionp">Seller: <%= post.EMAIL_USER_SELLER%></h3>
+          </div>
+        </div>
+        <%});%> <%}else{%>
+        <div class="publicacion">
+          <div class="infopubli">
+            <h3 class="titulop">There's no <%= type%> yet</h3>
+          </div>
+        </div>
+
+        <%}%>
+      </section>
+    </main>
+
+    <footer>
+      <nav class="patas">
+        <ul>
+          <li>
+            <a href="/aboutUs">
+              <button>About Us</button>
+            </a>
+          </li>
+          <li>
+            <a href="/Support">
+              <button>Support</button>
+            </a>
+          </li>
+          <li>
+            <a href="/termns&conditions">
+              <button>Termns and conditions</button>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+    <script src="../purchase_sales_history/main.js"></script>
+  </body>
+</html>
