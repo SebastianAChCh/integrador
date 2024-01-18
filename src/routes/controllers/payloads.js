@@ -1,28 +1,4 @@
-<<<<<<< Updated upstream
-import Stripe from 'stripe';
-import { STRIPE_KEY_SECRET } from '../../conf.js';
-
-const stripe = new Stripe(STRIPE_KEY_SECRET);
-
-export const payloads = async (req, res) => {
-  const { totalAmount, email, account } = req.body;
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: totalAmount,
-    currency: 'mxn',
-    automatic_payment_methods: ['card', 'oxxo'],
-    receipt_email: email,
-    transfer_data: account,
-  });
-
-  res.json({ data: paymentIntent.client_secret });
-};
-=======
-import Stripe from 'stripe';
 import Pool from '../../db/db.js';
-
-const stripe = new Stripe(
-  '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'
-);
 
 export const retriveUserStripe = async (req, res) => {
   const userEmail = req.session.userEmail;
@@ -194,4 +170,3 @@ export const stripeSendMoney = async (req, res) => {
     });
   }
 };
->>>>>>> Stashed changes
