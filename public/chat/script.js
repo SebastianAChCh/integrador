@@ -98,50 +98,6 @@ const loadForm = () => {
 
   messageInput = document.getElementById('message-input');
   chatMessages = document.getElementById('chat-messages');
-  createPayload = document.getElementById('createPayloadCard');
-
-  //Este sirve en particular, para el manejo de creacion de formularios de pago
-  createPayload.addEventListener('click', (e) => {
-    const windowPayload = document.getElementById('windowPayload');
-    windowPayload.showModal();
-
-    windowPayload.addEventListener('click', (e) => {
-      const modalDimensions = windowPayload.getBoundingClientRect();
-      if (
-        e.clientX < modalDimensions.left ||
-        e.clientX > modalDimensions.right ||
-        e.clientY < modalDimensions.top ||
-        e.clientY > modalDimensions.bottom
-      ) {
-        windowPayload.close();
-      }
-    });
-
-    const createPayloads = document.getElementById('createPayload');
-
-    createPayloads.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      socket.emit('createFormPayment', {
-        sender: userEmail,
-        receiver: currentUser,
-        title: e.target.title.value,
-        amount: e.target.quantity.value,
-      });
-
-      let container = 'message-container',
-        child = 'sent-message';
-
-      displayMessage({
-        text: e.target.quantity.value,
-        type: 'html',
-        container,
-        child,
-      });
-
-      windowPayload.close();
-    });
-  });
 
   handleSendMessages(currentUser);
 };

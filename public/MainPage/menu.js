@@ -7,6 +7,11 @@ const temp = document.getElementById('temp');
 const publicacionesLink = document.getElementById('publicacionesLink');
 const vendedoresLink = document.getElementById('vendedoresLink');
 const logOut = document.getElementById('logOut');
+const content = document.getElementById('content');
+const searchInput = document.getElementById('searchInput');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const slides = document.querySelectorAll('.slide');
 
 if (logOut) {
   logOut.addEventListener('click', () => {
@@ -20,9 +25,6 @@ if (logOut) {
   });
 }
 
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const slides = document.querySelectorAll('.slide');
 let counter = 0;
 
 const nextSlide = () => {

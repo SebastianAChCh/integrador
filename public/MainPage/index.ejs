@@ -1,35 +1,17 @@
-<<<<<<< Updated upstream
-<html lang='en'>
-
-<head>
-  <meta charset='UTF-8' />
-  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script type='importmap'>
-      { "imports": { "three":
-      "https://unpkg.com/three@<version>/build/three.module.js",
-      "three/addons/": "https://unpkg.com/three@<version>/examples/jsm/" } }
-    </script>
-  <link rel='stylesheet' href='/MainPage/style.css' />
-  <title>UDesEv</title>
-</head>
-
-<body class='bg-slate-900 text-white'>
-  <%- include('../partitions/'+navBar)%>
-=======
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../MainPage/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../MainPage/style.css" />
-    <title>IndexUser</title>
+
+    <title>Index</title>
   </head>
   <body>
     <div id="container">
@@ -49,31 +31,56 @@
             />
           </svg>
         </button>
->>>>>>> Stashed changes
 
-    <main>
-      <section id='searchBar'>
-        <form>
-          <input type='text' name='Data' />
-          <input type='submit' value='🔍' />
-        </form>
-      </section>
-      <section id='content'></section>
-      <!-- <canvas id="webgl"></canvas> -->
-    </main>
+        <div class="carousel-container">
+          <a href="/category/architecture" class="slide">
+            <img
+              class="imgcarrousel"
+              src="../pictures/Arquitectura.png"
+              alt=""
+            />
+          </a>
+          <a href="/category/carpentry" class="slide">
+            <img
+              class="imgcarrousel"
+              src="../pictures/Carpintería.png"
+              alt=""
+            />
+          </a>
+          <a href="/category/interiors" class="slide">
+            <img class="imgcarrousel" src="../pictures/Interiores.png" alt="" />
+          </a>
+          <a href="/category/fashion" class="slide">
+            <img class="imgcarrousel" src="../pictures/Moda.png" alt="" />
+          </a>
+        </div>
+        <button id="nextBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-right"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+            />
+          </svg>
+        </button>
+      </div>
 
-<<<<<<< Updated upstream
-    <script type='module' src='/MainPage/main.js'>
-    </script>
-</body>
-
-</html>
-=======
-      <header><%-include('../partitions/'+navBar)%></header>
+      <header><%- include('../partitions/'+navBar)%></header>
 
       <div id="temp" style="display: none; height: 97px"></div>
       <div class="searchBox" id="searchBox">
-        <input class="searchInput" type="text" name="" placeholder="Buscar" />
+        <input
+          class="searchInput"
+          type="text"
+          id="searchInput"
+          placeholder="Buscar"
+        />
         <button class="searchButton">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -145,13 +152,11 @@
           </svg>
         </button>
       </div>
-      <div class="contentSearch">
-        <div id="content" class="contentSearchBox"></div>
-      </div>
+
       <div class="clearfix"></div>
 
       <main>
-        <h2>Featured</h2>
+        <h2>Destacados</h2>
 
         <section id="publicaciones" class="publicaciones"></section>
       </main>
@@ -165,7 +170,7 @@
               </a>
             </li>
             <li>
-              <a href="/support">
+              <a href="/Support">
                 <button>Support</button>
               </a>
             </li>
@@ -181,4 +186,3 @@
     <script src="../MainPage/menu.js"></script>
   </body>
 </html>
->>>>>>> Stashed changes

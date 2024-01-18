@@ -1,0 +1,304 @@
+/* Estilos globales para el cuerpo y la página */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.imagen {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* Estilos para el contenedor principal */
+.chat-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.chat-sidebar {
+  flex: 2;
+  padding: 0px;
+  background-color: #0a1319;
+  color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-right: 0.5px solid #383838;
+}
+
+/* Estilos para el botón de retroceso */
+.back-button {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  background-color: #cecece;
+  color: #081921;
+  border: none;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-button:hover {
+  color: #fff;
+  background-color: #081912;
+  transform: scale(1.1);
+}
+
+/* Estilos para el título "Chats" y la lista de usuarios */
+.chat-title {
+  font-family: Georgia, 'Times New Roma', Times, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15.5px;
+  font-size: 24px;
+  margin-top: 37px;
+}
+
+.chat-list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 0.5px solid #383838;
+  margin-top: 10px;
+}
+
+.chat-list li {
+  padding: 20px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-top: 0.5px solid #383838;
+  border-bottom: 0.5px solid #383838;
+}
+
+.chat-list li:hover {
+  background-color: #081921;
+}
+
+/* Estilos para la sección de chat (sin cambios) */
+.chat-section {
+  flex: 8.3;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.chat-section::after {
+  content: '';
+  background-image: url('/img/iStock-1409540606.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.chat-header {
+  font-family: 'Sulphur Point', sans-serif;
+  background-color: #0a1319;
+  color: #fff;
+  padding: 5px;
+  font-size: 20px;
+  text-align: center;
+  border-bottom: 0.5px solid #383838;
+}
+
+/* Estilos para las conversaciones (sin cambios) */
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: scroll;
+  padding: 10px;
+  border-top: 0.5px solid #383838;
+  font-size: 16px;
+}
+
+/* Estilos para la entrada de mensajes (sin cambios) */
+.chat-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #383838;
+}
+
+input[type='text'] {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.form {
+  width: 100%;
+}
+
+.form input[type='text'] {
+  width: 90%;
+}
+
+#send-button {
+  background-color: #0a1319;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#send-button:hover {
+  background-color: #0a1319;
+}
+
+/* Estilos para el botón de adjuntar archivos */
+.attach-button {
+  background-color: #0a1319;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.attach-button:hover {
+  background-color: #13253d;
+}
+
+/* Estilos para el contenedor de mensajes */
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow-y: scroll;
+}
+
+/* Estilos para los mensajes enviados por el usuario (lado derecho) */
+.sent-message {
+  background-color: #13253d;
+  color: #fff;
+  align-self: flex-end;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  max-width: 70%;
+}
+
+.received-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para los mensajes recibidos (lado izquierdo) */
+.received-message {
+  background-color: #e9ebee;
+  align-self: flex-start;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  max-width: 70%;
+}
+
+/* Estilos para el contenedor de mensajes (ajusta el espaciado entre mensajes) */
+.message-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  padding-left: 5px !important;
+  gap: 20px;
+}
+
+/* Estilos para imágenes enviadas (alineación a la derecha) */
+.sent-image {
+  max-width: 200px;
+  float: right;
+  margin-left: 10px;
+}
+
+/* Estilos para imágenes recibidas (alineación a la izquierda) */
+.received-image {
+  max-width: 200px;
+  float: left;
+  margin-right: 10px;
+}
+/* Estilo para las imágenes dentro del contenedor de mensajes */
+.message-container img {
+  max-width: 200px; /* Ancho máximo de 200px */
+  max-height: 200px; /* Altura máxima de 200px */
+}
+
+/* Estilos para la vista emergente de imagen */
+.image-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  text-align: center;
+}
+
+.popup-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close-popup {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}

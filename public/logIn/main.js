@@ -1,9 +1,10 @@
 const form = document.getElementById('logIn');
+const errorSignIn = document.getElementById('errorSignIn');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const response = await fetch('http://localhost:4000/logIn', {
+  const response = await fetch(`${location.origin}/logIn`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -18,5 +19,7 @@ form.addEventListener('submit', async (e) => {
 
   if (data.status === 'ok') {
     location.href = '/';
+  } else {
+    errorSignIn.showModal();
   }
 });

@@ -1,68 +1,3 @@
-<<<<<<< Updated upstream
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/CreatePosts/style.css" />
-  <title>U'DesEv</title>
-</head>
-
-<body class="bg-slate-900 text-white">
-  <header></header>
-  <nav>
-    <ul class="flex justify-around h-20 items-center px-8 bg-slate-800 text-2xl text-white">
-      <li>
-        <a href="http://localhost:4000/">
-          <figure class="flex items-center gap-2">
-            <img src="../images/icon.jpeg" class="h-16 rounded-full" alt="Logo" />
-            <figcaption>U'DesEv</figcaption>
-          </figure>
-        </a>
-      </li>
-      <li>
-        <a href="http://localhost:4000/BecomeSeller">Sell</a>
-      </li>
-      <li>
-        <a href="http://localhost:4000/CreateAccount">SignUp</a>
-      </li>
-    </ul>
-  </nav>
-  <main>
-    <section class="container-form">
-      <form class="CreatePost" id="CreatePost" enctype="multipart/form-data">
-        <label for="name">Name:</label>
-        <input class="text-black" type="text" name="name" />
-
-        <label for="description">Description:</label>
-        <textarea class="text-black" name="description"></textarea>
-
-        <label for="cost">Cost</label>
-        <input class="text-black" type="number" name="cost" />
-
-        <label for="files">Images and model 3D</label>
-        <input class="text-black" type="file" name="files" multiple />
-
-        <label for="screen">Screenshot of the model 3D</label>
-        <input class="text-black" type="file" name="screen" />
-
-        <label for="kind">Type:</label>
-        <input class="text-black" type="number" name="kind" max="2" />
-
-        <div>
-          <input type="submit" value="Create Post" />
-        </div>
-      </form>
-    </section>
-  </main>
-  <script src="/CreatePosts/main.js"></script>
-</body>
-
-</html>
-=======
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -79,7 +14,9 @@
   </head>
   <body>
     <header>
-      <img class="logo" src="../pictures/logo.png" alt="Your Company" />
+      <a href="/">
+        <img class="logo" src="../pictures/logo.png" alt="Your Company" />
+      </a>
     </header>
     <main>
       <div class="flex-container">

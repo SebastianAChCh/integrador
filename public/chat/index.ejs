@@ -1,32 +1,3 @@
-<<<<<<< Updated upstream
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/chat/style.css" />
-    <title>Chat</title>
-  </head>
-
-  <body>
-    <h1>Creating a chat</h1>
-
-    <div>
-      <ul id="users">
-        <% if(email){%>
-        <li id="NewUser"><%= email%></li>
-        <% }%>
-      </ul>
-
-      <div id="chat">
-        <ul id="messages"></ul>
-      </div>
-    </div>
-
-    <script type="module" src="/chat/main.js"></script>
-  </body>
-</html>
-=======
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,7 +19,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <link rel="stylesheet" type="text/css" href="/chat/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../chat/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -196,4 +167,3 @@
   </body>
   <script type="module" src="../chat/script.js"></script>
 </html>
->>>>>>> Stashed changes

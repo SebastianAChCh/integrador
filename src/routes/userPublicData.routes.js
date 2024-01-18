@@ -1,15 +1,3 @@
-<<<<<<< Updated upstream
-import { Router } from 'express';
-import { authUser } from '../middlewares/auth.js';
-import { sellerData, userData } from './controllers/userData.js';
-
-const router = Router();
-
-router.get('/userData/:email', authUser, userData);
-router.get('/sellerData/:email', authUser, sellerData);
-
-export default router;
-=======
 import { Router } from 'express';
 import { authSeller, authUser } from '../middlewares/auth.js';
 import {
@@ -40,4 +28,3 @@ router.post('/editSellerPhoto', authUser, editSellerPhoto);
 router.post('/savePurchaseSales', purchaseSales);
 
 export default router;
->>>>>>> Stashed changes

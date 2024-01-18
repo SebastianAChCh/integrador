@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-import { Router } from 'express';
-import { payloads } from './controllers/payloads.js';
-
-const route = Router();
-
-route.post('/payloads', payloads);
-
-export default route;
-=======
 import { Router } from 'express';
 import {
   createAccountUsers,
@@ -26,4 +16,3 @@ route.get('/chekIfExists', retriveUserStripe);
 route.get('/createAccountUsers', createAccountUsers);
 
 export default route;
->>>>>>> Stashed changes

@@ -1,25 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Cargar la librería de Lightbox -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Roboto:ital,wght@0,100;1,900&family=Sulphur+Point:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/post/style.css">
-    <title>Document</title>
-</head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
 
-<body>
-    <%- include('../partitions/'+navBar)%>
-        <main>
-            <section id="content">
-                <h1 id="title">
-                    <%=project%>
-                </h1>
-            </section>
-        </main>
+    <title>Publicacion</title>
+  </head>
 
-        <script type="module" src="/post/main.js"></script>
-</body>
+  <body>
+    <header class="header">
+      <button id="back-button" class="back-button">
+        <svg
+          class="arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+        </svg>
+      </button>
+      <h1 id="project"><%= project%></h1>
+    </header>
+    <!-- Agregar la sección principal con el carrusel y el sidebar -->
+    <div class="main">
+      <!-- Agregar la sección con el carrusel y los datos del vendedor -->
+      <div id="container" class="container">
+        <!-- Agregar el atributo data-lightbox con el mismo valor para todas las imágenes -->
+        <!-- Agregar el atributo data-title con el texto que quieres mostrar debajo de cada imagen -->
 
+        <!-- Ocultar las imágenes restantes con el estilo display:none -->
+
+        <!-- Agregar la sección con el nombre del usuario vendedor y su calificación -->
+        <div id="info" class="info"></div>
+      </div>
+
+      <!-- Agregar la sección lateral con la descripción de la publicación -->
+      <div id="sidebars" class="sidebar">
+        <h1>Description</h1>
+        <p id="description" class="description"></p>
+      </div>
+    </div>
+    <script src="../post/main.js"></script>
+  </body>
 </html>

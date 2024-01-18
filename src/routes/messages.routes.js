@@ -1,28 +1,19 @@
 import { Router } from 'express';
-import Pool from '../db/db.js';
+import {
+  loadContacts,
+  loadMessages,
+  saveFiles,
+  saveMessages,
+} from './controllers/messages.js';
 
 const router = Router();
 
-router.get('/loadUsers/:email', async (req, res) => {
-  const { email } = req.params;
+router.post('/saveMessages', saveMessages);
 
-  try {
-    const [users] = await Pool.query(
-      'SELECT EMAIL_SELLER FROM Messages WHERE EMAIL_USER = ?',
-      [email]
-    );
+router.post('/saveFiles', saveFiles);
 
-    if (users.length < 1)
-      return res.status(200).json({
-        users: '',
-      });
+router.post('/loadMessages', loadMessages);
 
-    return res.status(200).json({
-      users,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.get('/loadContacts/:email', loadContacts);
 
 export default router;
