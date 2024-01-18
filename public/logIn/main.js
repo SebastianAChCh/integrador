@@ -3,11 +3,6 @@ const form = document.getElementById('logIn');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  console.log({
-    email: e.target.email.value,
-    password: e.target.password.value,
-  });
-
   const response = await fetch('http://localhost:4000/logIn', {
     method: 'POST',
     headers: {
